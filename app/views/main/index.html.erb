@@ -12,13 +12,13 @@
               </div>
               <div class="col-md-3">
                 <div class="form-group">
-                  <%= label_tag :mix_order_price, 'Ваш бюджет', id: 'price' %>
+                  <%= label_tag :mix_order_price, 'Ваш бюджет', id: 'price_label' %>
                   <%= number_field_tag :mix_order_price, 10000, class: 'form-control' %>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="form-group">
-                  <%= label_tag :city, 'Ваш город', id: 'city' %>
+                  <%= label_tag :city, 'Ваш город', id: 'city_label' %>
                   <%= select_tag :city, options_from_collection_for_select(City.all, :id, :name, selected: params[:city]), class: 'form-control' %>
                 </div>
               </div>
