@@ -1,0 +1,288 @@
+<header id="head">
+  <div class="container">
+    <div class="row">
+      <h1 class="lead">Быстрая рекламная помощь Вашему бизнесу</h1>
+      <p class="tagline">Найди подходящего рекламного партнёра в 2 клика</p>
+      <div class="search-form">
+        <%= form_tag root_path, method: :get do %>
+            <div class="row">
+
+              <div class="col-md-3">
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <%= label_tag :mix_order_price, 'Ваш бюджет', id: 'price' %>
+                  <%= number_field_tag :mix_order_price, 10000, class: 'form-control' %>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <%= label_tag :city, 'Ваш город', id: 'city' %>
+                  <%= select_tag :city, options_from_collection_for_select(City.all, :id, :name, selected: params[:city]), class: 'form-control' %>
+                </div>
+              </div>
+
+            </div>
+            <div class="row" id="tags">
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-md-3">
+                    <%= check_box_tag :promo %>
+                    <%= label_tag :promo, 'Промо акции и мероприятия' %>
+                  </div>
+                  <div class="col-md-3">
+                    <%= check_box_tag :direct_mail %>
+                    <%= label_tag :direct_mail, 'Директ мэйл' %>
+                  </div>
+                  <div class="col-md-3">
+                    <%= check_box_tag :outdoor_ads %>
+                    <%= label_tag :outdoor_ads, 'Наружная реклама' %>
+
+                  </div>
+                  <div class="col-md-3">
+                    <%= check_box_tag :radio_ads %>
+                    <%= label_tag :radio_ads, 'Реклама на радиостанциях' %>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-md-3">
+                    <%= check_box_tag :transport_ads %>
+                    <%= label_tag :transport_ads, 'Реклама на транспорте' %>
+
+                  </div>
+                  <div class="col-md-3">
+                    <%= check_box_tag :indoor_ads %>
+                    <%= label_tag :transport_ads, 'Indoor реклама' %>
+
+                  </div>
+                  <div class="col-md-3">
+                    <%= check_box_tag :mass_media %>
+                    <%= label_tag :mass_media, 'Печатные СМИ' %>
+
+                  </div>
+                  <div class="col-md-3">
+                    <%= check_box_tag :tv_ads %>
+                    <%= label_tag :tv_ads, 'Телевизионная реклама' %>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-md-3">
+                    <%= check_box_tag :internet_ids %>
+                    <%= label_tag :'Интернет реклама' %>
+
+                  </div>
+                  <div class="col-md-3">
+                    <%= check_box_tag :salepoint_ads %>
+                    <%= label_tag 'Реклама в местах продаж' %>
+
+                  </div>
+                  <div class="col-md-3">
+                    <%= check_box_tag :production_promotional_materials %>
+                    <%= label_tag 'Изг. рекламных материалов' %>
+
+                  </div>
+                  <div class="col-md-3">
+                    <%= check_box_tag :install_adv_constructions %>
+                    <%= label_tag 'Монтаж рекламных конструкций' %>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-md-3">
+                    <%= check_box_tag :print_services %>
+                    <%= label_tag 'Полиграфические услуги' %>
+
+                  </div>
+                  <div class="col-md-3">
+                    <%= check_box_tag :marketing_research %>
+                    <%= label_tag 'Маркетинговые исследования' %>
+
+                  </div>
+                  <div class="col-md-3">
+                    <%= check_box_tag :product_placement %>
+                    <%= label_tag 'Продакт-плейсмент' %>
+
+                  </div>
+                  <div class="col-md-3">
+                    <%= check_box_tag :design_services %>
+                    <%= label_tag 'Дизайнерские услуги' %>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p class="text-center"> <%= submit_tag 'Поиск', class: 'btn btn-action btn-lg' %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<div class="content" style="min-height: 500px;     background-color: #F7F5F4;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <h4>Подходящие компании</h4>
+        <% 5.times do %>
+            <div class="media">
+              <div class="row">
+                <div class="col-md-8">
+                  <a class="pull-left" href="#">
+                    <img class="media-object" data-src="holder.js/64x64" alt="64x64" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjZWVlIi8+PHRleHQgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iMzIiIHk9IjMyIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9zdmc+" style="width: 64px; height: 64px;">
+                  </a>
+                  <div class="media-body" style="padding-left: 10px">
+                    <h4 class="media-heading">ООО "Ромашка Профи" </h4>
+                    Лучшая реклама в Вашем городе.
+                    Возможно ещё какая то инфа
+                  </div>
+                </div>
+                <div class="col-md-2">
+
+                  <%= link_to 'Смотреть', root_path, class: 'btn btn-action btn-xs' %>
+
+                </div>
+
+              </div>
+            </div>
+            <div class="row" style="border-bottom: 1px solid #eee;padding-top: 15px"></div>
+        <% end %>
+        <% @companies %>
+      </div>
+      <div class="col-md-3">
+        <h4>Новости</h4>
+        <ul>
+          <li>Название новости1</li>
+          <li>Название новости2</li>
+          <li>Название новости3</li>
+        </ul>
+        <a href="">Поделиться новостью</a>
+
+        <h4>Отзывы</h4>
+        <ul>
+          <li>Отзыв1 Текст отзыва вот такой вот наверно </li>
+          <li>Отзыв1 Текст отзыва вот такой вот </li>
+          <li>Отзыв1 Текст отзыва вот такой вот </li>
+        </ul>
+        <a href="">Оставить отзыв</a>
+
+        <h4>Почитать</h4>
+        <ul>
+          <li>Облако тегов </li>
+          <li>Реклама PR</li>
+          <li>BTL event маркетинг</li>
+        </ul>
+        <a href="">Все статьи</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container text-center">
+  <br> <br>
+  <h2 class="thin">Сео Текст рассказывающий почему они зашли на этот сервис</h2>
+  <p class="text-muted">
+    Само описание сео текст наскольок этот сервис полезен для них и их бизнеса
+  </p>
+</div>
+
+<div class="jumbotron top-space">
+  <div class="container">
+
+    <h3 class="text-center thin">Описание сервиса по функционалу для сео</h3>
+
+    <div class="row">
+      <div class="col-md-3 col-sm-6 highlight">
+        <div class="h-caption"><h4><i class="glyphicon glyphicon-send"></i>Быстрый поиск</h4></div>
+        <div class="h-body text-center">
+          <p>Сео текст про очень быстрый поиск рекламных компаний и тд. А может и ещё что то. Нужно будет отдельно
+            продумать с ключевыми словами.</p>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6 highlight">
+        <div class="h-caption"><h4><i class="glyphicon glyphicon-usd"></i>Экономия</h4></div>
+        <div class="h-body text-center">
+          <p> Сео текст с включениями слов дешево реклама и тд. Пару слов от том что выгоднее. А может и ещё что то.
+            Нужно будет отдельно продумать с ключевыми словами. </p>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6 highlight">
+        <div class="h-caption"><h4><i class="glyphicon glyphicon-star-empty"></i>Качество</h4></div>
+        <div class="h-body text-center">
+          <p>Только компании, прошедшие проверку специалистов. А может и ещё что то. Нужно будет отдельно продумать с
+            ключевыми словами</p>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6 highlight">
+        <div class="h-caption"><h4><i class="glyphicon glyphicon-info-sign"></i>Всё о рекламе</h4></div>
+        <div class="h-body text-center">
+          <p>База знаний. У нас Вы узнаете о новоинка в рекламной бизнесе.А может и ещё что то. Нужно будет отдельно
+            продумать с ключевыми словами </p>
+        </div>
+      </div>
+    </div> <!-- /row  -->
+
+  </div>
+</div>
+
+<div class="container">
+
+  <h2 class="text-center top-space"> Часто задаваемые вопросы(для сео)</h2>
+  <br>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <blockquote>
+        <p>Клиенты</p>
+      </blockquote>
+      <h3>Какой нить нужный вопрос по сервису?</h3>
+      <p>Развернутый ответ с ключевыми словами. Развернутый ответ с ключевыми словами.Развернутый ответ с ключевыми
+        словами.Развернутый ответ с ключевыми словами.</p>
+    </div>
+    <div class="col-sm-6">
+      <blockquote>
+        <p>Компании</p>
+      </blockquote>
+      <h3>Какой нить нужный вопрос по сервису?</h3>
+      <p>
+        Развернутый ответ с ключевыми словами. Развернутый ответ с ключевыми словами.Развернутый ответ с ключевыми
+        словами.Развернутый ответ с ключевыми словами.</p>
+    </div>
+  </div> <!-- /row -->
+
+  <div class="row">
+    <div class="col-sm-6">
+
+      <h3>Какой нить нужный вопрос по сервису?</h3>
+      <p>Развернутый ответ с ключевыми словами. Развернутый ответ с ключевыми словами.Развернутый ответ с ключевыми
+        словами.Развернутый ответ с ключевыми словами.</p>
+    </div>
+    <div class="col-sm-6">
+
+      <h3>Какой нить нужный вопрос по сервису?</h3>
+      <p>
+        Развернутый ответ с ключевыми словами. Развернутый ответ с ключевыми словами.Развернутый ответ с ключевыми
+        словами.Развернутый ответ с ключевыми словами.</p>
+    </div>
+  </div> <!-- /row -->
+
+  <div class="jumbotron top-space">
+    <h4>Инфа как правильно выбирать рекламу или что то типа. Здесь нужной великолепный текст чтобы заинтересовать
+      пользователей, который ведёт на какую нить страницу, возможно статью или особую комерческую страницу с ключевыми
+      статьями. Также для поисковой выдачи, проработать отдельно</h4>
+    <p class="text-right"><a class="btn btn-primary btn-large">Читать дальше »</a></p>
+  </div>
+
+</div>
+
