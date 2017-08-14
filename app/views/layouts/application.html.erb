@@ -14,20 +14,24 @@
   <div class="container">
     <div class="navbar-header">
       <!-- Button for smallest screens -->
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-      <a class="navbar-brand" href="index.html"><%= image_tag 'logo.png' %></a>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
+      <%= link_to root_url, class: 'navbar-brand' do %>
+          <%= image_tag 'logo.png' %>
+      <% end %>
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav pull-right">
-        <li class="active"><a href="#">Услуги</a></li>
+        <li class="active"><a href="#">Новости</a></li>
         <li><a href="about.html">Статьи</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Что-то <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="sidebar-left.html">Left Sidebar</a></li>
-            <li class="active"><a href="sidebar-right.html">Right Sidebar</a></li>
-          </ul>
-        </li>
+        <li><a href="about.html">Вопросы</a></li>
+        <!--<li class="dropdown">-->
+          <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">Что-то <b class="caret"></b></a>-->
+          <!--<ul class="dropdown-menu">-->
+            <!--<li><a href="sidebar-left.html">Left Sidebar</a></li>-->
+            <!--<li class="active"><a href="sidebar-right.html">Right Sidebar</a></li>-->
+          <!--</ul>-->
+        <!--</li>-->
         <li><a href="contact.html">Отзывы</a></li>
         <li>
           <% if company_signed_in? %>
@@ -98,8 +102,10 @@
           <div class="widget-body">
             <p>Сео текст о компании, о том что много лет на рынке, о заботе клиентов и тд ключевые слова</p>
             <p>
-              Уникальный текст о философии компании с вхождением ключевых слов и тд. Уникальный текст о философии компании с вхождением ключевых слов и тд.
-              Уникальный текст о философии компании с вхождением ключевых слов и тд. Может ещё что то полезное для сео нужно отдельно разбираться</p>
+              Уникальный текст о философии компании с вхождением ключевых слов и тд. Уникальный текст о философии
+              компании с вхождением ключевых слов и тд.
+              Уникальный текст о философии компании с вхождением ключевых слов и тд. Может ещё что то полезное для сео
+              нужно отдельно разбираться</p>
           </div>
         </div>
 
@@ -135,7 +141,6 @@
   </div>
 
 </footer>
-
 
 </body>
 </html>
