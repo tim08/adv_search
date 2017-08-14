@@ -22,9 +22,9 @@
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#">Главная</a></li>
-        <li><a href="#">Settings</a></li>
+        <li><a href="#">Настройки</a></li>
         <li><a href="#">Profile</a></li>
-        <li><a href="#">Help</a></li>
+        <li><%= link_to 'Выйти', destroy_admin_session_path, method: :delete %></li>
       </ul>
       <form class="navbar-form navbar-right">
         <input type="text" class="form-control" placeholder="Тут будет поиск">
@@ -43,7 +43,7 @@
       </ul>
       <ul class="nav nav-sidebar">
         <li><a href="">Отчеты</a></li>
-        <li><a href="">Технический</a></li>
+        <li><a href="">Оплаты</a></li>
         <li><%= link_to 'Города', cities_path %></li>
       </ul>
 
