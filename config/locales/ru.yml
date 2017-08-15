@@ -30,6 +30,8 @@ ru:
             email_contact: 'Email'
             address_contact: 'Адрес компании'
             slogan: 'Слоган'
+          city:
+            name: 'Название'
     errors:
       messages:
         record_invalid: 'Возникли ошибки: %{errors}'

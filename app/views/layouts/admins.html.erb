@@ -44,7 +44,7 @@
       <ul class="nav nav-sidebar">
         <li><a href="">Отчеты</a></li>
         <li><a href="">Оплаты</a></li>
-        <li><%= link_to 'Города', cities_path %></li>
+        <li class="<%= current_page?(cities_path)? 'active' : '' %>"><%= link_to 'Города', cities_path %></li>
       </ul>
 
     </div>
