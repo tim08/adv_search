@@ -29,6 +29,7 @@
     #mix_order_price, #city{
         font-weight: bolder;
         font-size: 18px;
+        text-align-last: center;
     }
     #tags{
         font-size: 13px;

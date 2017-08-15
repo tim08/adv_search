@@ -1,0 +1,102 @@
+<div class="search-form">
+  <%= form_tag root_path, method: :get do %>
+      <div class="row">
+
+        <div class="col-xs-3 col-md-3"></div>
+        <div class="col-xs-3 col-md-3">
+          <div class="form-group">
+            <%= label_tag :mix_order_price, 'Ваш бюджет', id: 'price_label' %>
+            <%= number_field_tag :mix_order_price, 10000, class: 'form-control' %>
+          </div>
+        </div>
+        <div class="col-xs-4 col-md-3">
+          <div class="form-group">
+            <%= label_tag :city, 'Ваш город', id: 'city_label' %>
+            <%= select_tag :city, options_from_collection_for_select(City.all, :id, :name, selected: params[:city]), class: 'form-control' %>
+          </div>
+        </div>
+
+      </div>
+      <div class="row" id="tags">
+        <div class="col-xs-6 col-md-3">
+          <div class="form-group">
+          <%= check_box_tag :promo %>
+          <%= label_tag :promo, 'Промо акции и мероприятия' %>
+          </div>
+          <div class="form-group">
+          <%= check_box_tag :direct_mail %>
+          <%= label_tag :direct_mail, 'Директ мэйл' %>
+          </div>
+          <div class="form-group">
+          <%= check_box_tag :outdoor_ads %>
+          <%= label_tag :outdoor_ads, 'Наружная реклама' %>
+          </div>
+          <div class="form-group">
+          <%= check_box_tag :radio_ads %>
+          <%= label_tag :radio_ads, 'Реклама на радиостанциях' %>
+          </div>
+        </div>
+        <div class="col-xs-6 col-md-3">
+          <div class="form-group">
+            <%= check_box_tag :transport_ads %>
+            <%= label_tag :transport_ads, 'Реклама на транспорте' %>
+          </div>
+          <div class="form-group">
+            <%= check_box_tag :indoor_ads %>
+            <%= label_tag :transport_ads, 'Indoor реклама' %>
+          </div>
+          <div class="form-group">
+            <%= check_box_tag :mass_media %>
+            <%= label_tag :mass_media, 'Печатные СМИ' %>
+          </div>
+          <div class="form-group">
+            <%= check_box_tag :tv_ads %>
+            <%= label_tag :tv_ads, 'Телевизионная реклама' %>
+          </div>
+        </div>
+        <div class="col-xs-6 col-md-3">
+          <div class="form-group">
+            <%= check_box_tag :internet_ids %>
+            <%= label_tag :'Интернет реклама' %>
+          </div>
+          <div class="form-group">
+            <%= check_box_tag :salepoint_ads %>
+            <%= label_tag 'Реклама в местах продаж' %>
+          </div>
+          <div class="form-group">
+            <%= check_box_tag :production_promotional_materials %>
+            <%= label_tag 'Изг. рекламных материалов' %>
+          </div>
+          <div class="form-group">
+            <%= check_box_tag :install_adv_constructions %>
+            <%= label_tag 'Монтаж рекламных конструкций' %>
+          </div>
+        </div>
+        <div class="col-xs-6 col-md-3">
+          <div class="form-group">
+            <%= check_box_tag :print_services %>
+            <%= label_tag 'Полиграфические услуги' %>
+          </div>
+          <div class="form-group">
+            <%= check_box_tag :marketing_research %>
+            <%= label_tag 'Маркетинговые исследования' %>
+          </div>
+          <div class="form-group">
+            <%= check_box_tag :product_placement %>
+            <%= label_tag 'Продакт-плейсмент' %>
+          </div>
+          <div class="form-group">
+            <%= check_box_tag :design_services %>
+            <%= label_tag 'Дизайнерские услуги' %>
+          </div>
+        </div>
+
+
+
+
+
+      </div>
+
+      <p class="text-center"> <%= submit_tag 'Поиск', class: 'btn btn-action btn-lg' %></p>
+  <% end %>
+</div>
