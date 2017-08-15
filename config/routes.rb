@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :admins
   resources :admins do
     collection do
@@ -7,7 +8,9 @@ Rails.application.routes.draw do
   end
   resources :cities
   devise_for :companies
-  resources :companies
+  resources :companies do
+    resources :projects
+  end
 
   root 'main#index'
   get 'how_choose_advertising', to: 'main#important_article'

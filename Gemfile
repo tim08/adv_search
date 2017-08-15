@@ -43,6 +43,8 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'
 end
 
+gem 'paperclip', '~> 5.0.0'
+
 gem 'russian', '~> 0.6.0'
 
 group :development, :test do

@@ -24,7 +24,7 @@
         <li><a href="#">Главная</a></li>
         <li><a href="#">Настройки аккаунта</a></li>
         <li><a href="#">Помощь</a></li>
-        <li><%= link_to 'Выйти', destroy_company_session_path, method: :delete %></li>
+        <li><%= link_to'Выйти', destroy_company_session_path, method: :delete %></li>
       </ul>
       <form class="navbar-form navbar-right">
         <input type="text" class="form-control" placeholder="Тут будет поиск">
@@ -39,13 +39,12 @@
       <ul class="nav nav-sidebar">
         <li class="<%= current_page?(companies_path)? 'active' : '' %>"><%= link_to 'Профиль', companies_path %></li>
         <li class="<%= current_page?(edit_company_path(@company))? 'active' : '' %>"><%= link_to 'Дополнить данные', edit_company_path(@company) %></li>
+        <li class="<%= current_page?(company_projects_path(@company))? 'active' : '' %>"><%= link_to 'Наши проекты', company_projects_path(@company) %></li>
         <li><a href="#">Заявки</a></li>
         <li><a href="#">Статистика</a></li>
       </ul>
       <ul class="nav nav-sidebar">
         <li><a href="">Отчеты</a></li>
-        <li><a href="">Технический</a></li>
-        <li><%= link_to 'Города', cities_path %></li>
       </ul>
 
     </div>

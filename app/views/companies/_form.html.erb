@@ -1,4 +1,4 @@
-<%= form_with(model: company, local: true) do |form| %>
+<%= form_with(model: company, local: true, html: {multipart: true}) do |form| %>
     <% if company.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
@@ -25,6 +25,10 @@
         <div class="form-group">
           <%= form.label :description %>
           <%= form.text_area :description, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= form.label :logo %>
+          <%= form.file_field :logo, class: 'form-control' %>
         </div>
       </div>
       <div class="col-md-3">
@@ -143,8 +147,6 @@
         </div>
       </div>
     </div>
-
-
 
     <%= form.submit 'Сохранить данные', class: 'btn btn-default' %>
 
