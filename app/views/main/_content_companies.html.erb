@@ -1,0 +1,58 @@
+<div class="content" style="min-height: 500px;     background-color: #F7F5F4;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <h4>Подходящие компании</h4>
+        <% 5.times do %>
+            <div class="media">
+              <div class="row">
+                <div class="col-md-8">
+                  <a class="pull-left" href="#">
+                    <img class="media-object" data-src="holder.js/64x64" alt="64x64" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjZWVlIi8+PHRleHQgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iMzIiIHk9IjMyIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9zdmc+" style="width: 64px; height: 64px;">
+                  </a>
+                  <div class="media-body" style="padding-left: 10px">
+                    <h4 class="media-heading">ООО "Ромашка Профи" </h4>
+                    Лучшая реклама в Вашем городе.
+                    Возможно ещё какая то инфа
+                  </div>
+                </div>
+                <div class="col-md-2">
+
+                  <%= link_to 'Смотреть', root_path, class: 'btn btn-action btn-xs' %>
+
+                </div>
+
+              </div>
+            </div>
+            <div class="row" style="border-bottom: 1px solid #eee;padding-top: 5px"></div>
+        <% end %>
+        <% @companies %>
+      </div>
+      <div class="col-md-3">
+        <h4>Новости</h4>
+        <ul>
+          <li>Название новости1</li>
+          <li>Название новости2</li>
+          <li>Название новости3</li>
+        </ul>
+        <a href="">Поделиться новостью</a>
+
+        <h4>Отзывы</h4>
+        <ul>
+          <li>Отзыв1 Текст отзыва вот такой вот наверно </li>
+          <li>Отзыв1 Текст отзыва вот такой вот </li>
+          <li>Отзыв1 Текст отзыва вот такой вот </li>
+        </ul>
+        <a href="">Оставить отзыв</a>
+
+        <h4>Почитать</h4>
+        <ul>
+          <li>Облако тегов </li>
+          <li>Реклама PR</li>
+          <li>BTL event маркетинг</li>
+        </ul>
+        <a href="">Все статьи</a>
+      </div>
+    </div>
+  </div>
+</div>
