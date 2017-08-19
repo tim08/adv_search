@@ -32,6 +32,9 @@ ru:
             slogan: 'Слоган'
           city:
             name: 'Название'
+          project:
+            name: 'Название'
+            description: 'Описание'
     errors:
       messages:
         record_invalid: 'Возникли ошибки: %{errors}'
