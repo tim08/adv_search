@@ -9,7 +9,7 @@ class MainController < ApplicationController
 
   end
 
-  def articles
+  def main_articles
 
   end
 
