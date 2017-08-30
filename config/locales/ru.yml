@@ -30,6 +30,7 @@ ru:
             email_contact: 'Email'
             address_contact: 'Адрес компании'
             slogan: 'Слоган'
+            logo: 'Логотип'
           city:
             name: 'Название'
           project:

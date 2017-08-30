@@ -38,7 +38,7 @@
     <div class="col-sm-3 col-md-2 sidebar">
       <ul class="nav nav-sidebar">
         <li class="<%= current_page?(companies_path)? 'active' : '' %>"><%= link_to 'Профиль', companies_path %></li>
-        <li class="<%= current_page?(edit_company_path(@company))? 'active' : '' %>"><%= link_to 'Дополнить данные', edit_company_path(@company) %></li>
+        <li class="<%= current_page?(edit_company_path(@company))? 'active' : '' %>"><%= link_to 'Обновить данные', edit_company_path(@company) %></li>
         <li class="<%= current_page?(company_projects_path(@company))? 'active' : '' %>"><%= link_to 'Наши проекты', company_projects_path(@company) %></li>
         <li><a href="#">Заявки</a></li>
         <li><a href="#">Статистика</a></li>
