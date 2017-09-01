@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     end
   end
   resources :cities
-  devise_for :companies
+  devise_for :companies, controllers: { confirmations: 'confirmations' }
   resources :companies do
     resources :projects
   end

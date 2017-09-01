@@ -36,6 +36,7 @@ ru:
           project:
             name: 'Название'
             description: 'Описание'
+            logo: 'Фото'
     errors:
       messages:
         record_invalid: 'Возникли ошибки: %{errors}'
