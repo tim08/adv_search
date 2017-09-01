@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   devise_for :companies, controllers: { confirmations: 'confirmations' }
   resources :companies do
     resources :projects
+    member do
+      get :help
+    end
   end
 
   root 'main#index'

@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  before_action :set_company, only: %i[show edit update destroy]
+  before_action :set_company, only: %i[show edit update destroy help]
   before_action :authenticate_company!
 
   # GET /companies
@@ -49,6 +49,8 @@ class CompaniesController < ApplicationController
       end
     end
   end
+
+  def help; end
 
   # DELETE /companies/1
   # DELETE /companies/1.json
