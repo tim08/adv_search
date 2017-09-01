@@ -38,7 +38,7 @@
     <div class="col-sm-3 col-md-2 sidebar">
       <ul class="nav nav-sidebar">
         <li class="<%= current_page?(companies_admins_path)? 'active' : '' %>"><%= link_to 'Компании', companies_admins_path %></li>
-        <li><a href="#">Пользователи</a></li>
+        <li class="<%= current_page?(admins_path)? 'active' : '' %>"><%= link_to 'Модераторы', admins_path %></li>
         <li class="<%= current_page?(articles_path)? 'active' : '' %>"><%= link_to 'Статьи', articles_path %></li>
       </ul>
       <ul class="nav nav-sidebar">
