@@ -39,7 +39,7 @@
             <!--<li class="active"><a href="sidebar-right.html">Right Sidebar</a></li>-->
           <!--</ul>-->
         <!--</li>-->
-        <li><a href="contact.html">Отзывы</a></li>
+        <li><a href="">Отзывы</a></li>
         <li>
           <% if company_signed_in? %>
               <%= link_to('Выход', destroy_company_session_path, method: :delete, class: 'btn') %>
@@ -127,10 +127,9 @@
         <div class="col-md-6 widget">
           <div class="widget-body">
             <p class="simplenav">
-              <a href="#">Home</a> |
-              <a href="about.html">About</a> |
-              <a href="sidebar-right.html">Политика конфиденциальности</a> |
-              <a href="contact.html">Contact</a>
+              <a href="">О нас</a> |
+              <%= link_to 'Политика конфиденциальности', agreement_path  %> |
+              <a href="">Контакты</a>
             </p>
           </div>
         </div>

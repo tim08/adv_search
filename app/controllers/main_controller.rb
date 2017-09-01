@@ -13,5 +13,9 @@ class MainController < ApplicationController
 
   end
 
+  def agreement
+
+  end
+
 
 end

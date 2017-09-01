@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   root 'main#index'
   get 'how_choose_advertising', to: 'main#important_article'
   get 'main_articles', to: 'main#main_articles'
+  get 'agreement', to: 'main#agreement'
 
 
 end
