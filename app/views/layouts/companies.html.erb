@@ -24,7 +24,7 @@
         <li><a href="#">Главная</a></li>
         <li><a href="#">Настройки аккаунта</a></li>
         <li><a href="#">Помощь</a></li>
-        <li><%= link_to'Выйти', destroy_company_session_path, method: :delete %></li>
+        <li><%= link_to 'Выйти', destroy_company_session_path, method: :delete %></li>
       </ul>
       <form class="navbar-form navbar-right">
         <input type="text" class="form-control" placeholder="Тут будет поиск">
@@ -37,9 +37,24 @@
   <div class="row">
     <div class="col-sm-3 col-md-2 sidebar">
       <ul class="nav nav-sidebar">
-        <li class="<%= current_page?(companies_path)? 'active' : '' %>"><%= link_to 'Профиль', companies_path %></li>
-        <li class="<%= current_page?(edit_company_path(@company))? 'active' : '' %>"><%= link_to 'Обновить данные', edit_company_path(@company) %></li>
-        <li class="<%= current_page?(company_projects_path(@company))? 'active' : '' %>"><%= link_to 'Наши проекты', company_projects_path(@company) %></li>
+        <li class="<%= current_page?(companies_path) ? 'active' : '' %>">
+          <%= link_to (companies_path) do %>
+              <span class="glyphicon glyphicon-list-alt"></span>
+              Профиль
+          <% end %>
+        </li>
+        <li class="<%= current_page?(edit_company_path(@company)) ? 'active' : '' %>">
+          <%= link_to (edit_company_path(@company)) do %>
+              <span class="glyphicon glyphicon-pencil"></span>
+              Обновить данные
+          <% end %>
+        </li>
+        <li class="<%= current_page?(company_projects_path(@company)) ? 'active' : '' %>">
+          <%= link_to (company_projects_path(@company)) do %>
+              <span class="glyphicon glyphicon-briefcase"></span>
+              Наши проекты
+          <% end %>
+        </li>
         <li><a href="#">Заявки</a></li>
         <li><a href="#">Статистика</a></li>
       </ul>
