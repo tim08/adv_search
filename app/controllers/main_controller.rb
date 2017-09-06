@@ -17,5 +17,9 @@ class MainController < ApplicationController
 
   end
 
+  def adv_agency
+    @company = Company.find(params[:id])
+  end
+
 
 end

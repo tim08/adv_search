@@ -1,0 +1,82 @@
+<div class="container">
+  <div class="row">
+    <header class="page-header">
+      <h1 class="page-title">Компания #<%= @company.id %></h1>
+    </header>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <%= image_tag @company.logo, height: '240' %>
+    </div>
+    <div class="col-md-8">
+      <div class="row">
+        <div class="col-md-6" style="height: 120px; border-bottom: 1px solid #eee;">
+          <h2> <%= @company.name %></h2>
+        </div>
+        <div class="col-md-6" style="height: 120px;">
+          <h4>Где мы работаем</h4>
+          <ul>
+            <% @company.cities.each do |city| %>
+                <li><%= city.name %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6" style="height: 120px;">
+          <blockquote>
+            <p><%= @company.slogan %></p>
+          </blockquote>
+        </div>
+        <div class="col-md-6" style="height: 120px;margin: 30px 0 30px">
+          <h4>Минимальный бюджет</h4>
+
+          <strong> <%= @company.min_order_price %> руб.</strong>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <h2> Описание компании</h2>
+    <p class="lead"><%= @company.description %></p>
+  </div>
+  <div class="row">
+    <h2> Проекты</h2>
+
+
+
+    <% @company.projects.each do |project| %>
+        <div class="row">
+          <div class="col-md-4">
+            <%= image_tag project.logo, height: '150' %>
+          </div>
+          <div class="col-md-8">
+            <h4><%= project.name %></h4>
+            <strong>Описание</strong>
+            <p><%= project.description %></p>
+          </div>
+        </div>
+        <div style="border-bottom: 1px solid #eee; margin: 40px 0 20px;"></div>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <h2> Контактные данные</h2>
+    <div class="col-md-4">
+    <address>
+      <strong>Адрес:</strong><br>
+      <%= @company.address_contact %><br>
+
+      <abbr title="Phone">Телефон:</abbr> <%= @company.phone_contact %>
+    </address>
+    </div>
+    <div class="col-md-4">
+    <address>
+      <strong>E-mail:</strong><br>
+      <a href="mailto:<%= @company.email_contact %>" target="_blank"><%= @company.email_contact %></a>
+    </address>
+    </div>
+  </div>
+
+</div>

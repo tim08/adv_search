@@ -75,7 +75,7 @@ class CompaniesController < ApplicationController
                                     :product_placement, :marketing_research, :install_adv_constructions,
                                     :production_promotional_materials, :print_services, :salepoint_ads, :internet_ids,
                                     :tv_ads, :mass_media, :indoor_ads, :transport_ads, :min_order_price, :description,
-                                    :common_exp, :count_ads, :phone_contact, :email_contact, :slogan, :logo,
+                                    :common_exp, :count_ads, :phone_contact, :address_contact, :email_contact, :slogan, :logo,
                                     city_ids: [])
   end
 end
