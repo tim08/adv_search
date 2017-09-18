@@ -1,8 +1,7 @@
 class MainController < ApplicationController
 
   def index
-    @companies = Company.all
-    # Company.search(params)
+    @companies = Company.search(params)
   end
 
   def important_article

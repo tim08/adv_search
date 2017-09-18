@@ -7,10 +7,35 @@ class Company < ApplicationRecord
   has_and_belongs_to_many :cities
   has_many :projects
 
-  has_attached_file :logo, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  has_attached_file :logo, styles: {medium: "300x300>", thumb: "100x100>"}, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :logo, content_type: /\Aimage\/.*\z/
 
-  def search
-    joins(:cities).where(cities: {id: params[:city]})
+  scope :verified, -> {where(verified: true)}
+
+  def self.search(params)
+    result = { companies: none, message: '' }
+    if params[:city].present?
+      companies = joins(:cities)
+                      .where(cities: {id: params[:city]})
+                      .where(min_order_price: 0..params[:min_order_price].to_i)
+      if companies.present?
+        result[:companies] = companies
+        result[:message] = 'Компании соответствующие вашему запросу'
+      else
+        companies_cities = joins(:cities).where(cities: {id: params[:city]})
+        if companies_cities.present?
+          result[:companies] = companies_cities
+          result[:message] = 'В данных момент компании с установленным  Вами бюджетом отсутствуют,
+                               обратите внимания на следующие компании'
+        else
+          result[:message] = 'Извините в данных момент компании из этого города отсутствуют'
+        end
+      end
+
+    else
+      result[:companies] = verified.last(5)
+      result[:message] = 'Последние компании'
+    end
+    result
   end
 end

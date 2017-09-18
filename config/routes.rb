@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :admins do
     collection do
       get :companies
+      patch 'companies/:id', to: 'admins#change_company_status', as: 'change_company_status'
     end
   end
   resources :cities

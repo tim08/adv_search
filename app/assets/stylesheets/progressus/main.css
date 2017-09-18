@@ -26,7 +26,7 @@
     label{
     color: honeydew;
 }
-    #mix_order_price, #city{
+    #min_order_price, #city{
         font-weight: bolder;
         font-size: 18px;
         text-align-last: center;

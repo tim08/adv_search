@@ -2,9 +2,10 @@
   <div class="container">
     <div class="row">
       <div class="col-md-9">
-        <h4>Последние компании</h4>
-        <%# 3.times do %>
-         <% @companies.each do |company| %>
+        <h4><%= @companies[:message] %></h4>
+
+
+         <% @companies[:companies].each do |company| %>
             <div class="media">
               <div class="row">
                 <div class="col-md-8">
@@ -13,8 +14,7 @@
                   </a>
                   <div class="media-body" style="padding-left: 10px">
                     <h4 class="media-heading"><%= company.name %></h4>
-                    Лучшая реклама в Вашем городе.
-                    Возможно ещё какая то инфа
+                    <%= company.slogan %>
                   </div>
                 </div>
                 <div class="col-md-2">

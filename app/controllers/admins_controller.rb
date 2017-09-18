@@ -12,6 +12,15 @@ class AdminsController < ApplicationController
     @companies = Company.all
   end
 
+  def change_company_status
+    @company = Company.find(params[:id])
+    @company.update_column(:verified, !@company.verified)
+    respond_to do |format|
+      format.html {redirect_to companies_admins_path, notice: 'Company status changed'}
+      format.json {head :no_content}
+    end
+  end
+
   # GET /admins/1
   # GET /admins/1.json
   def show
@@ -33,11 +42,11 @@ class AdminsController < ApplicationController
 
     respond_to do |format|
       if @admin.save
-        format.html { redirect_to @admin, notice: 'Admin was successfully created.' }
-        format.json { render :show, status: :created, location: @admin }
+        format.html {redirect_to @admin, notice: 'Admin was successfully created.'}
+        format.json {render :show, status: :created, location: @admin}
       else
-        format.html { render :new }
-        format.json { render json: @admin.errors, status: :unprocessable_entity }
+        format.html {render :new}
+        format.json {render json: @admin.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -47,11 +56,11 @@ class AdminsController < ApplicationController
   def update
     respond_to do |format|
       if @admin.update(admin_params)
-        format.html { redirect_to @admin, notice: 'Admin was successfully updated.' }
-        format.json { render :show, status: :ok, location: @admin }
+        format.html {redirect_to @admin, notice: 'Admin was successfully updated.'}
+        format.json {render :show, status: :ok, location: @admin}
       else
-        format.html { render :edit }
-        format.json { render json: @admin.errors, status: :unprocessable_entity }
+        format.html {render :edit}
+        format.json {render json: @admin.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -61,19 +70,19 @@ class AdminsController < ApplicationController
   def destroy
     @admin.destroy
     respond_to do |format|
-      format.html { redirect_to admins_url, notice: 'Admin was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html {redirect_to admins_url, notice: 'Admin was successfully destroyed.'}
+      format.json {head :no_content}
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_admin
-      @admin = Admin.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_admin
+    @admin = Admin.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def admin_params
-      params.fetch(:admin, {})
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def admin_params
+    params.fetch(:admin, {})
+  end
 end
