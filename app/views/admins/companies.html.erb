@@ -24,7 +24,7 @@
         </td>
         <!--<td><%#= link_to 'Edit', edit_company_path(company) %></td>-->
         <td><%= link_to 'Изменить статус', change_company_status_admins_path(company), method: :patch, class: 'btn btn-default btn-sm' %></td>
-        <td><%#= link_to 'Destroy', company, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+        <td><%= link_to 'Удалить', delete_company_admins_path(company), method: :delete, data: {confirm: 'Точно удалить компанию?'}, class: 'btn btn-danger btn-sm' %></td>
       </tr>
   <% end %>
   </tbody>

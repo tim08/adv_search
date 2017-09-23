@@ -21,6 +21,15 @@ class AdminsController < ApplicationController
     end
   end
 
+  def delete_company
+    @company = Company.find(params[:id])
+    @company.destroy
+    respond_to do |format|
+      format.html {redirect_to companies_admins_path, notice: 'Company destroyed'}
+      format.json {head :no_content}
+    end
+  end
+
   # GET /admins/1
   # GET /admins/1.json
   def show
