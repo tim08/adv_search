@@ -15,11 +15,11 @@
         </div>
         <div class="col-md-6" style="height: 120px;">
           <h4>Где мы работаем</h4>
-          <ul>
+
             <% @company.cities.each do |city| %>
-                <li><%= city.name %></li>
+                <%= city.name + "#{',' if city != @company.cities.last}"%>
             <% end %>
-          </ul>
+
         </div>
       </div>
       <div class="row">
@@ -46,7 +46,7 @@
 
 
 
-    <% @company.projects.each do |project| %>
+    <% @company.projects.reverse.each do |project| %>
         <div class="row">
           <div class="col-md-4">
             <%= image_tag project.logo, height: '150' %>

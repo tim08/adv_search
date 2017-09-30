@@ -25,7 +25,6 @@ ru:
             min_order_price: 'Минимальная цена заказа'
             description: 'Описание компании'
             common_exp: 'Общий опыт'
-            count_ads: 'Кол-во рекламных кампаний'
             phone_contact: 'Телефон'
             email_contact: 'Email'
             address_contact: 'Адрес компании'

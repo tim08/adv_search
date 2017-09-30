@@ -22,24 +22,12 @@
           <%= form.label :slogan %>
           <%= form.text_field :slogan, class: 'form-control' %>
         </div>
-        <div class="form-group">
-          <%= form.label :description %>
-          <%= form.text_area :description, class: 'form-control' %>
-        </div>
-        <div class="form-group">
-          <%= form.label :logo %>
-          <%= form.file_field :logo, class: 'form-control' %>
-        </div>
       </div>
       <div class="col-md-3">
         <span class="label label-info">Опыт и расценки</span>
         <div class="form-group">
           <%= form.label :common_exp %>
           <%= form.number_field :common_exp, class: 'form-control' %>
-        </div>
-        <div class="form-group">
-          <%= form.label :count_ads %>
-          <%= form.number_field :count_ads, class: 'form-control' %>
         </div>
         <div class="form-group">
           <%= form.label :min_order_price %>
@@ -61,26 +49,40 @@
           <%= form.text_field :address_contact, class: 'form-control' %>
         </div>
       </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <%= form.label :logo %>
+          <%= form.file_field :logo, class: 'form-control' %>
+        </div>
+      </div>
     </div>
-<div class="row">
-  <div class="col-md-10">
-    <span class="label label-info">Города</span>
-    <div class="form-group">
-      <details>
-        <summary>Укажите города где работает Ваша компания </summary>
-      <%= form.collection_check_boxes(:city_ids, City.all.order(:name), :id, :name) do |c| %>
-          <%= c.check_box %>
-          <%= c.label %>
-          <br/>
-      <% end %>
-      </details>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= form.label :description %>
+          <%= form.text_area :description, size: "50x5", class: 'form-control' %>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+    <div class="row">
+      <div class="col-md-10">
+        <span class="label label-info">Города</span>
+        <div class="form-group">
+          <details>
+            <summary>Укажите города где работает Ваша компания</summary>
+            <%= form.collection_check_boxes(:city_ids, City.all.order(:name), :id, :name) do |c| %>
+                <%= c.check_box %>
+                <%= c.label %>
+                <br/>
+            <% end %>
+          </details>
+        </div>
+      </div>
+    </div>
     <div class="row">
       <div class="col-md-10"><span class="label label-info">Сфера деятельности</span>
         <details>
-          <summary>Укажите специализацию компании </summary>
+          <summary>Укажите специализацию компании</summary>
           <div class="col-md-6">
             <div class="form-group">
 

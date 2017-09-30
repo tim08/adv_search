@@ -30,16 +30,15 @@
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav pull-right">
         <li class="active"><a href="#">Новости</a></li>
-        <li><%= link_to 'Статьи', main_articles_path%></li>
+        <li><%= link_to 'Статьи', main_articles_path %></li>
         <li><a href="/#faq" id="l_faq">Вопросы</a></li>
         <!--<li class="dropdown">-->
-          <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">Что-то <b class="caret"></b></a>-->
-          <!--<ul class="dropdown-menu">-->
-            <!--<li><a href="sidebar-left.html">Left Sidebar</a></li>-->
-            <!--<li class="active"><a href="sidebar-right.html">Right Sidebar</a></li>-->
-          <!--</ul>-->
+        <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">Что-то <b class="caret"></b></a>-->
+        <!--<ul class="dropdown-menu">-->
+        <!--<li><a href="sidebar-left.html">Left Sidebar</a></li>-->
+        <!--<li class="active"><a href="sidebar-right.html">Right Sidebar</a></li>-->
+        <!--</ul>-->
         <!--</li>-->
-        <li><a href="">Отзывы</a></li>
         <li>
           <% if company_signed_in? %>
               <%= link_to('Выход', destroy_company_session_path, method: :delete, class: 'btn') %>
@@ -128,9 +127,9 @@
           <div class="widget-body">
             <p class="simplenav">
               <a href="">О нас</a> |
-              <%= link_to 'Политика конфиденциальности', agreement_path  %> |
+              <%= link_to 'Политика конфиденциальности', agreement_path %> |
               <a href="">Контакты</a> |
-              <%= link_to 'Вход для администраторов', admins_path  %> 
+              <%= link_to 'Вход для администраторов', admins_path %>
             </p>
           </div>
         </div>
@@ -146,8 +145,6 @@
       </div> <!-- /row of widgets -->
     </div>
   </div>
-
 </footer>
-
 </body>
 </html>
