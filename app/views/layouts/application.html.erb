@@ -91,14 +91,19 @@
         </div>
 
         <div class="col-md-3 widget">
-          <h3 class="widget-title">Follow me (соц-сети)</h3>
+          <h3 class="widget-title">Оставайтесь с нами везде</h3>
           <div class="widget-body">
-            линки на группы fb, vkontakte и другие
+            присоединяйтесь к нам в социальных сетях
             <p class="follow-me-icons">
-              <a href=""><i class="glyphicon glyphicon-star"></i></a>
-              <a href=""><i class="glyphicon glyphicon-star"></i></a>
-              <a href=""><i class="glyphicon glyphicon-star"></i></a>
-              <a href=""><i class="glyphicon glyphicon-star"></i></a>
+              <%= link_to 'https://vk.com/promowind', target: '_blank', rel: 'nofollow' do %>
+                  <%= image_tag 'vk.png', height: '32', width: '32' %>
+              <% end %>
+              <%= link_to 'https://facebook.com', target: '_blank', rel: 'nofollow' do %>
+                  <%= image_tag 'fb.png', height: '32', width: '32' %>
+              <% end %>
+              <%= link_to 'https://ok.ru', target: '_blank', rel: 'nofollow' do %>
+                  <%= image_tag 'od.png', height: '32', width: '32' %>
+              <% end %>
             </p>
           </div>
         </div>

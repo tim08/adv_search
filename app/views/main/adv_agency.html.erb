@@ -17,7 +17,7 @@
           <h4>Где мы работаем</h4>
 
             <% @company.cities.each do |city| %>
-                <%= city.name + "#{',' if city != @company.cities.last}"%>
+                <%= city.name + "#{',' if city != @company.cities.last && @company.cities.count > 1}"%>
             <% end %>
 
         </div>
