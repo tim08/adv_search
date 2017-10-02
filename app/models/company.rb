@@ -38,4 +38,8 @@ class Company < ApplicationRecord
     end
     result
   end
+
+  def self.news_projects
+    verified.joins(:projects).distinct.last(3)
+  end
 end
