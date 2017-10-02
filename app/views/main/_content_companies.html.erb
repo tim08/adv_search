@@ -5,7 +5,7 @@
         <h4><%= @companies[:message] %></h4>
 
 
-         <% @companies[:companies].each do |company| %>
+        <% @companies[:companies].each do |company| %>
             <div class="media">
               <div class="row">
                 <div class="col-md-8">
@@ -32,23 +32,22 @@
       <div class="col-md-3">
         <h4>Новости</h4>
         <ul>
-          <li>Название новости1</li>
-          <li>Название новости2</li>
-          <li>Название новости3</li>
+          <% @companies_news.each do |cn| %>
+              <li><%=  link_to "Компания #{cn.name} - новый проект: #{cn.projects.last.name}", adv_agency_path(cn) %></li>
+          <% end %>
         </ul>
-        <a href="">Поделиться новостью</a>
 
         <h4>Отзывы</h4>
         <ul>
-          <li>Отзыв1 Текст отзыва вот такой вот наверно </li>
-          <li>Отзыв1 Текст отзыва вот такой вот </li>
-          <li>Отзыв1 Текст отзыва вот такой вот </li>
+          <li>Отзыв1 Текст отзыва вот такой вот наверно</li>
+          <li>Отзыв1 Текст отзыва вот такой вот</li>
+          <li>Отзыв1 Текст отзыва вот такой вот</li>
         </ul>
         <a href="">Оставить отзыв</a>
 
         <h4>Почитать</h4>
         <ul>
-          <li>Облако тегов </li>
+          <li>Облако тегов</li>
           <li>Реклама PR</li>
           <li>BTL event маркетинг</li>
         </ul>

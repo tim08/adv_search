@@ -2,6 +2,7 @@ class MainController < ApplicationController
 
   def index
     @companies = Company.search(params)
+    @companies_news = Company.verified.last(3)
   end
 
   def important_article
