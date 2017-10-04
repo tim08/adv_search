@@ -24,7 +24,7 @@
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
       <%= link_to root_url, class: 'navbar-brand' do %>
-          <%= image_tag 'logo.png' %>
+          <%= image_tag 'logo4.png', :style => 'height: 80px; margin-top: -29px;' %>
       <% end %>
     </div>
     <div class="navbar-collapse collapse">
@@ -39,13 +39,16 @@
         <!--<li class="active"><a href="sidebar-right.html">Right Sidebar</a></li>-->
         <!--</ul>-->
         <!--</li>-->
-        <li>
+
           <% if company_signed_in? %>
-              <%= link_to('Выход', destroy_company_session_path, method: :delete, class: 'btn') %>
+            <li><%= link_to('Личный кабинет', companies_path, class: 'btn') %></li>
+             <li> <%= link_to('Выход', destroy_company_session_path, method: :delete, class: 'btn') %></li>
           <% else %>
+            <li>
               <%= link_to('Войти', companies_url, class: 'btn') %>
+            </li>
           <% end %>
-        </li>
+
         <li>
           <%= link_to('Присоединиться', new_company_registration_path, class: 'btn') unless company_signed_in? %>
         </li>

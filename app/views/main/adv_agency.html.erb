@@ -39,7 +39,7 @@
   </div>
   <div class="row">
     <h2> Описание компании</h2>
-    <p class="lead"><%= @company.description %></p>
+    <p class="lead"><%= h(@company.description).gsub(/\n/, '<br/>').html_safe %></p>
   </div>
   <div class="row">
     <h2> Проекты</h2>
