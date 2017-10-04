@@ -1,6 +1,11 @@
 ru:
   activerecord:
     attributes:
+          review:
+            name: 'Ваше имя'
+            description: 'Описание'
+            type_review: 'Общее впечатление'
+            p_city: 'Ваш город'
           company:
             password: 'Пароль'
             email: 'Email'

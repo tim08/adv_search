@@ -3,6 +3,7 @@ class MainController < ApplicationController
   def index
     @companies = Company.search(params)
     @projects_news = Company.news_projects
+    @reviews = Company.reviews_main
   end
 
   def important_article
@@ -19,6 +20,7 @@ class MainController < ApplicationController
 
   def adv_agency
     @company = Company.find(params[:id])
+    @review = @company.reviews.new
   end
 
 

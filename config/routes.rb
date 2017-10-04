@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
 
+  resources :reviews, only: [:new, :create]
   resources :articles
   devise_for :admins
   resources :admins do
     collection do
       get :companies
+      get :reviews
       patch 'companies/:id', to: 'admins#change_company_status', as: 'change_company_status'
+      patch 'reviews/:id', to: 'admins#change_review_status', as: 'change_review_status'
       delete 'companies/:id', to: 'admins#delete_company', as: 'delete_company'
     end
   end

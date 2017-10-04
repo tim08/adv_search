@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Отзывы</h1>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Имя</th>
+    <th>Компания</th>
+    <th>Впечатление</th>
+    <th>Описание</th>
+    <th>Статус</th>
+    <th colspan="2"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @reviews.each do |review| %>
+      <tr>
+        <td><%= "#{review.name}(#{review.p_city})"%></td>
+        <td><%= link_to  review.company.name, adv_agency_url(review.company), target: '_blank' %></td>
+        <td><%= review.type_review %></td>
+        <td><%= review.description %></td>
+        <td>
+          <% if review.verified? %>
+              <span class="label label-success">Опубликован</span>
+          <% else %>
+              <span class="label label-danger">Не опубликован</span>
+          <% end %>
+        </td>
+        <!--<td><%#= link_to 'Edit', edit_company_path(company) %></td>-->
+        <td><%= link_to 'Изменить статус', change_review_status_admins_path(review), method: :patch, class: 'btn btn-default btn-sm' %></td>
+
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

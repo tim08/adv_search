@@ -12,11 +12,24 @@ class AdminsController < ApplicationController
     @companies = Company.all
   end
 
+  def reviews
+    @reviews = Review.all
+  end
+
   def change_company_status
     @company = Company.find(params[:id])
     @company.update_column(:verified, !@company.verified)
     respond_to do |format|
       format.html {redirect_to companies_admins_path, notice: 'Company status changed'}
+      format.json {head :no_content}
+    end
+  end
+
+  def change_review_status
+    @review = Review.find(params[:id])
+    @review.update_column(:verified, !@review.verified)
+    respond_to do |format|
+      format.html {redirect_to reviews_admins_path, notice: 'Company status changed'}
       format.json {head :no_content}
     end
   end
