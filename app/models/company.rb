@@ -33,7 +33,7 @@ class Company < ApplicationRecord
       end
 
     else
-      result[:companies] = verified.last(5)
+      result[:companies] = verified.last(5).reverse
       result[:message] = 'Последние компании'
     end
     result

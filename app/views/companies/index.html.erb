@@ -10,6 +10,7 @@
     Текущий статус:
     <% if @company.verified? %>
         <span class="label label-success">Участвует в поиске</span>
+        <%= link_to 'Посмотреть как Ваша компания выглядить для клиентов', adv_agency_path(@company), target: '_blank' %>
         <% else %>
         <span class="label label-danger" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Не участвует в поиске</span>
         <br>
@@ -35,7 +36,7 @@
     </p>
     <p>
       <strong>Описание</strong><br>
-      <%= @company.description %>
+      <%= h(@company.description).gsub(/\n/, '<br/>').html_safe %>
     </p>
   </div>
 </div>
