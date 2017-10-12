@@ -33,7 +33,7 @@
         <h4>Новости</h4>
         <ul>
           <% @projects_news.each do |cn| %>
-              <li><%= link_to "#{cn.name}<br /> #{cn.projects.last.name}".html_safe, adv_agency_path(cn) %></li>
+              <li><%= link_to "#{cn.projects.last.name}<br /> #{cn.name}".html_safe, adv_agency_path(cn) %></li>
           <% end %>
         </ul>
 
