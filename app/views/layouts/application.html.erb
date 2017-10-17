@@ -7,9 +7,6 @@
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <%= favicon_link_tag 'gt_favicon.png' %>
-<% if @company.present?%>
-      <meta property="og:image" content='<%= image_url @company.logo %>'/>
-<% end %>
 
 <body class="home">
 

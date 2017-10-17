@@ -1,3 +1,7 @@
+<% content_for :head do %>
+    <meta property="og:image" content='<%= image_url @company.logo %>'/>
+    <meta property="og:title" content='<%= @company.name %>'/>
+<% end %>
 <div class="container">
   <div class="row">
     <header class="page-header">
