@@ -1,7 +1,11 @@
 <div class="container">
   <div class="row">
     <header class="page-header">
-      <h1 class="page-title">Компания #<%= @company.id %></h1>
+      <h1 class="page-title">Компания #<%= @company.id %>
+        <script src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
+        <script src="//yastatic.net/share2/share.js"></script>
+        <div class="ya-share2" data-services="vkontakte,facebook,odnoklassniki,gplus,twitter,linkedin" style="float: right"></div>
+      </h1>
     </header>
   </div>
   <div class="row">
@@ -73,7 +77,7 @@
     <div class="col-md-4">
       <address>
         <strong>Телефон:</strong><br>
-        <%= @company.phone_contact %>
+        <%= link_to @company.phone_contact, "tel:+#{@company.phone_contact.gsub(/[^\d]/, '')}" %>
       </address>
     </div>
     <div class="col-md-4">
