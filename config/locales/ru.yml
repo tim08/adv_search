@@ -1,6 +1,11 @@
 ru:
   activerecord:
     attributes:
+          article:
+            title: 'Название'
+            description: 'Описание'
+            body: 'Текст'
+            logo: 'Картинка'
           review:
             name: 'Ваше имя'
             description: 'Описание'

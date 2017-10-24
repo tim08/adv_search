@@ -1,21 +1,21 @@
 <div class="container">
 
   <ol class="breadcrumb">
-    <li><a href="index.html">Home</a></li>
-    <li class="active">Все статьи</li>
+    <li><a href="/">На главную</a></li>
+    <li class="active"><%= link_to 'Все статьи', main_articles_path %></li>
   </ol>
   <header class="page-header">
     <h1 class="page-title">Статьи</h1>
   </header>
-  <% 7.times do %>
+  <% @articles.each do |article| %>
   <div class="row" style="padding-bottom: 30px">
-    <div class="col-md-3"><%= image_tag 'mac.jpg',class: 'img-rounded pull-left', width: 300 %></div>
+
+    <div class="col-md-3"><%= image_tag article.logo, class: 'img-rounded pull-left', width: 300 %></div>
     <div class="col-md-9">
-      <h3><%= link_to 'Название статьи', articles_path%></h3>
-      <p> Превью к статье Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, consequuntur
-        eius repellendus eos aliquid molestiae ea laborum ex quibusdam laudantium voluptates placeat consectetur
-        quam aliquam beatae soluta accusantium iusto nihil nesciunt unde veniam magnam repudiandae sapiente.</p>
+      <h3><%= link_to article.title, main_article_path(article.id)  %></h3>
+      <p> <%= article.description %></p>
     </div>
+
   </div>
    <% end %>
 </div>

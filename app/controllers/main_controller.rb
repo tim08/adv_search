@@ -6,12 +6,14 @@ class MainController < ApplicationController
     @reviews = Company.reviews_main
   end
 
-  def important_article
-
-  end
+  def important_article; end
 
   def main_articles
+    @articles = Article.all
+  end
 
+  def main_article
+    @article = Article.find(params[:id])
   end
 
   def agreement
