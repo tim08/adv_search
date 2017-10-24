@@ -16,7 +16,7 @@
       <h3>О выборе</h3>
       <p>
         <%= image_tag @article.logo.url(:medium), class: 'img-rounded pull-right', width: 300 %>
-        <%= @article.body %>
+        <%= h(@article.body).gsub(/\n/, '<br/>').html_safe %>
       </p>
 
       </article>
