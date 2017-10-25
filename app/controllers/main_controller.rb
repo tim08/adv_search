@@ -16,9 +16,7 @@ class MainController < ApplicationController
     @article = Article.find(params[:id])
   end
 
-  def agreement
-
-  end
+  def agreement; end
 
   def adv_agency
     @company = Company.find(params[:id])
