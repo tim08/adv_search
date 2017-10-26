@@ -62,7 +62,9 @@
           <div class="col-md-8">
             <h4><%= project.name %></h4>
             <strong>Описание</strong>
-            <p><%= project.description %></p>
+            <p>
+              <%= h(project.description).gsub(/\n/, '<br/>').html_safe %>
+            </p>
           </div>
         </div>
         <div style="border-bottom: 1px solid #eee; margin: 40px 0 20px;"></div>
