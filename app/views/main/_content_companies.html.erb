@@ -46,11 +46,10 @@
 
         <h4>Почитать</h4>
         <ul>
-          <li>Облако тегов</li>
-          <li>Реклама PR</li>
-          <li>BTL event маркетинг</li>
+          <% @articles.each do |article| %>
+              <li><%= link_to article.title, main_article_path(article) %></li>
+          <% end %>
         </ul>
-        <a href="">Все статьи</a>
       </div>
     </div>
   </div>

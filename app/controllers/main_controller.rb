@@ -4,6 +4,7 @@ class MainController < ApplicationController
     @companies = Company.search(params)
     @projects_news = Company.news_projects
     @reviews = Company.reviews_main
+    @articles = Article.last(3)
   end
 
   def important_article; end
