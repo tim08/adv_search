@@ -15,7 +15,10 @@
 	#head { min-height:420px; padding-top:160px; }
 	#head .lead { font-size: 34px; }
 }
-
+.media-object{
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+}
 .nav
     .navbar-nav
         .pull-right{
