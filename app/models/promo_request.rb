@@ -1,8 +1,10 @@
 class PromoRequest < ApplicationRecord
 
+  after_create{ NotificationMailer.notification_request.deliver_later}
+
   enum status: [:unhandled, :free, :processing, :closed]
 
-  ADV_TYPES = { promo: 'Промо акции и мероприятия',
+  ADV_TYPES = {promo: 'Промо акции и мероприятия',
                name: 'Название',
                outdoor_ads: 'Наружная реклама',
                direct_mail: 'Директ мэйл',
@@ -18,6 +20,7 @@ class PromoRequest < ApplicationRecord
                marketing_research: 'Маркетинговые исследования',
                product_placement: 'Продакт-плейсмент',
                design_services: 'Дизайнерские услуги',
-               radio_ads: 'Реклама на радиостанциях' }.freeze
+               radio_ads: 'Реклама на радиостанциях'}.freeze
+
 
 end
