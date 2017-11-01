@@ -57,7 +57,7 @@
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav pull-right">
-        <li class="active"><a href="#">Оставить заявку</a></li>
+        <li class="<%= current_page?(new_promo_request_path) ? 'active' : '' %>"><%= link_to 'Оставить заявку', new_promo_request_path %></li>
         <li class="<%= current_page?(main_articles_path) ? 'active' : '' %>"><%= link_to 'Статьи', main_articles_path %></li>
         <li><a href="/#faq" id="l_faq">Вопросы</a></li>
         <!--<li class="dropdown">-->
@@ -130,6 +130,9 @@
               <% end %>
               <%= link_to 'https://ok.ru/group/54752958415085', target: '_blank', rel: 'nofollow' do %>
                   <%= image_tag 'od.png', height: '32', width: '32' %>
+              <% end %>
+              <%= link_to 'https://t.me/promowind', target: '_blank', rel: 'nofollow' do %>
+                  <%= image_tag 'telegram.png', height: '32', width: '32' %>
               <% end %>
             </p>
           </div>

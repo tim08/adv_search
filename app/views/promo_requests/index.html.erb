@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Promo Requests</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Town</th>
+      <th>Min order price</th>
+      <th>Description</th>
+      <th>Contact details</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @promo_requests.each do |promo_request| %>
+      <tr>
+        <td><%= promo_request.name %></td>
+        <td><%= promo_request.town %></td>
+        <td><%= promo_request.min_order_price %></td>
+        <td><%= promo_request.description %></td>
+        <td><%= promo_request.contact_details %></td>
+        <td><%= link_to 'Show', promo_request %></td>
+        <td><%= link_to 'Edit', edit_promo_request_path(promo_request) %></td>
+        <td><%= link_to 'Destroy', promo_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Promo Request', new_promo_request_path %>

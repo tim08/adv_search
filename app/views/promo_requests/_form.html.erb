@@ -1,0 +1,47 @@
+<%= form_with(model: promo_request, local: true) do |form| %>
+    <% if promo_request.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(promo_request.errors.count, "error") %> prohibited this promo_request from being saved:</h2>
+
+          <ul>
+            <% promo_request.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="top-margin">
+      <%= form.label :name %>
+      <%= form.text_field :name, id: :promo_request_name, class: 'form-control' %>
+    </div>
+
+    <div class="top-margin">
+      <%= form.label :town %>
+      <%= form.text_field :town, id: :promo_request_town, class: 'form-control'  %>
+    </div>
+
+    <div class="top-margin">
+      <%= form.label :min_order_price %>
+      <%= form.number_field :min_order_price, id: :promo_request_min_order_price, class: 'form-control', min: '1'  %>
+    </div>
+
+    <div class="top-margin">
+      <%= form.label :adv_type %><br>
+      <%= form.select :adv_type, options_from_collection_for_select(PromoRequest::ADV_TYPES, :first, :last),{}, class: 'form-control' %>
+    </div>
+
+    <div class="top-margin">
+      <%= form.label :description %>
+      <%= form.text_area :description, id: :promo_request_description, class: 'form-control', rows: '7'  %>
+    </div>
+
+    <div class="top-margin">
+      <%= form.label :contact_details %>
+      <%= form.text_field :contact_details, id: :promo_request_contact_details, class: 'form-control'  %>
+    </div>
+
+    <div class="top-margin">
+      <%= form.submit "Отправить", class: "btn btn-action" %>
+    </div>
+<% end %>

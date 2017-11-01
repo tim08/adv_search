@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :promo_requests
   resources :reviews, only: [:new, :create]
   resources :articles
   devise_for :admins

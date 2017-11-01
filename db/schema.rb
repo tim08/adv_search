@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171024080100) do
+ActiveRecord::Schema.define(version: 20171101111437) do
 
   create_table "admins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
@@ -116,6 +116,17 @@ ActiveRecord::Schema.define(version: 20171024080100) do
     t.integer "logo_file_size"
     t.datetime "logo_updated_at"
     t.index ["company_id"], name: "index_projects_on_company_id"
+  end
+
+  create_table "promo_requests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.string "town"
+    t.integer "min_order_price"
+    t.text "description"
+    t.string "contact_details"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "adv_type", default: "0"
   end
 
   create_table "reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
