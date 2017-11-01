@@ -1,5 +1,9 @@
 class NotificationMailer < ApplicationMailer
+
+  ADMIN_EMAIL = 'promowindin@gmail.com'
+
   def notification_request
-    mail(to: 'batman_forever00@mail.ru', subject: 'PromoWind: Новая заявка')
+    @promo_request = params[:promo_request]
+    mail(to: ADMIN_EMAIL, subject: 'PromoWind: Новая заявка')
   end
 end

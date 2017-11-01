@@ -1,6 +1,6 @@
 class PromoRequest < ApplicationRecord
 
-  after_create{ NotificationMailer.notification_request.deliver_later}
+  after_create{ NotificationMailer.with(promo_request: self).notification_request.deliver_later}
 
   enum status: [:unhandled, :free, :processing, :closed]
 
