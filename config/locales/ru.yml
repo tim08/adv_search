@@ -1,6 +1,7 @@
 ru:
   promo_request_status:
-    free: 'Новая'
+    unhandled: 'Новая'
+    free: 'Свободная'
     processing: 'В обработке'
     closed: 'Закрыта'
   activerecord:

@@ -25,11 +25,20 @@ class AdminsController < ApplicationController
     end
   end
 
+  def change_request_status
+    @company = PromoRequest.find(params[:id])
+    @company.update! status: :free
+    respond_to do |format|
+      format.html {redirect_to promo_requests_path, notice: 'Request status changed'}
+      format.json {head :no_content}
+    end
+  end
+
   def change_review_status
     @review = Review.find(params[:id])
     @review.update_column(:verified, !@review.verified)
     respond_to do |format|
-      format.html {redirect_to reviews_admins_path, notice: 'Company status changed'}
+      format.html {redirect_to reviews_admins_path, notice: 'Review status changed'}
       format.json {head :no_content}
     end
   end

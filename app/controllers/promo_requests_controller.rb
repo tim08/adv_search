@@ -6,7 +6,7 @@ class PromoRequestsController < ApplicationController
   # GET /promo_requests
   # GET /promo_requests.json
   def index
-    @promo_requests = PromoRequest.all
+    @promo_requests = PromoRequest.order(created_at: :desc)
   end
 
   # GET /promo_requests/1

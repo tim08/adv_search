@@ -1,6 +1,6 @@
 class PromoRequest < ApplicationRecord
 
-  enum status: [:free, :processing, :closed]
+  enum status: [:unhandled, :free, :processing, :closed]
 
   ADV_TYPES = { promo: 'Промо акции и мероприятия',
                name: 'Название',

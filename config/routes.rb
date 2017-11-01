@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       get :companies
       get :reviews
       patch 'companies/:id', to: 'admins#change_company_status', as: 'change_company_status'
+      patch 'promo_requests/:id', to: 'admins#change_request_status', as: 'change_request_status'
       patch 'reviews/:id', to: 'admins#change_review_status', as: 'change_review_status'
       delete 'companies/:id', to: 'admins#delete_company', as: 'delete_company'
     end
