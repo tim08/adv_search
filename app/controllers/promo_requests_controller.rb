@@ -1,5 +1,7 @@
 class PromoRequestsController < ApplicationController
   before_action :set_promo_request, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_admin!, except: [:new, :create]
+  layout 'admins', except: [:new, :create]
 
   # GET /promo_requests
   # GET /promo_requests.json
@@ -28,7 +30,7 @@ class PromoRequestsController < ApplicationController
 
     respond_to do |format|
       if @promo_request.save
-        format.html { redirect_to @promo_request, notice: 'Promo request was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Ваша заявка успешно отправлена. Она будет рассмотрена в ближайшее время. Спасибо.' }
         format.json { render :show, status: :created, location: @promo_request }
       else
         format.html { render :new }

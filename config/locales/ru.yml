@@ -1,4 +1,8 @@
 ru:
+  promo_request_status:
+    free: 'Новая'
+    processing: 'В обработке'
+    closed: 'Закрыта'
   activerecord:
     attributes:
           promo_request:

@@ -65,6 +65,13 @@
           <% end %>
         </li>
 
+        <li class="<%= current_page?(promo_requests_path) ? 'active' : '' %>">
+          <%= link_to promo_requests_path do %>
+              <span class="glyphicon glyphicon-pencil"></span>
+              Заявки
+          <% end %>
+        </li>
+
         <li class="<%= current_page?(cities_path) ? 'active' : '' %>">
           <%= link_to cities_path do %>
               <span class="glyphicon glyphicon-flag"></span>
