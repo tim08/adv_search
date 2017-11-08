@@ -1,7 +1,7 @@
 <%= form_with(model: promo_request, local: true) do |form| %>
     <% if promo_request.errors.any? %>
         <div id="error_explanation">
-          <h2><%= pluralize(promo_request.errors.count, "error") %> prohibited this promo_request from being saved:</h2>
+          <h2>Исправте следующие ошибки перед отправкой заявки:</h2>
 
           <ul>
             <% promo_request.errors.full_messages.each do |message| %>
@@ -39,6 +39,11 @@
     <div class="top-margin">
       <%= form.label :contact_details %>
       <%= form.text_field :contact_details, id: :promo_request_contact_details, class: 'form-control'  %>
+    </div>
+
+    <div class="top-margin">
+      <%= form.label :contact_email %>
+      <%= form.email_field :contact_email, id: :promo_request_contact_email, class: 'form-control'  %>
     </div>
 
     <div class="top-margin">

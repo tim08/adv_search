@@ -14,9 +14,9 @@ class Company < ApplicationRecord
   scope :verified, -> {where(verified: true)}
 
   def self.search(params)
-    result = { companies: none, message: '' }
+    result = {companies: none, message: ''}
     if params[:city].present?
-      companies = joins(:cities)
+      companies = verified.joins(:cities)
                       .where(cities: {id: params[:city]})
                       .where(min_order_price: 0..params[:min_order_price].to_i)
       if companies.present?
