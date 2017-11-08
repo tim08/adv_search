@@ -5,7 +5,6 @@ class PromoRequest < ApplicationRecord
   enum status: [:unhandled, :free, :processing, :closed]
 
   ADV_TYPES = {promo: 'Промо акции и мероприятия',
-               name: 'Название',
                outdoor_ads: 'Наружная реклама',
                direct_mail: 'Директ мэйл',
                transport_ads: 'Реклама на транспорте',
