@@ -3,6 +3,8 @@ class PromoRequest < ApplicationRecord
   validates :name, :min_order_price, :description,
             :contact_details, presence: true
 
+  belongs_to :city
+
   after_create{ NotificationMailer.with(promo_request: self).notification_request.deliver_later}
 
   enum status: [:unhandled, :free, :processing, :closed]

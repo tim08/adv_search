@@ -29,11 +29,14 @@
     <% @promo_requests.each do |promo_request| %>
       <tr>
         <td><%= promo_request.name %></td>
-        <td><%= promo_request.town %></td>
+        <td><%= promo_request.city.try(:name) %></td>
         <td><%= PromoRequest::ADV_TYPES[promo_request.adv_type.to_sym] %></td>
         <td><%= promo_request.min_order_price %></td>
         <td style="max-width: 350px"><%= promo_request.description %></td>
-        <td><%= promo_request.contact_details %></td>
+        <td>
+          <%= promo_request.contact_details %><br>
+          <%= promo_request.contact_email %>
+        </td>
         <td style="min-width: 100px; text-align: center">
           <% case promo_request.status %>
           <% when 'unhandled' %>

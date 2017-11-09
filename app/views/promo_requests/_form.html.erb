@@ -12,17 +12,17 @@
     <% end %>
 
     <div class="top-margin">
-      <%= form.label :name %>
+      <%= form.label :name %>*
       <%= form.text_field :name, id: :promo_request_name, class: 'form-control' %>
     </div>
 
     <div class="top-margin">
-      <%= form.label :town %>
-      <%= form.text_field :town, id: :promo_request_town, class: 'form-control'  %>
+      <%= form.label :city_id %>*
+      <%= form.collection_select :city_id, City.all.order(:name), :id, :name, {}, class: 'form-control'  %>
     </div>
 
     <div class="top-margin">
-      <%= form.label :min_order_price %>
+      <%= form.label :min_order_price %>*
       <%= form.number_field :min_order_price, id: :promo_request_min_order_price, class: 'form-control', min: '1'  %>
     </div>
 
@@ -32,12 +32,12 @@
     </div>
 
     <div class="top-margin">
-      <%= form.label :description %>
+      <%= form.label :description %>*
       <%= form.text_area :description, id: :promo_request_description, class: 'form-control', rows: '7'  %>
     </div>
 
     <div class="top-margin">
-      <%= form.label :contact_details %>
+      <%= form.label :contact_details %>*
       <%= form.text_field :contact_details, id: :promo_request_contact_details, class: 'form-control'  %>
     </div>
 

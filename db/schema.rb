@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171108120455) do
+ActiveRecord::Schema.define(version: 20171109103557) do
 
   create_table "admins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
@@ -120,7 +120,6 @@ ActiveRecord::Schema.define(version: 20171108120455) do
 
   create_table "promo_requests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
-    t.string "town"
     t.integer "min_order_price"
     t.text "description"
     t.string "contact_details"
@@ -129,6 +128,8 @@ ActiveRecord::Schema.define(version: 20171108120455) do
     t.string "adv_type", default: "0"
     t.integer "status", default: 0
     t.string "contact_email"
+    t.bigint "city_id"
+    t.index ["city_id"], name: "index_promo_requests_on_city_id"
   end
 
   create_table "reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -143,4 +144,5 @@ ActiveRecord::Schema.define(version: 20171108120455) do
   end
 
   add_foreign_key "projects", "companies"
+  add_foreign_key "promo_requests", "cities"
 end
