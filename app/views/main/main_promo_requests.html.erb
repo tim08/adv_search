@@ -1,0 +1,33 @@
+<div class="container">
+  <ol class="breadcrumb">
+  </ol>
+  <div class="row">
+
+    <header class="page-header">
+      <h1 class="page-title">Все заявки</h1>
+    </header>
+
+    <% @promo_requests.each do |pr| %>
+
+        <h4 style="color: darkorange"> <span class="glyphicon glyphicon-flag"></span> <%= pr.city.name %>, <%= l(pr.created_at, :format => :long) %></h4>
+        Рекламное направление: <%= pr.adv_type_str %><br>
+        Бюджет: <%= pr.min_order_price %> руб.<br>
+        <span>Текущий статус:</span>
+
+        <% case pr.status %>
+    <% when 'unhandled' %>
+            <span class="label label-danger"><%= I18n.t("promo_request_status.#{pr.status}") %></span>
+        <% when 'free' %>
+            <span class="label label-success"><%= I18n.t("promo_request_status.#{pr.status}") %></span>
+        <% when 'processing' %>
+            <span class="label label-warning"><%= I18n.t("promo_request_status.#{pr.status}") %></span>
+        <% when 'closed' %>
+            <span class="label label-default"><%= I18n.t("promo_request_status.#{pr.status}") %></span>
+        <% end %>
+
+        <p class="lead"><%= pr.description %></p>
+        <div style="border-bottom: 1px solid #eee;"></div>
+    <% end %>
+
+  </div>
+</div>
