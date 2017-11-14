@@ -31,7 +31,7 @@
       <tr>
         <td><%= promo_request.name %></td>
         <td><%= promo_request.city.try(:name) %></td>
-        <td><%= PromoRequest::ADV_TYPES[promo_request.adv_type.to_sym] %></td>
+        <td><%= promo_request.adv_type_str %></td>
         <td><%= promo_request.min_order_price %></td>
         <td style="min-width: 180px">
           <details>

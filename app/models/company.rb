@@ -23,13 +23,13 @@ class Company < ApplicationRecord
         result[:companies] = companies
         result[:message] = 'Компании соответствующие вашему запросу'
       else
-        companies_cities = joins(:cities).where(cities: {id: params[:city]})
+        companies_cities = verified.joins(:cities).where(cities: {id: params[:city]})
         if companies_cities.present?
           result[:companies] = companies_cities
-          result[:message] = 'В данных момент компании с установленным  Вами бюджетом отсутствуют,
+          result[:message] = 'В данных момент компании с установленным Вами бюджетом отсутствуют,
                                обратите внимания на следующие компании'
         else
-          result[:message] = 'Извините в данных момент компании из этого города отсутствуют'
+          result[:message] = 'В данных момент компании из этого города отсутствуют'
         end
       end
 

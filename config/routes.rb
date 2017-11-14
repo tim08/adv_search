@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   get 'main_articles', to: 'main#main_articles'
   get 'main_articles/:id', to: 'main#main_article', as: 'main_article'
   get 'agreement', to: 'main#agreement'
+  get 'main_promo_requests', to: 'main#main_promo_requests'
   get 'adv_agency/:id', to: 'main#adv_agency', as: 'adv_agency'
 
 

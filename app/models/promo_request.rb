@@ -26,5 +26,7 @@ class PromoRequest < ApplicationRecord
                design_services: 'Дизайнерские услуги',
                radio_ads: 'Реклама на радиостанциях'}.freeze
 
-
+  def adv_type_str
+    ADV_TYPES[adv_type.to_sym]
+  end
 end

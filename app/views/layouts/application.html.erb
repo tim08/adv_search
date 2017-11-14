@@ -57,6 +57,7 @@
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav pull-right">
+        <li class="<%= current_page?(main_promo_requests_path) ? 'active' : '' %>"><%= link_to 'Все заявки', main_promo_requests_path %></li>
         <li class="<%= current_page?(new_promo_request_path) ? 'active' : '' %>"><%= link_to 'Оставить заявку', new_promo_request_path %></li>
         <li class="<%= current_page?(main_articles_path) ? 'active' : '' %>"><%= link_to 'Статьи', main_articles_path %></li>
         <li><a href="/#faq" id="l_faq">Вопросы</a></li>
