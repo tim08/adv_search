@@ -7,15 +7,22 @@
 <br>
 <div class="row">
   <div class="col-md-12">
-    Текущий статус:
-    <% if @company.verified? %>
-        <span class="label label-success">Участвует в поиске</span>
-        <%= link_to 'Посмотреть как Ваша компания выглядит для клиентов', adv_agency_path(@company), target: '_blank' %>
-        <% else %>
-        <span class="label label-danger" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Не участвует в поиске</span>
-        <br>
-        Ваша компания будет видна пользователям после проверки.
-    <% end %>
+    <div>
+      Текущий статус:
+      <% if @company.verified? %>
+          <span class="label label-success">Участвует в поиске</span>
+          <%= link_to 'Посмотреть как Ваша компания выглядит для клиентов', adv_agency_path(@company), target: '_blank' %>
+      <% else %>
+          <span class="label label-danger" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Не участвует в поиске</span>
+          <br>
+          Ваша компания будет видна пользователям после проверки.
+      <% end %>
+    </div>
+    <br>
+    <div>
+      Тип аккаунта: <%= @company.premium? ? 'Премиум' : 'Обычный' %>
+    </div>
+
   </div>
 </div>
 

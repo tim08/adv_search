@@ -47,4 +47,8 @@ class Company < ApplicationRecord
   def self.reviews_main
     verified.joins(:reviews).distinct.last(3)
   end
+
+  def premium?
+    DateTime.now < expiration_date_of_premium
+  end
 end

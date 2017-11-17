@@ -61,11 +61,13 @@
           </div>
           <div class="col-md-8">
             <h4><%= project.name %></h4>
-            <strong>Описание</strong>
+
             <p>
               <%= h(project.description).gsub(/\n/, '<br/>').html_safe %>
             </p>
+            <h5>Заказчик: <%= project.client %></h5>
           </div>
+
         </div>
         <div style="border-bottom: 1px solid #eee; margin: 40px 0 20px;"></div>
     <% end %>
