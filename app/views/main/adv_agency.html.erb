@@ -75,22 +75,24 @@
     <h2> Контактные данные</h2>
     <div class="col-md-4">
       <address>
-        <strong>Адрес:</strong><br>
+        <strong>Телефон:</strong>
+        <%= link_to @company.phone_contact, "tel:+#{@company.phone_contact.gsub(/[^\d]/, '')}" %>
+      </address>
+      <address>
+        <strong>E-mail:</strong>
+        <a href="mailto:<%= @company.email_contact %>" target="_blank"><%= @company.email_contact %></a>
+      </address>
+      <address>
+        <strong>Адрес:</strong>
         <%= @company.address_contact %><br>
       </address>
     </div>
 
     <div class="col-md-4">
-      <address>
-        <strong>Телефон:</strong><br>
-        <%= link_to @company.phone_contact, "tel:+#{@company.phone_contact.gsub(/[^\d]/, '')}" %>
-      </address>
+
     </div>
     <div class="col-md-4">
-      <address>
-        <strong>E-mail:</strong><br>
-        <a href="mailto:<%= @company.email_contact %>" target="_blank"><%= @company.email_contact %></a>
-      </address>
+
     </div>
   </div>
 

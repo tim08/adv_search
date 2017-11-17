@@ -7,9 +7,27 @@
       <h1 class="page-title">Все заявки</h1>
     </header>
 
+    <div>
+      <p>
+        Получить заявку может любая представленная на сайте рекламная компания из соответствующего города, работающая с
+        указанным в заявке бюджетом.
+
+        Для того, чтобы принимать заявки, добавьте информацию о вашей компании в базу рекламных поставщиков - пройдите
+        простую регистрацию, нажав на кнопку <%= link_to 'Присоединиться', new_company_registration_path %>
+      </p>
+      <p>
+        ! Премиум аккаунты получают рекламные заявки сразу же после их публикации.
+      </p>
+      <p>
+        ! Компании без премиум аккаунта могут связаться с заявителем по истечении 60 минут.
+      </p>
+      <div style="border-bottom: 1px solid #eee;"></div>
+    </div>
+
     <% @promo_requests.each do |pr| %>
 
-        <h4 style="color: darkorange"> <span class="glyphicon glyphicon-flag"></span> <%= pr.city.name %>, <%= l(pr.created_at, :format => :long) %></h4>
+        <h4 style="color: darkorange"><span class="glyphicon glyphicon-flag"></span> <%= pr.city.name %>
+          , <%= l(pr.created_at, :format => :long) %></h4>
         Рекламное направление: <%= pr.adv_type_str %><br>
         Бюджет: <%= pr.min_order_price %> руб.<br>
         <span>Текущий статус:</span>
