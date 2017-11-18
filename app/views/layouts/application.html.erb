@@ -4,38 +4,45 @@
   <title>Promo Wind - сервис поиска рекламных компаний</title>
   <%= csrf_meta_tags %>
 
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'%>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload', async: Rails.env.production? %>
   <%= favicon_link_tag 'favicon.ico' %>
 
 <body class="home">
 <!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
+<script type="text/javascript">
     (function (d, w, c) {
-        (w[c] = w[c] || []).push(function() {
+        (w[c] = w[c] || []).push(function () {
             try {
                 w.yaCounter46440327 = new Ya.Metrika({
-                    id:46440327,
-                    clickmap:true,
-                    trackLinks:true,
-                    accurateTrackBounce:true
+                    id: 46440327,
+                    clickmap: true,
+                    trackLinks: true,
+                    accurateTrackBounce: true
                 });
-            } catch(e) { }
+            } catch (e) {
+            }
         });
 
         var n = d.getElementsByTagName("script")[0],
             s = d.createElement("script"),
-            f = function () { n.parentNode.insertBefore(s, n); };
+            f = function () {
+                n.parentNode.insertBefore(s, n);
+            };
         s.type = "text/javascript";
         s.async = true;
         s.src = "https://mc.yandex.ru/metrika/watch.js";
 
         if (w.opera == "[object Opera]") {
             d.addEventListener("DOMContentLoaded", f, false);
-        } else { f(); }
+        } else {
+            f();
+        }
     })(document, window, "yandex_metrika_callbacks");
 </script>
-<noscript><div><img src="https://mc.yandex.ru/watch/45016294" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<noscript>
+  <div><img src="https://mc.yandex.ru/watch/45016294" style="position:absolute; left:-9999px;" alt=""/></div>
+</noscript>
 <!-- /Yandex.Metrika counter -->
 
 <div class="navbar navbar-inverse navbar-static-top headroom animated">
@@ -57,8 +64,7 @@
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav pull-right">
-        <li class="<%= current_page?(main_promo_requests_path) ? 'active' : '' %>"><%= link_to 'Все заявки', main_promo_requests_path %></li>
-        <li class="<%= current_page?(new_promo_request_path) ? 'active' : '' %>"><%= link_to 'Оставить заявку', new_promo_request_path %></li>
+        <li class="<%= current_page?(main_promo_requests_path) ? 'active' : '' %>"><%= link_to 'Рекламные заявки', main_promo_requests_path %></li>
         <li class="<%= current_page?(main_articles_path) ? 'active' : '' %>"><%= link_to 'Статьи', main_articles_path %></li>
         <li><a href="/#faq" id="l_faq">Вопросы</a></li>
         <!--<li class="dropdown">-->
@@ -69,18 +75,19 @@
         <!--</ul>-->
         <!--</li>-->
 
-          <% if company_signed_in? %>
+        <% if company_signed_in? %>
             <li><%= link_to('Личный кабинет', companies_path, class: 'btn') %></li>
-             <li> <%= link_to('Выход', destroy_company_session_path, method: :delete, class: 'btn') %></li>
-          <% else %>
+            <li> <%= link_to('Выход', destroy_company_session_path, method: :delete, class: 'btn') %></li>
+        <% else %>
             <li>
               <%= link_to('Войти', companies_url, class: 'btn') %>
             </li>
-          <% end %>
+        <% end %>
 
         <li>
           <%= link_to('Присоединиться', new_company_registration_path, class: 'btn') unless company_signed_in? %>
         </li>
+        <li class="active"><%= link_to 'Оставить заявку', new_promo_request_path, class: 'btn' %></li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>
@@ -140,7 +147,6 @@
         </div>
 
 
-
         <div class="col-md-7 widget">
           <h3 class="widget-title">О компании</h3>
           <div class="widget-body">
@@ -150,7 +156,8 @@
               бизнесу рекламного исполнителя и быстро оценить его компетентность на основе реализованных проектов,
               ключевых клиентов, отзывов и рекламного опыта. Все компании проходят проверку администраторами сервиса.
             </p>
-            <p>Выбирайте прибыльного рекламного партнера и связывайтесь с ним для запуска собственной рекламной кампании.</p>
+            <p>Выбирайте прибыльного рекламного партнера и связывайтесь с ним для запуска собственной рекламной
+              кампании.</p>
           </div>
         </div>
 
