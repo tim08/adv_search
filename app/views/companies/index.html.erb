@@ -11,7 +11,7 @@
       Текущий статус:
       <% if @company.verified? %>
           <span class="label label-success">Участвует в поиске</span>
-          <%= link_to 'Посмотреть как Ваша компания выглядит для клиентов', adv_agency_path(@company), target: '_blank' %>
+          <%= link_to 'Посмотреть как выглядит компания для клиентов', adv_agency_path(@company), target: '_blank' %>
       <% else %>
           <span class="label label-danger" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Не участвует в поиске</span>
           <br>
@@ -24,8 +24,8 @@
       <% if @company.premium? %>
           Премиум
       <% else %>
-          Обычный <span id='account_info' class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="right" title="Вы получаете новые заявки с задержкой 60 минут. Контактные данные Вашей компании скрыты."></span>
-          <%= link_to 'Ссылка для перехода на премиум-аккаунт', companies_path %>
+          Обычный <span id='account_info' class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="right" data-html="true" title="- Вы можете принять заявку в работу,<br> через 60 минут после её размещения.<br>- При просмотре Вашей страницы контактные данные компании скрыты.<br>- Отсутствует возможность публикации новых статей от имени компании."></span>
+          <%= link_to 'Подключить премиум аккаунт', companies_path %>
       <% end %>
     </div>
     <br>
@@ -60,6 +60,7 @@
     </p>
   </div>
 </div>
+
 
 
 

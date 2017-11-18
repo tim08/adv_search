@@ -28,7 +28,7 @@ class Company < ApplicationRecord
           result[:companies] = companies_cities
           result[:message] = 'В данный момент компании с указанным бюджетом отсутствуют, обратите внимание на следующие'
         else
-          result[:message] = 'В данных момент компании из этого города отсутствуют'
+          result[:message] = 'В данный момент компании из этого города отсутствуют'
         end
       end
 
