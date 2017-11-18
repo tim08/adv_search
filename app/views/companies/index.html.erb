@@ -20,7 +20,20 @@
     </div>
     <br>
     <div>
-      Тип аккаунта: <%= @company.premium? ? 'Премиум' : 'Обычный' %>
+      Тип аккаунта:
+      <% if @company.premium? %>
+          Премиум
+      <% else %>
+          Обычный <span id='account_info' class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="right" title="Вы получаете новые заявки с задержкой 60 минут. Контактные данные Вашей компании скрыты."></span>
+          <%= link_to 'Ссылка для перехода на премиум-аккаунт', companies_path %>
+      <% end %>
+    </div>
+    <br>
+    <div>
+      Преимущества премиум аккаунта:<br>
+      <span class="glyphicon glyphicon glyphicon-ok" style="color: green"></span> Возможность получения заявок без задержки<br>
+      <span class="glyphicon glyphicon glyphicon-ok" style="color: green"></span> Публикация контактных данных Вашей компании  <br>
+      <span class="glyphicon glyphicon glyphicon-ok" style="color: green"></span> Размещение Ваших рекламных статей на сервисе
     </div>
 
   </div>

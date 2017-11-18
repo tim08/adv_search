@@ -26,8 +26,7 @@ class Company < ApplicationRecord
         companies_cities = verified.joins(:cities).where(cities: {id: params[:city]})
         if companies_cities.present?
           result[:companies] = companies_cities
-          result[:message] = 'В данных момент компании с установленным Вами бюджетом отсутствуют,
-                               обратите внимания на следующие компании'
+          result[:message] = 'В данный момент компании с указанным бюджетом отсутствуют, обратите внимание на следующие'
         else
           result[:message] = 'В данных момент компании из этого города отсутствуют'
         end
