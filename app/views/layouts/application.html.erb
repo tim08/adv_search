@@ -5,7 +5,8 @@
   <%= csrf_meta_tags %>
 
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload', async: Rails.env.production? %>
+  <%#= javascript_include_tag 'application', 'data-turbolinks-track': 'reload', async: Rails.env.production? %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <%= favicon_link_tag 'favicon.ico' %>
 
 <body class="home">
@@ -133,7 +134,7 @@
               <%= link_to 'https://vk.com/promowind', target: '_blank', rel: 'nofollow' do %>
                   <%= image_tag 'vk.png', height: '32', width: '32' %>
               <% end %>
-              <%= link_to 'https://www.facebook.com/groups/promowind', target: '_blank', rel: 'nofollow' do %>
+              <%= link_to 'https://www.facebook.com/promowind/', target: '_blank', rel: 'nofollow' do %>
                   <%= image_tag 'fb.png', height: '32', width: '32' %>
               <% end %>
               <%= link_to 'https://ok.ru/group/54752958415085', target: '_blank', rel: 'nofollow' do %>

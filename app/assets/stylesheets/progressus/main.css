@@ -221,6 +221,7 @@ label {
 .page-title {
     margin-top: 20px;
     font-weight: 300;
+    text-align: center;
 }
 
 .text-muted {
