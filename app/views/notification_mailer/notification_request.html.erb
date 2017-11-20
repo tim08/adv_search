@@ -8,7 +8,7 @@
 <p>
 Новая заявка<br>
 От: <%= @promo_request.name %> <br>
-Город:  <%= @promo_request.town %><br>
+Город:  <%= @promo_request.city.name %><br>
 <%= link_to 'Проверить', promo_requests_url %>
 </p>
 <p>
