@@ -1,4 +1,12 @@
 ru:
+  type_review:
+    positive: 'Положительный'
+    negative: 'Отрицательный'
+  search_message:
+    companies_matching: 'Компании соответствующие вашему запросу'
+    companies_budget_missing: 'В данный момент компании с указанным бюджетом отсутствуют, обратите внимание на следующие'
+    companies_missing: 'В данный момент компании из этого города отсутствуют'
+    last_companies: 'Последние компании'
   promo_request_status:
     unhandled: 'Новая'
     free: 'Свободная'

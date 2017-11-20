@@ -107,7 +107,7 @@
         <% @company.reviews.verified.each do |review| %>
 
             <p>  <%= "#{review.name}(#{review.p_city})  #{review.created_at.strftime("%-d.%-m.%Y %H:%M")}:"%></p>
-            <% if review.type_review == "положительное" %>
+            <% if review.positive? %>
                 <span class="label label-success">Положительный</span>
             <% else %>
                 <span class="label label-danger">Отрицательный</span>
@@ -153,7 +153,7 @@
             <div class="form-group">
               <%= form.label :type_review %>
               <br>
-              <%= form.collection_radio_buttons :type_review, Review.type_reviews, :first, :first,{ checked: Review.type_reviews.first }%>
+              <%= form.collection_radio_buttons :type_review, Review.type_reviews, :first, :first, { checked: Review.type_reviews.first }%>
             </div>
             <%= form.number_field :company_id, id: :review_company_id, style: 'display:none' %>
 

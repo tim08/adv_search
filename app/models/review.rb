@@ -1,6 +1,6 @@
 class Review < ApplicationRecord
   belongs_to :company
-  enum type_review: ['положительное', 'отрицательное']
+  enum type_review: [:positive, :negative]
 
   scope :verified, -> {where(verified: true)}
 

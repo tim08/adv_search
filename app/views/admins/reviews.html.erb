@@ -19,7 +19,7 @@
       <tr>
         <td><%= "#{review.name}(#{review.p_city})"%></td>
         <td><%= link_to  review.company.name, adv_agency_url(review.company), target: '_blank' %></td>
-        <td><%= review.type_review %></td>
+        <td><%= I18n.t("type_review.#{review.type_review}") %></td>
         <td><%= review.description %></td>
         <td>
           <% if review.verified? %>

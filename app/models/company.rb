@@ -21,20 +21,20 @@ class Company < ApplicationRecord
                       .where(min_order_price: 0..params[:min_order_price].to_i)
       if companies.present?
         result[:companies] = companies
-        result[:message] = 'Компании соответствующие вашему запросу'
+        result[:message] = I18n.t('search_message.companies_matching')
       else
         companies_cities = verified.joins(:cities).where(cities: {id: params[:city]})
         if companies_cities.present?
           result[:companies] = companies_cities
-          result[:message] = 'В данный момент компании с указанным бюджетом отсутствуют, обратите внимание на следующие'
+          result[:message] = I18n.t('search_message.companies_budget_missing')
         else
-          result[:message] = 'В данный момент компании из этого города отсутствуют'
+          result[:message] = I18n.t('search_message.companies_missing')
         end
       end
 
     else
       result[:companies] = verified.last(5).reverse
-      result[:message] = 'Последние компании'
+      result[:message] = I18n.t('search_message.last_companies')
     end
     result
   end
