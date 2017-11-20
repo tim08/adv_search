@@ -20,73 +20,73 @@
       <div class="row" id="tags">
         <div class="col-xs-6 col-md-3">
           <div class="form-group">
-          <%= check_box_tag :promo %>
+          <%= check_box_tag :promo, true , params[:promo].present? %>
           <%= label_tag :promo, 'Промо акции и мероприятия' %>
           </div>
           <div class="form-group">
-          <%= check_box_tag :direct_mail %>
+          <%= check_box_tag :direct_mail, true , params[:direct_mail].present? %>
           <%= label_tag :direct_mail, 'Директ мэйл' %>
           </div>
           <div class="form-group">
-          <%= check_box_tag :outdoor_ads %>
+          <%= check_box_tag :outdoor_ads, true , params[:outdoor_ads].present? %>
           <%= label_tag :outdoor_ads, 'Наружная реклама' %>
           </div>
           <div class="form-group">
-          <%= check_box_tag :radio_ads %>
+          <%= check_box_tag :radio_ads, true , params[:radio_ads].present? %>
           <%= label_tag :radio_ads, 'Реклама на радиостанциях' %>
           </div>
         </div>
         <div class="col-xs-6 col-md-3">
           <div class="form-group">
-            <%= check_box_tag :transport_ads %>
-            <%= label_tag :transport_ads, 'Реклама на транспорте' %>
+            <%= check_box_tag :transport_ads, true , params[:transport_ads].present? %>
+            <%= label_tag 'Реклама на транспорте' %>
           </div>
           <div class="form-group">
-            <%= check_box_tag :indoor_ads %>
-            <%= label_tag :transport_ads, 'Indoor реклама' %>
+            <%= check_box_tag :indoor_ads, true , params[:indoor_ads].present? %>
+            <%= label_tag :indoor_ads, 'Indoor реклама' %>
           </div>
           <div class="form-group">
-            <%= check_box_tag :mass_media %>
+            <%= check_box_tag :mass_media, true , params[:mass_media].present? %>
             <%= label_tag :mass_media, 'Печатные СМИ' %>
           </div>
           <div class="form-group">
-            <%= check_box_tag :tv_ads %>
+            <%= check_box_tag :tv_ads, true , params[:tv_ads].present? %>
             <%= label_tag :tv_ads, 'Телевизионная реклама' %>
           </div>
         </div>
         <div class="col-xs-6 col-md-3">
           <div class="form-group">
-            <%= check_box_tag :internet_ids %>
-            <%= label_tag :'Интернет реклама' %>
+            <%= check_box_tag :internet_ids, true , params[:internet_ids].present? %>
+            <%= label_tag 'Интернет реклама' %>
           </div>
           <div class="form-group">
-            <%= check_box_tag :salepoint_ads %>
+            <%= check_box_tag :salepoint_ads, true , params[:salepoint_ads].present? %>
             <%= label_tag 'Реклама в местах продаж' %>
           </div>
           <div class="form-group">
-            <%= check_box_tag :production_promotional_materials %>
+            <%= check_box_tag :production_promotional_materials, true , params[:production_promotional_materials].present? %>
             <%= label_tag 'Изг. рекламных материалов' %>
           </div>
           <div class="form-group">
-            <%= check_box_tag :install_adv_constructions %>
+            <%= check_box_tag :install_adv_constructions, true , params[:install_adv_constructions].present? %>
             <%= label_tag 'Монтаж рекламных конструкций' %>
           </div>
         </div>
         <div class="col-xs-6 col-md-3">
           <div class="form-group">
-            <%= check_box_tag :print_services %>
+            <%= check_box_tag :print_services, true , params[:print_services].present? %>
             <%= label_tag 'Полиграфические услуги' %>
           </div>
           <div class="form-group">
-            <%= check_box_tag :marketing_research %>
+            <%= check_box_tag :marketing_research, true , params[:marketing_research].present? %>
             <%= label_tag 'Маркетинговые исследования' %>
           </div>
           <div class="form-group">
-            <%= check_box_tag :product_placement %>
+            <%= check_box_tag :product_placement, true , params[:product_placement].present? %>
             <%= label_tag 'Продакт-плейсмент' %>
           </div>
           <div class="form-group">
-            <%= check_box_tag :design_services %>
+            <%= check_box_tag :design_services, true , params[:design_services].present? %>
             <%= label_tag 'Дизайнерские услуги' %>
           </div>
         </div>
