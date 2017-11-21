@@ -385,5 +385,14 @@ img.pull-left {
 }
 
 .tooltip-inner {
-    max-width: 450px;
+    max-width: 480px;
+}
+
+#request_info{
+    cursor: pointer;
+}
+
+#request_info_text{
+    font-family: "Open sans", Helvetica, Arial;
+    text-decoration: underline;
 }

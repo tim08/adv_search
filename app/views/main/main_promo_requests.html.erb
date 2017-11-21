@@ -4,18 +4,17 @@
   <div class="row">
 
     <header class="page-header">
-      <h1 class="page-title">Все заявки</h1>
+      <h1 class="page-title">Рекламные заявки</h1>
     </header>
 
-    <div>
-      <strong>Как получать
-        заявки? </strong><span id='account_info' class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="right" data-html="true" title="
-Получить заявку может любая представленная на сайте рекламная компания из соответствующего города, работающая с указанным в заявке бюджетом.<br>
+    <div style="text-align: right">
+      <span id='request_info' class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="left" data-html="true" title="
+<div style='text-align: left'>Получить заявку может любая представленная на сайте рекламная компания из соответствующего города, работающая с указанным в заявке бюджетом.<br>
 Для того, чтобы начать принимать заявки, добавьте информацию о вашей компании в нашу базу рекламных поставщиков.<br>
 Пройдите простую регистрацию прямо сейчас нажав на кнопку Присоединиться<br>
 
-! Премиум аккаунты получают рекламные заявки сразу же после их публикации. Компании без премиум аккаунта могут связываться с заявителем по истечении 60 минут.
-"></span>
+! Премиум аккаунты получают рекламные заявки сразу же после их публикации. Компании без премиум аккаунта могут связываться с заявителем по истечении 60 минут.</div>
+"><strong id="request_info_text">Как получать заявки?</strong></span>
 
     </div>
 
@@ -44,3 +43,7 @@
 
   </div>
 </div>
+
+<script>
+    $("#request_info").tooltip();
+</script>
