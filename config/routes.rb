@@ -20,6 +20,9 @@ Rails.application.routes.draw do
     resources :projects
     member do
       get :help
+      get :promo_requests
+      patch 'accept_promo_request/:promo_request_id', action: :accept_promo_request, as: 'accept_promo_request'
+      patch 'close_promo_request/:promo_request_id', action: :close_promo_request, as: 'close_promo_request'
     end
   end
 

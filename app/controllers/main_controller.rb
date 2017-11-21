@@ -25,7 +25,7 @@ class MainController < ApplicationController
   end
 
   def main_promo_requests
-    @promo_requests = PromoRequest.where.not(status: :unhandled).order(created_at: :desc)
+    @promo_requests = PromoRequest.verified
   end
 
 

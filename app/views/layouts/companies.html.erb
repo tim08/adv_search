@@ -58,7 +58,12 @@
               Наши проекты
           <% end %>
         </li>
-        <li><a href="#">Заявки</a></li>
+        <li class="<%= current_page?(promo_requests_company_path(@company)) ? 'active' : '' %>">
+          <%= link_to (promo_requests_company_path(@company)) do %>
+              <span class="glyphicon glyphicon-envelope"></span>
+              Заявки
+          <% end %>
+        </li>
         <li><a href="#">Статистика</a></li>
       </ul>
       <ul class="nav nav-sidebar">

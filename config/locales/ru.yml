@@ -8,6 +8,7 @@ ru:
     companies_missing: 'В данный момент компании из этого города отсутствуют'
     last_companies: 'Последние компании'
   promo_request_status:
+    hidden_free_status_for_company: 'Данные скрыты'
     unhandled: 'Новая'
     free: 'Свободная'
     processing: 'В обработке'

@@ -26,8 +26,8 @@ class AdminsController < ApplicationController
   end
 
   def change_request_status
-    @company = PromoRequest.find(params[:id])
-    @company.update! status: :free
+    @promo_request = PromoRequest.find(params[:id])
+    @promo_request.update! status: :free, verified_at: DateTime.now
     respond_to do |format|
       format.html {redirect_to promo_requests_path, notice: 'Request status changed'}
       format.json {head :no_content}

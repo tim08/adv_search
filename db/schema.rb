@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171117115153) do
+ActiveRecord::Schema.define(version: 20171121100435) do
 
   create_table "admins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
@@ -131,7 +131,10 @@ ActiveRecord::Schema.define(version: 20171117115153) do
     t.integer "status", default: 0
     t.string "contact_email"
     t.bigint "city_id"
+    t.datetime "verified_at"
+    t.bigint "company_id"
     t.index ["city_id"], name: "index_promo_requests_on_city_id"
+    t.index ["company_id"], name: "index_promo_requests_on_company_id"
   end
 
   create_table "reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -147,4 +150,5 @@ ActiveRecord::Schema.define(version: 20171117115153) do
 
   add_foreign_key "projects", "companies"
   add_foreign_key "promo_requests", "cities"
+  add_foreign_key "promo_requests", "companies"
 end

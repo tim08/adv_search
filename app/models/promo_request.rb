@@ -4,10 +4,16 @@ class PromoRequest < ApplicationRecord
             :contact_details, presence: true
 
   belongs_to :city
+  belongs_to :company, optional: true
 
   after_create{ NotificationMailer.with(promo_request: self).notification_request.deliver_later}
 
   enum status: [:unhandled, :free, :processing, :closed]
+
+  scope :verified, -> {where.not(status: :unhandled).order(created_at: :desc)}
+  scope :only_free, -> { where(status: :free).order(created_at: :desc) }
+
+  DELAY_FOR_NORMAL_ACCOUNT = 60
 
   ADV_TYPES = {promo: 'Промо акции и мероприятия',
                outdoor_ads: 'Наружная реклама',
@@ -29,4 +35,9 @@ class PromoRequest < ApplicationRecord
   def adv_type_str
     ADV_TYPES[adv_type.to_sym]
   end
+
+  def self.search_free(company)
+    only_free.joins(:city).where(cities: { id: company.cities.ids })
+  end
+
 end

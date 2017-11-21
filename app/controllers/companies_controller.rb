@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  before_action :set_company, only: %i[show edit update destroy help]
+  before_action :set_company, only: %i[show edit update destroy help promo_requests accept_promo_request]
   before_action :authenticate_company!
 
   # GET /companies
@@ -51,6 +51,29 @@ class CompaniesController < ApplicationController
   end
 
   def help; end
+
+  def promo_requests
+    @free_promo_requests = PromoRequest.search_free(@company)
+    @processing_promo_requests = @company.promo_requests
+  end
+
+  def accept_promo_request
+    @promo_request = PromoRequest.find(params[:promo_request_id])
+    @promo_request.update! status: :processing, company_id: @company.id
+    respond_to do |format|
+      format.html {redirect_to promo_requests_company_path, notice: 'Заявка взята в обработку'}
+      format.json {head :no_content}
+    end
+  end
+
+  def close_promo_request
+    @promo_request = PromoRequest.find(params[:promo_request_id])
+    @promo_request.update! status: :closed
+    respond_to do |format|
+      format.html {redirect_to promo_requests_company_path, notice: 'Заявка закрыта'}
+      format.json {head :no_content}
+    end
+  end
 
   # DELETE /companies/1
   # DELETE /companies/1.json
