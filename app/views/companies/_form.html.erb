@@ -22,6 +22,10 @@
           <%= form.label :slogan %>
           <%= form.text_field :slogan, class: 'form-control' %>
         </div>
+        <div class="form-group">
+          <%= form.label :date_foundation %> <br>
+          <%= form.date_select :date_foundation, start_year: 1850, end_year: 2017, class: 'form-control' %>
+        </div>
       </div>
       <div class="col-md-3">
         <span class="label label-info">Опыт и расценки</span>
@@ -41,12 +45,26 @@
           <%= form.text_field :phone_contact, class: 'form-control' %>
         </div>
         <div class="form-group">
+          <%= form.label :mobile_phone_contact %>
+          <%= form.text_field :mobile_phone_contact, class: 'form-control' %>
+        </div>
+        <div class="form-group">
           <%= form.label :email_contact %>
           <%= form.email_field :email_contact, class: 'form-control' %>
         </div>
         <div class="form-group">
           <%= form.label :address_contact %>
           <%= form.text_field :address_contact, class: 'form-control' %>
+        </div>
+
+      </div>
+      <div class="col-md-3">
+        <span class="label label-info">Дополнительная информация</span>
+        <div class="form-group">
+          <%= form.label :company_site %>
+          <%= form.text_field :company_site, class: 'form-control',type: 'url', placeholder: 'http://your_site_name.ru' %>
+          <small>Это поле должно начинаться с http:// или https:// <br>
+            Например: https://promowind.ru</small>
         </div>
       </div>
       <div class="col-md-4">

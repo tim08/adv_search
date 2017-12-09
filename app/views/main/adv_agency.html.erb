@@ -22,7 +22,22 @@
           <h2> <%= @company.name %></h2>
         </div>
         <div class="col-md-6" style="height: 120px;">
-          <h4>Где мы работаем</h4>
+          <blockquote>
+            <p><%= @company.slogan %></p>
+          </blockquote>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6" style="height: 120px;">
+          <h4>Минимальный бюджет</h4>
+
+          <strong> <%= @company.min_order_price %> руб.</strong>
+        </div>
+        <div class="col-md-6">
+
+
+          <h4>Региональный охват</h4>
 
           <% @company.cities.each do |city| %>
               <%= city.name + "#{',' if city != @company.cities.last && @company.cities.count > 1}" %>
@@ -30,27 +45,17 @@
 
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-6" style="height: 120px;">
-          <blockquote>
-            <p><%= @company.slogan %></p>
-          </blockquote>
-        </div>
-        <div class="col-md-6" style="height: 120px;margin: 30px 0 30px">
-          <h4>Минимальный бюджет</h4>
-
-          <strong> <%= @company.min_order_price %> руб.</strong>
-
-        </div>
-      </div>
     </div>
   </div>
   <div class="row">
-    <h2> Описание компании</h2>
+    <h2> О компании</h2>
+    <p class="lead">
+      <%= "Ведёт деятельность с #{ @company.date_foundation.strftime("%-d.%-m.%Y")}" if @company.date_foundation %>
+    </p>
     <p class="lead" style="font-size: 18px"><%= h(@company.description).gsub(/\n/, '<br/>').html_safe %></p>
   </div>
   <div class="row">
-    <h2> Проекты</h2>
+    <h2> Реализованные проекты</h2>
 
 
 
@@ -74,20 +79,28 @@
   </div>
 
   <div class="row">
-    <h2> Контактные данные</h2>
+    <h2> Контакты компании</h2>
     <div class="col-md-4">
-      <address>
-        <strong>Телефон:</strong>
-        <%= link_to @company.phone_contact, "tel:+#{@company.phone_contact.gsub(/[^\d]/, '')}" %>
-      </address>
-      <address>
-        <strong>E-mail:</strong>
-        <a href="mailto:<%= @company.email_contact %>" target="_blank"><%= @company.email_contact %></a>
-      </address>
-      <address>
-        <strong>Адрес:</strong>
-        <%= @company.address_contact %><br>
-      </address>
+      <% if @company.premium? %>
+          <address>
+            <strong>Телефон:</strong>
+            <%= link_to @company.phone_contact, "tel:+#{@company.phone_contact.gsub(/[^\d]/, '')}" %>
+          </address>
+          <address>
+            <strong>E-mail:</strong>
+            <a href="mailto:<%= @company.email_contact %>" target="_blank"><%= @company.email_contact %></a>
+          </address>
+          <address>
+            <strong>Адрес:</strong>
+            <%= @company.address_contact %><br>
+          </address>
+          <address>
+            <strong>Сайт:</strong>
+            <%= @company.company_site %><br>
+          </address>
+      <% else %>
+            Данные скрыты
+      <% end %>
     </div>
 
     <div class="col-md-4">
@@ -106,7 +119,7 @@
 
         <% @company.reviews.verified.each do |review| %>
 
-            <p>  <%= "#{review.name}(#{review.p_city})  #{review.created_at.strftime("%-d.%-m.%Y %H:%M")}:"%></p>
+            <p>  <%= "#{review.name}(#{review.p_city})  #{review.created_at.strftime("%-d.%-m.%Y %H:%M")}:" %></p>
             <% if review.positive? %>
                 <span class="label label-success">Положительный</span>
             <% else %>
@@ -121,53 +134,57 @@
     <% else %>
         Пока что нет отзывов об этой компании
     <% end %>
-    </div>
-    <br>
-
-
-    Если Вы сотрудничали с данной компанией можете оставить свой отзыв
-    <%= form_with(model: @review, local: true) do |form| %>
-        <% if @review.errors.any? %>
-            <div id="error_explanation">
-              <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
-
-              <ul>
-                <% @review.errors.full_messages.each do |message| %>
-                    <li><%= message %></li>
-                <% end %>
-              </ul>
-            </div>
-        <% end %>
-        <div class="row">
-          <div class="col-md-3">
-            <div class="form-group">
-              <%= form.label :name %>
-              <%= form.text_field :name, id: :review_name, class: 'form-control', :required => true %>
-            </div>
-
-            <div class="form-group">
-              <%= form.label :p_city %>
-              <%= form.text_field :p_city, id: :review_p_city, class: 'form-control', :required => true %>
-            </div>
-
-            <div class="form-group">
-              <%= form.label :type_review %>
-              <br>
-              <%= form.collection_radio_buttons :type_review, Review.type_reviews, :first, :first, { checked: Review.type_reviews.first }%>
-            </div>
-            <%= form.number_field :company_id, id: :review_company_id, style: 'display:none' %>
-
-            <div class="form-group">
-              <%= form.label :description %>
-              <%= form.text_area :description, rows: 6, id: :review_description, class: 'form-control', :required => true %>
-            </div>
-
-
-            <%= form.submit 'Оставить отзыв', class: 'btn btn-primary' %>
-          </div>
-        </div>
-    <% end %>
-
-
   </div>
+  <br>
 
+
+  Сотрудничали с компанией? Оставьте пожалуйста свой отзыв для будущих партнёров
+  <%= form_with(model: @review, local: true) do |form| %>
+      <% if @review.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
+
+            <ul>
+              <% @review.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="form-group">
+            <%= form.label :name %>
+            <%= form.text_field :name, id: :review_name, class: 'form-control', :required => true %>
+          </div>
+
+          <div class="form-group">
+            <%= form.label :p_city %>
+            <%= form.text_field :p_city, id: :review_p_city, class: 'form-control', :required => true %>
+          </div>
+
+          <div class="form-group">
+            <%= form.label :type_review %>
+            <br>
+            <%= form.collection_radio_buttons :type_review, Review.type_reviews, :first, :first, {checked: Review.type_reviews.first} %>
+          </div>
+          <%= form.number_field :company_id, id: :review_company_id, style: 'display:none' %>
+
+          <div class="form-group">
+            <%= form.label :description %>
+            <%= form.text_area :description, rows: 6, id: :review_description, class: 'form-control', :required => true %>
+          </div>
+
+
+          <%= form.submit 'Оставить отзыв', class: 'btn btn-primary' %>
+        </div>
+      </div>
+  <% end %>
+
+
+</div>
+
+<script>
+    $('label[for="review_type_review_positive"]').text('положительный');
+    $('label[for="review_type_review_negative"]').text('отрицательный');
+</script>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171121100435) do
+ActiveRecord::Schema.define(version: 20171209112218) do
 
   create_table "admins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
@@ -101,6 +101,9 @@ ActiveRecord::Schema.define(version: 20171121100435) do
     t.datetime "logo_updated_at"
     t.boolean "verified", default: false
     t.date "expiration_date_of_premium", default: "1987-09-14"
+    t.date "date_foundation"
+    t.string "company_site"
+    t.string "mobile_phone_contact"
     t.index ["confirmation_token"], name: "index_companies_on_confirmation_token", unique: true
     t.index ["email"], name: "index_companies_on_email", unique: true
     t.index ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true

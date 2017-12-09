@@ -34,6 +34,9 @@ ru:
             type_review: 'Общее впечатление'
             p_city: 'Ваш город'
           company:
+            company_site: 'Сайт компании'
+            date_foundation: 'Дата основания'
+            mobile_phone_contact: 'Дополнительный телефон'
             password: 'Пароль'
             email: 'Email'
             password_confirmation: 'Подтвердите пароль'

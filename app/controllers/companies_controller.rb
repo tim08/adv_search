@@ -99,6 +99,7 @@ class CompaniesController < ApplicationController
                                     :production_promotional_materials, :print_services, :salepoint_ads, :internet_ids,
                                     :tv_ads, :mass_media, :indoor_ads, :transport_ads, :min_order_price, :description,
                                     :common_exp, :phone_contact, :address_contact, :email_contact, :slogan, :logo, :expiration_date_of_premium,
+                                    :mobile_phone_contact, :company_site, :date_foundation,
                                     city_ids: [])
   end
 end
