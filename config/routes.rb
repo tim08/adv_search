@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   resources :companies do
     resources :projects
     member do
+      get :payment
+      get :statistics
       get :help
       get :promo_requests
       patch 'accept_promo_request/:promo_request_id', action: :accept_promo_request, as: 'accept_promo_request'

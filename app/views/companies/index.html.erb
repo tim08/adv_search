@@ -25,7 +25,7 @@
           Премиум
       <% else %>
           Обычный <span id='account_info' class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="right" data-html="true" title="- Вы можете принять заявку в работу,<br> через 60 минут после её размещения.<br>- При просмотре Вашей страницы контактные данные компании скрыты.<br>- Отсутствует возможность публикации новых статей от имени компании."></span>
-          <%= link_to 'Подключить премиум аккаунт', companies_path %>
+          <%= link_to 'Подключить премиум аккаунт', payment_company_path(@company) %>
       <% end %>
     </div>
     <br>

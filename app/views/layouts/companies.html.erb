@@ -64,7 +64,18 @@
               Заявки
           <% end %>
         </li>
-        <li><a href="#">Статистика</a></li>
+        <li class="<%= current_page?(payment_company_path(@company)) ? 'active' : '' %>">
+          <%= link_to payment_company_path(@company) do %>
+              <span class="glyphicon glyphicon-usd"></span>
+              Оплата
+          <% end %>
+        </li>
+        <li class="<%= current_page?(statistics_company_path(@company)) ? 'active' : '' %>">
+          <%= link_to statistics_company_path(@company) do %>
+              <span class="glyphicon glyphicon-eye-open"></span>
+              Статистика
+          <% end %>
+        </li>
       </ul>
       <ul class="nav nav-sidebar">
         <li><a href="">Отчеты</a></li>

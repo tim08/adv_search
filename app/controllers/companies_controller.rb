@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  before_action :set_company, only: %i[show edit update destroy help promo_requests accept_promo_request]
+  before_action :set_company, only: %i[show edit update destroy help promo_requests accept_promo_request payment statistics]
   before_action :authenticate_company!
 
   # GET /companies
@@ -51,6 +51,14 @@ class CompaniesController < ApplicationController
   end
 
   def help; end
+
+  def payment
+
+  end
+
+  def statistics
+
+  end
 
   def promo_requests
     @free_promo_requests = PromoRequest.search_free(@company)
