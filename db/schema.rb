@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171209112218) do
+ActiveRecord::Schema.define(version: 20171213151616) do
 
   create_table "admins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
@@ -109,6 +109,15 @@ ActiveRecord::Schema.define(version: 20171209112218) do
     t.index ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true
   end
 
+  create_table "premium_payments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "amount"
+    t.string "uid"
+    t.bigint "company_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_premium_payments_on_company_id"
+  end
+
   create_table "projects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.bigint "company_id"
@@ -151,6 +160,7 @@ ActiveRecord::Schema.define(version: 20171209112218) do
     t.string "p_city"
   end
 
+  add_foreign_key "premium_payments", "companies"
   add_foreign_key "projects", "companies"
   add_foreign_key "promo_requests", "cities"
   add_foreign_key "promo_requests", "companies"

@@ -8,11 +8,12 @@ class Company < ApplicationRecord
   has_many :projects, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :promo_requests
+  has_many :premium_payments
 
   has_attached_file :logo, styles: {medium: "300x300>", thumb: "100x100>"}, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :logo, content_type: /\Aimage\/.*\z/
 
-  scope :verified, -> { where(verified: true) }
+  scope :verified, -> {where(verified: true)}
 
   def self.search(params)
     result = {companies: none, message: ''}
@@ -36,8 +37,8 @@ class Company < ApplicationRecord
       companies = companies.where(design_services: true) if params[:design_services].present?
       companies = companies.where(radio_ads: true) if params[:radio_ads].present?
       companies_with_city_and_price = companies.verified.joins(:cities)
-                      .where(cities: {id: params[:city]})
-                      .where(min_order_price: 0..params[:min_order_price].to_i)
+                                          .where(cities: {id: params[:city]})
+                                          .where(min_order_price: 0..params[:min_order_price].to_i)
 
       if companies_with_city_and_price.present?
         result[:companies] = companies_with_city_and_price
@@ -69,5 +70,13 @@ class Company < ApplicationRecord
 
   def premium?
     DateTime.now < expiration_date_of_premium
+  end
+
+  def activate_premium!(params)
+    update_column(:expiration_date_of_premium, DateTime.now + 1.month)
+    pp = premium_payments.build
+    pp.amount = params[:amount]
+    pp.uid = params[:order_id]
+    pp.save
   end
 end

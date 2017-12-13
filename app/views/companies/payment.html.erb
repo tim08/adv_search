@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-<h1 class="page-header">Оплата</h1>
+<h1 class="page-header">Платежи</h1>
 <div class="row">
   <div class="col-md-12">
     <span class="label label-warning">Информация по платежам</span>
@@ -8,5 +8,63 @@
 <br>
 <div class="row">
   <div class="col-md-12">
+    <% if @company.premium_payments.empty? %>
+        Нет платежей
+    <% else %>
+        <table class="table table-striped table-bordered">
+          <thead>
+          <tr>
+            <th>Номер</th>
+            <th>Дата</th>
+            <th>Сумма</th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <% @company.premium_payments.each do |pp| %>
+              <tr>
+                <td><%= pp.uid %></td>
+                <td>
+                  <%= l(pp.created_at, :format => :long) %>
+                </td>
+                <td><%= pp.amount/100  %></td>
+
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+    <% end %>
+  </div>
+  <div class="col-md-12">
+    <script src="https://api.fondy.eu/static_common/v1/checkout/ipsp.js"></script>
+    <script>
+        function checkoutInit(url) {
+            $ipsp('checkout').scope(function() {
+                this.setCheckoutWrapper('#checkout_wrapper');
+                this.addCallback(__DEFAULTCALLBACK__);
+                this.action('show', function(data) {
+                    $('#checkout_loader').remove();
+                    $('#checkout').show();
+                });
+                this.action('hide', function(data) {
+                    $('#checkout').hide();
+                });
+                this.action('resize', function(data) {
+                    $('#checkout_wrapper').width(780).height(data.height);
+                });
+                this.loadUrl(url);
+            });
+        };
+        var button = $ipsp.get("button");
+        button.setMerchantId(1403630);
+        button.setResponseUrl('<%= "#{payment_redirect_company_url(@company)}"%>');
+        button.setAmount("3","RUB", true);
+        button.setHost('api.fondy.eu');
+        checkoutInit(button.getUrl());
+    </script>
+
+    <div id="checkout">
+      <div id="checkout_wrapper"></div>
+    </div>
   </div>
 </div>

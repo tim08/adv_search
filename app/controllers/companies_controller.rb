@@ -1,6 +1,7 @@
 class CompaniesController < ApplicationController
-  before_action :set_company, only: %i[show edit update destroy help promo_requests accept_promo_request payment statistics]
+  before_action :set_company, only: %i[show edit update destroy help promo_requests accept_promo_request payment statistics payment_redirect]
   before_action :authenticate_company!
+  protect_from_forgery with: :null_session, only: %i[payment_redirect]
 
   # GET /companies
   # GET /companies.json
@@ -54,6 +55,13 @@ class CompaniesController < ApplicationController
 
   def payment
 
+  end
+
+  def payment_redirect
+    if params[:response_status] == 'success'
+      @company.activate_premium!(params)
+      redirect_to action: :payment, notice: 'Платеж успешно совершен. Премиум статус активирован.'
+    end
   end
 
   def statistics

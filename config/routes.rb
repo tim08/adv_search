@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     resources :projects
     member do
       get :payment
+      post :payment_redirect
       get :statistics
       get :help
       get :promo_requests
