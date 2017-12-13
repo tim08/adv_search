@@ -11,7 +11,8 @@ class CompaniesController < ApplicationController
 
   # GET /companies/1
   # GET /companies/1.json
-  def show; end
+  def show;
+  end
 
   # GET /companies/new
   def new
@@ -19,7 +20,8 @@ class CompaniesController < ApplicationController
   end
 
   # GET /companies/1/edit
-  def edit; end
+  def edit;
+  end
 
   # POST /companies
   # POST /companies.json
@@ -28,11 +30,11 @@ class CompaniesController < ApplicationController
 
     respond_to do |format|
       if @company.save
-        format.html { redirect_to @company, notice: 'Company was successfully created.' }
-        format.json { render :show, status: :created, location: @company }
+        format.html {redirect_to @company, notice: 'Company was successfully created.'}
+        format.json {render :show, status: :created, location: @company}
       else
-        format.html { render :new }
-        format.json { render json: @company.errors, status: :unprocessable_entity }
+        format.html {render :new}
+        format.json {render json: @company.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -42,16 +44,17 @@ class CompaniesController < ApplicationController
   def update
     respond_to do |format|
       if @company.update(company_params)
-        format.html { redirect_to action: :index, notice: 'Company was successfully updated.' }
-        format.json { render :show, status: :ok, location: @company }
+        format.html {redirect_to action: :index, notice: 'Company was successfully updated.'}
+        format.json {render :show, status: :ok, location: @company}
       else
-        format.html { render :edit }
-        format.json { render json: @company.errors, status: :unprocessable_entity }
+        format.html {render :edit}
+        format.json {render json: @company.errors, status: :unprocessable_entity}
       end
     end
   end
 
-  def help; end
+  def help;
+  end
 
   def payment
 
@@ -59,8 +62,10 @@ class CompaniesController < ApplicationController
 
   def payment_redirect
     if params[:response_status] == 'success'
-      @company.activate_premium!(params)
-      redirect_to action: :payment, notice: 'Платеж успешно совершен. Премиум статус активирован.'
+      respond_to do |format|
+        @company.activate_premium!(params)
+        format.html {redirect_to action: :payment, notice: 'Платеж успешно совершен. Премиум статус активирован.'}
+      end
     end
   end
 
@@ -96,8 +101,8 @@ class CompaniesController < ApplicationController
   def destroy
     @company.destroy
     respond_to do |format|
-      format.html { redirect_to companies_url, notice: 'Company was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html {redirect_to companies_url, notice: 'Company was successfully destroyed.'}
+      format.json {head :no_content}
     end
   end
 
