@@ -15,6 +15,8 @@ class Company < ApplicationRecord
 
   scope :verified, -> {where(verified: true)}
 
+  after_create{ NotificationMailer.notification_company.deliver_later}
+
   def self.search(params)
     result = {companies: none, message: ''}
     if params[:city].present?
