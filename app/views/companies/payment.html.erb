@@ -6,6 +6,21 @@
   </div>
 </div>
 <br>
+<div class="col-md-12">
+  <p>Премиум-аккаунт позволяет вашей компании:</p>
+  <ol>
+    <li>открыть контактные данные для всех потенциальных покупателей, которые находятся в поиске рекламного партнёра</li>
+    <li>получать на рабочую почту рекламные заявки от заинтересованных клиентов и подтверждать их сразу же после размещения</li>
+    <li>публиковать рекламные статьи с содержанием ссылок на собственные ресурсы, позиционируя себя как эксперта в этой отрасли.</li>
+  </ol>
+
+  <p>Приобрести премиум акаунт вы можете:</p>
+<ul>
+  <li>на 3 месяца по цене 5000 рублей</li>
+  <li>на 6 месяцев по цене 9000 рублей</li>
+  <li>на 12 месяцев по цене 15000 рублей</li>
+</ul>
+</div>
 <div class="row">
   <div class="col-md-12">
     <% if @company.premium_payments.empty? %>
@@ -58,9 +73,9 @@
         var button = $ipsp.get("button");
         button.setMerchantId(1404927);
         button.setResponseUrl('<%= "#{payment_redirect_company_url(@company)}"%>');
-        button.setAmount("1","RUB", true);
+        button.setAmount("5000","RUB", true);
         button.setHost('api.fondy.eu');
-        button.addParam("order_desc","Подписка на премиум аккаунт");
+        button.addParam("order_desc","Подписка на премиум аккаунт 1 месяц");
         button.addField({
             label: 'Описание платежа',
             name: 'description',
