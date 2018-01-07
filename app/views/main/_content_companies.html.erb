@@ -35,21 +35,21 @@
         <% end %>
       </div>
       <div class="col-md-3">
-        <h4>Новости</h4>
+        <h4>Новости рынка</h4>
         <ul>
           <% @projects_news.each do |cn| %>
               <li><%= link_to "#{cn.projects.last.name}<br /> #{cn.name}".html_safe, adv_agency_path(cn) %></li>
           <% end %>
         </ul>
 
-        <h4>Отзывы</h4>
+        <h4>Отзывы рекламодателей</h4>
         <ul>
           <% @reviews.each do |review| %>
-              <li><%= link_to "#{review.reviews.last.name} оставил отзыв на компанию #{review.name}", adv_agency_path(review) %></li>
+              <li><%= link_to "#{review.reviews.last.name} оставил(а) отзыв на компанию #{review.name}", adv_agency_path(review) %></li>
           <% end %>
         </ul>
 
-        <h4>Почитать</h4>
+        <h4>Почитать статьи</h4>
         <ul>
           <% @articles.each do |article| %>
               <li><%= link_to article.title, main_article_path(article) %></li>

@@ -11,7 +11,7 @@ ru:
     hidden_free_status_for_company: 'Данные скрыты'
     unhandled: 'Новая'
     free: 'Свободная'
-    processing: 'В обработке'
+    processing: 'Выполняется'
     closed: 'Закрыта'
   activerecord:
     attributes:

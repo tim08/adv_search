@@ -94,10 +94,12 @@
             <strong>Адрес:</strong>
             <%= @company.address_contact %><br>
           </address>
+          <% if @company.company_site.present? %>
           <address>
             <strong>Сайт:</strong>
-            <%= @company.company_site %><br>
+            <%= link_to "#{@company.company_site}",@company.company_site, target: '_blank', rel: 'nofollow' %><br>
           </address>
+              <% end %>
       <% else %>
             Данные скрыты
       <% end %>

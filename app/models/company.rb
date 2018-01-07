@@ -63,7 +63,7 @@ class Company < ApplicationRecord
   end
 
   def self.news_projects
-    verified.joins(:projects).distinct.last(3)
+    verified.joins(:projects).distinct.last(3).reverse
   end
 
   def self.reviews_main
