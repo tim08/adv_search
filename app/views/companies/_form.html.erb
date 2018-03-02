@@ -28,10 +28,10 @@
         </div>
       </div>
       <div class="col-md-3">
-        <span class="label label-info">Опыт и расценки</span>
+        <span class="label label-info">Персонал и расценки</span>
         <div class="form-group">
           <%= form.label :common_exp %>
-          <%= form.number_field :common_exp, class: 'form-control' %>
+          <%= form.number_field :common_exp, class: 'form-control', min: 1 %>
         </div>
         <div class="form-group">
           <%= form.label :min_order_price %>
@@ -67,6 +67,16 @@
           <small>Это поле должно начинаться с http:// или https:// <br>
             Например: https://promowind.ru</small>
         </div>
+
+        <div class="form-group">
+          <%= form.label :widget_contact_details %>
+          <%= form.text_area :widget_contact_details, class: 'form-control' %>
+          <small> Данные для виджета быстрой связи<br>
+            ссылка на группы вконтакте, facebook<br>
+            номер телефона whatsapp<br>
+            Например: https://vk.com/promowind </small>
+        </div>
+
       </div>
       <div class="col-md-4">
         <div class="form-group">

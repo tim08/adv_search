@@ -6,7 +6,7 @@ ru:
     companies_matching: 'Компании соответствующие вашему запросу'
     companies_budget_missing: 'В данный момент компании с указанным бюджетом отсутствуют, обратите внимание на следующие'
     companies_missing: 'В данный момент компании из этого города отсутствуют'
-    last_companies: 'Последние компании'
+    last_companies: 'Новые компании'
   promo_request_status:
     hidden_free_status_for_company: 'Данные скрыты'
     unhandled: 'Новая'
@@ -59,12 +59,13 @@ ru:
             radio_ads: 'Реклама на радиостанциях'
             min_order_price: 'Минимальная цена заказа'
             description: 'Описание компании'
-            common_exp: 'Общий опыт'
+            common_exp: 'Количество персонала'
             phone_contact: 'Телефон'
             email_contact: 'Email'
             address_contact: 'Адрес компании'
             slogan: 'Слоган'
             logo: 'Логотип'
+            widget_contact_details: 'Данные соц.сетей компании'
           city:
             name: 'Название'
           project:

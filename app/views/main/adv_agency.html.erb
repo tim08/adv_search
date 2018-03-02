@@ -50,7 +50,9 @@
   <div class="row">
     <h2> О компании</h2>
     <p class="lead">
-      <%= "Ведёт деятельность с #{ @company.date_foundation.strftime("%-d.%-m.%Y")}" if @company.date_foundation %>
+      <%= "Ведёт деятельность с #{ @company.date_foundation.strftime("%-d.%m.%Y")}" if @company.date_foundation %>
+      <br>
+      <%= "Количество сотрудников: #{ @company.common_exp}" if @company.common_exp %>
     </p>
     <p class="lead" style="font-size: 18px"><%= h(@company.description).gsub(/\n/, '<br/>').html_safe %></p>
   </div>

@@ -5,6 +5,7 @@ class MainController < ApplicationController
     @projects_news = Company.news_projects
     @reviews = Company.reviews_main
     @articles = Article.last(3)
+    @last_promo_requests = PromoRequest.verified.last(3)
   end
 
   def important_article; end

@@ -2,8 +2,8 @@
   <div class="container">
     <div class="row">
       <div class="col-md-9">
-        <h4><%= @companies[:message] %></h4>
-
+        <h4 class="thin"><%= @companies[:message] %></h4>
+        <div class="row" style="border-bottom: 1px solid #eee;padding-top: 5px"></div>
 
         <% @companies[:companies].each do |company| %>
 
@@ -17,15 +17,15 @@
                   <% end %>
                 </div>
                 <div class="col-md-7 col-xs-5" style="padding-top:15px">
-                  <div class="media-body" style="padding-left: 10px">
-                    <h4 class="media-heading"><%= company.name %></h4>
+                  <div class="thin">
+                    <h4 class="media-heading company-name"><%= company.name %></h4>
                     <%= company.slogan %>
                   </div>
                 </div>
 
 
                 <div class="col-md-2" style="padding-top:15px">
-                  <%= link_to 'Смотреть', adv_agency_path(company), class: 'btn btn-action btn-xs' %>
+                  <%= link_to 'Подробнее', adv_agency_path(company), class: 'btn btn-action btn-xs' %>
                 </div>
 
 
@@ -35,21 +35,28 @@
         <% end %>
       </div>
       <div class="col-md-3">
-        <h4>Новости рынка</h4>
+        <h4 class="thin">Новые заявки</h4>
         <ul>
-          <% @projects_news.each do |cn| %>
-              <li><%= link_to "#{cn.projects.last.name}<br /> #{cn.name}".html_safe, adv_agency_path(cn) %></li>
+          <% @last_promo_requests.each do |r| %>
+            <li><%= link_to "#{r.adv_type_str} в г. #{r.city.name} - #{I18n.t("promo_request_status.#{r.status}")}".html_safe, main_promo_requests_path %></li>
           <% end %>
         </ul>
 
-        <h4>Отзывы рекламодателей</h4>
+        <h4 class="thin">Новости рынка</h4>
+        <ul>
+          <% @projects_news.each do |cn| %>
+              <li><%= link_to "#{cn.projects.last.name}<br />от #{cn.name}".html_safe, adv_agency_path(cn) %></li>
+          <% end %>
+        </ul>
+
+        <h4 class="thin">Отзывы от заказчиков</h4>
         <ul>
           <% @reviews.each do |review| %>
               <li><%= link_to "#{review.reviews.last.name} оставил(а) отзыв на компанию #{review.name}", adv_agency_path(review) %></li>
           <% end %>
         </ul>
 
-        <h4>Почитать статьи</h4>
+        <h4 class="thin">Cтатьи для продвижения</h4>
         <ul>
           <% @articles.each do |article| %>
               <li><%= link_to article.title, main_article_path(article) %></li>
