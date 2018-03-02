@@ -2,6 +2,7 @@ class MainController < ApplicationController
 
   def index
     @companies = Company.search(params)
+    @premium_companies = Company.premium.last(3)
     @projects_news = Company.news_projects
     @reviews = Company.reviews_main
     @articles = Article.last(3)

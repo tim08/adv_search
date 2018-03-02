@@ -7,6 +7,7 @@ ru:
     companies_budget_missing: 'В данный момент компании с указанным бюджетом отсутствуют, обратите внимание на следующие'
     companies_missing: 'В данный момент компании из этого города отсутствуют'
     last_companies: 'Новые компании'
+    premium_companies: 'Премиум компании'
   promo_request_status:
     hidden_free_status_for_company: 'Данные скрыты'
     unhandled: 'Новая'

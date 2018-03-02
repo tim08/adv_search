@@ -13,7 +13,8 @@ class Company < ApplicationRecord
   has_attached_file :logo, styles: {medium: "300x300>", thumb: "100x100>"}, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :logo, content_type: /\Aimage\/.*\z/
 
-  scope :verified, -> {where(verified: true)}
+  scope :verified, -> { where(verified: true) }
+  scope :premium, -> { verified.where('expiration_date_of_premium > ?', DateTime.now) }
 
   after_create{ NotificationMailer.notification_company.deliver_later}
 
@@ -75,7 +76,7 @@ class Company < ApplicationRecord
   end
 
   def activate_premium!(params)
-    update_column(:expiration_date_of_premium, DateTime.now + 1.month)
+    update_column(:expiration_date_of_premium, DateTime.now + 3.months)
     pp = premium_payments.build
     pp.amount = params[:amount]
     pp.uid = params[:order_id]
