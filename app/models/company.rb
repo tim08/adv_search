@@ -82,4 +82,30 @@ class Company < ApplicationRecord
     pp.uid = params[:order_id]
     pp.save
   end
+
+  def specialization
+    spec_s = []
+    spec_a = %w[promo
+    outdoor_ads
+    direct_mail
+    transport_ads
+    indoor_ads
+    mass_media
+    tv_ads
+    internet_ids
+    salepoint_ads
+    print_services
+    production_promotional_materials
+    install_adv_constructions
+    marketing_research
+    product_placement
+    design_services
+    radio_ads]
+
+    spec_a.each do |sp|
+      spec_s << I18n.t("activerecord.attributes.company.#{sp}") if self.public_send(sp).present?
+    end
+    spec_s
+  end
+
 end
