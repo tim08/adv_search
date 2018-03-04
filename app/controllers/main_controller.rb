@@ -9,7 +9,9 @@ class MainController < ApplicationController
     @last_promo_requests = PromoRequest.verified.last(3)
   end
 
-  def important_article; end
+  def important_article
+    @articles_sample = Article.order("RAND()").first(3)
+  end
 
   def main_articles
     @articles = Article.all
@@ -17,6 +19,7 @@ class MainController < ApplicationController
 
   def main_article
     @article = Article.find(params[:id])
+    @articles_sample = Article.order("RAND()").first(3)
   end
 
   def agreement; end
