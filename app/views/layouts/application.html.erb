@@ -66,7 +66,7 @@
         <li>
           <%= link_to('Присоединиться', new_company_registration_path, class: 'btn') unless company_signed_in? %>
         </li>
-        <li class="active"><%= link_to 'Оставить заявку', new_promo_request_path, class: 'btn' %></li>
+        <li class="active"><%= link_to "Оставить заявку <br />на продвижение".html_safe, new_promo_request_path, class: 'btn request-button', style: "line-height: 11px; font-size: 13px; color: #FFEFD7; background-image: linear-gradient(to bottom, #FF9B22 0%, #FF8C00 100%); border: 0 none;" %></li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>
