@@ -12,13 +12,13 @@
   <% end %>
 
   <div class="top-margin">
-    <%= form.label :min_order_price %>*
-    <%= form.number_field :min_order_price, id: :promo_request_min_order_price, class: 'form-control', min: '1' %>
+    <%= form.label :city_id %>*
+    <%= form.collection_select :city_id, City.all.order(:name), :id, :name, {}, class: 'form-control' %>
   </div>
 
   <div class="top-margin">
-    <%= form.label :city_id %>*
-    <%= form.collection_select :city_id, City.all.order(:name), :id, :name, {}, class: 'form-control' %>
+    <%= form.label :min_order_price %>*
+    <%= form.number_field :min_order_price, id: :promo_request_min_order_price, class: 'form-control', min: '1' %>
   </div>
 
   <div class="top-margin">
