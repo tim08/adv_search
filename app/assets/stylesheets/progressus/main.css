@@ -110,7 +110,7 @@ label {
     color: honeydew;
 }
 
-#min_order_price, #city {
+#min_order_price, #city, #adv_class {
     font-weight: bolder;
     font-size: 18px;
     text-align-last: center;

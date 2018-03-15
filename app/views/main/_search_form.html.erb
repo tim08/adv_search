@@ -1,7 +1,13 @@
 <div class="search-form">
-  <%= form_tag root_path, method: :get do %>
+  <%= form_tag '/#content', method: :get do %>
+
+    <!--video block-->
+    <div class="col-md-6">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/Tb6JFDF3bfw?modestbranding=1;showinfo=0;rel=0&&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen ></iframe>
+    </div>
 
     <!--search form block-->
+
     <div class="col-md-6">
       <div class="row">
 
@@ -27,96 +33,113 @@
         <div class="col-md-2"></div>
 
       </div>
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
 
-      <details>
-        <summary><label>Рекламная компетенция</label></summary>
-      <div class="row" id="tags">
-        <div class="col-xs-6 col-md-6">
           <div class="form-group">
-          <%= check_box_tag :promo, true , params[:promo].present? %>
-          <%= label_tag :promo, 'Промо акции и мероприятия' %>
-          </div>
-          <div class="form-group">
-          <%= check_box_tag :direct_mail, true , params[:direct_mail].present? %>
-          <%= label_tag :direct_mail, 'Директ мэйл' %>
-          </div>
-          <div class="form-group">
-          <%= check_box_tag :outdoor_ads, true , params[:outdoor_ads].present? %>
-          <%= label_tag :outdoor_ads, 'Наружная реклама' %>
-          </div>
-          <div class="form-group">
-          <%= check_box_tag :radio_ads, true , params[:radio_ads].present? %>
-          <%= label_tag :radio_ads, 'Реклама на радиостанциях' %>
+            <%= label_tag :adv_class, 'Рекламная категория', id: 'city_label' %>
+            <%= select_tag :adv_class, options_for_select([
+                ['Промо акции и мероприятия', 'promo' ],
+                ['Наружная реклама', 'outdoor_ads'] ,
+                ['Директ мэйл', 'direct_mail'],
+                ['Реклама на транспорте', 'transport_ads'],
+                ['Indoor реклама', 'indoor_ads'],
+                ['Информационные печатные СМИ', 'mass_media'],
+                 ['Телевизионная реклама', 'tv_ads'],
+                 ['Интернет реклама', 'internet_ids'],
+                 ['Реклама в местах продаж','salepoint_ads'],
+                 ['Полиграфические услуги','print_services'],
+                 ['Изготовление рекламных материалов','production_promotional_materials'],
+                 ['Монтаж рекламных конструкций','install_adv_constructions'],
+                 ['Маркетинговые исследования','marketing_research' ],
+                 ['Продакт-плейсмент','product_placement'],
+                 ['Дизайнерские услуги', 'design_services'],
+                 ['Реклама на радиостанциях', 'radio_ads']], params[:adv_class]), class: 'form-control' %>
           </div>
         </div>
-        <div class="col-xs-6 col-md-6">
-          <div class="form-group">
-            <%= check_box_tag :transport_ads, true , params[:transport_ads].present? %>
-            <%= label_tag 'Реклама на транспорте' %>
-          </div>
-          <div class="form-group">
-            <%= check_box_tag :indoor_ads, true , params[:indoor_ads].present? %>
-            <%= label_tag :indoor_ads, 'Indoor реклама' %>
-          </div>
-          <div class="form-group">
-            <%= check_box_tag :mass_media, true , params[:mass_media].present? %>
-            <%= label_tag :mass_media, 'Печатные СМИ' %>
-          </div>
-          <div class="form-group">
-            <%= check_box_tag :tv_ads, true , params[:tv_ads].present? %>
-            <%= label_tag :tv_ads, 'Телевизионная реклама' %>
-          </div>
-        </div>
-        <div class="col-xs-6 col-md-6">
-          <div class="form-group">
-            <%= check_box_tag :internet_ids, true , params[:internet_ids].present? %>
-            <%= label_tag 'Интернет реклама' %>
-          </div>
-          <div class="form-group">
-            <%= check_box_tag :salepoint_ads, true , params[:salepoint_ads].present? %>
-            <%= label_tag 'Реклама в местах продаж' %>
-          </div>
-          <div class="form-group">
-            <%= check_box_tag :production_promotional_materials, true , params[:production_promotional_materials].present? %>
-            <%= label_tag 'Изг. рекламных материалов' %>
-          </div>
-          <div class="form-group">
-            <%= check_box_tag :install_adv_constructions, true , params[:install_adv_constructions].present? %>
-            <%= label_tag 'Монтаж рекламных конструкций' %>
-          </div>
-        </div>
-        <div class="col-xs-6 col-md-6">
-          <div class="form-group">
-            <%= check_box_tag :print_services, true , params[:print_services].present? %>
-            <%= label_tag 'Полиграфические услуги' %>
-          </div>
-          <div class="form-group">
-            <%= check_box_tag :marketing_research, true , params[:marketing_research].present? %>
-            <%= label_tag 'Маркетинговые исследования' %>
-          </div>
-          <div class="form-group">
-            <%= check_box_tag :product_placement, true , params[:product_placement].present? %>
-            <%= label_tag 'Продакт-плейсмент' %>
-          </div>
-          <div class="form-group">
-            <%= check_box_tag :design_services, true , params[:design_services].present? %>
-            <%= label_tag 'Дизайнерские услуги' %>
-          </div>
-        </div>
-
-
-
-
-
       </div>
-      </details>
+      <!--<details>-->
+        <!--<summary><label>Рекламная категория</label></summary>-->
+        <!--<div class="row" id="tags">-->
+          <!--<div class="col-xs-6 col-md-6">-->
+            <!--<div class="form-group">-->
+              <!--<%= check_box_tag :promo, true , params[:promo].present? %>-->
+              <!--<%= label_tag :promo, 'Промо акции и мероприятия' %>-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+              <!--<%= check_box_tag :direct_mail, true , params[:direct_mail].present? %>-->
+              <!--<%= label_tag :direct_mail, 'Директ мэйл' %>-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+              <!--<%= check_box_tag :outdoor_ads, true , params[:outdoor_ads].present? %>-->
+              <!--<%= label_tag :outdoor_ads, 'Наружная реклама' %>-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+              <!--<%= check_box_tag :radio_ads, true , params[:radio_ads].present? %>-->
+              <!--<%= label_tag :radio_ads, 'Реклама на радиостанциях' %>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="col-xs-6 col-md-6">-->
+            <!--<div class="form-group">-->
+              <!--<%= check_box_tag :transport_ads, true , params[:transport_ads].present? %>-->
+              <!--<%= label_tag 'Реклама на транспорте' %>-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+              <!--<%= check_box_tag :indoor_ads, true , params[:indoor_ads].present? %>-->
+              <!--<%= label_tag :indoor_ads, 'Indoor реклама' %>-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+              <!--<%= check_box_tag :mass_media, true , params[:mass_media].present? %>-->
+              <!--<%= label_tag :mass_media, 'Печатные СМИ' %>-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+              <!--<%= check_box_tag :tv_ads, true , params[:tv_ads].present? %>-->
+              <!--<%= label_tag :tv_ads, 'Телевизионная реклама' %>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="col-xs-6 col-md-6">-->
+            <!--<div class="form-group">-->
+              <!--<%= check_box_tag :internet_ids, true , params[:internet_ids].present? %>-->
+              <!--<%= label_tag 'Интернет реклама' %>-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+              <!--<%= check_box_tag :salepoint_ads, true , params[:salepoint_ads].present? %>-->
+              <!--<%= label_tag 'Реклама в местах продаж' %>-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+              <!--<%= check_box_tag :production_promotional_materials, true , params[:production_promotional_materials].present? %>-->
+              <!--<%= label_tag 'Изг. рекламных материалов' %>-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+              <!--<%= check_box_tag :install_adv_constructions, true , params[:install_adv_constructions].present? %>-->
+              <!--<%= label_tag 'Монтаж рекламных конструкций' %>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="col-xs-6 col-md-6">-->
+            <!--<div class="form-group">-->
+              <!--<%= check_box_tag :print_services, true , params[:print_services].present? %>-->
+              <!--<%= label_tag 'Полиграфические услуги' %>-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+              <!--<%= check_box_tag :marketing_research, true , params[:marketing_research].present? %>-->
+              <!--<%= label_tag 'Маркетинговые исследования' %>-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+              <!--<%= check_box_tag :product_placement, true , params[:product_placement].present? %>-->
+              <!--<%= label_tag 'Продакт-плейсмент' %>-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+              <!--<%= check_box_tag :design_services, true , params[:design_services].present? %>-->
+              <!--<%= label_tag 'Дизайнерские услуги' %>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</details>-->
+      <br>
       <p class="text-center"> <%= submit_tag 'Найти  рекламного исполнителя', class: 'btn btn-action btn-lg' %></p>
     </div>
 
-    <!--video block-->
-    <div class="col-md-6">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/Tb6JFDF3bfw?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
 
 
   <% end %>
