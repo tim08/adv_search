@@ -6,7 +6,7 @@
   <meta Http-equiv="Content-Type" Content="text/html; charset=utf-8">
   <meta name="author" content="Рубцов Егор Игоревич">
   <meta name="Reply-to" content="promowindin@gmail.com">
-  <meta name="description" content="Сервис позволяет руководителям, маркетологам и менеджерам по рекламе подобрать подходящего рекламного исполнителя, который поможет эффективно, рентабельно и профессионально решить поставленные на текущий момент рекламные и маркетинговые задачи, быстро связаться с ним используя наиболее удобный канал коммуникаций или оставить свою заявку на выполнение рекламных работ, после чего сервис разошлет её всем зарегистрированным исполнителям, которые соответствуют указанному в заявке городу, бюджету и рекламной категории.">
+  <meta name="description" content="Помогаем руководителям бизнеса и маркетологам оперативно находить подходящих рекламных исполнителей, а так же связываться с ними наиболее удобным способом.">
   <meta name="keywords" content="продвижение, маркетинг, промо акции, наружная реклама, рекламное агентство, рекламная компания, продвижение товара, продвижение услуг, размещение рекламы, бесплатная реклама, интернет реклама, интернет маркетинг, объявление реклама, газета реклама, стоимость рекламы">
 
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -31,7 +31,7 @@
 
 <div class="navbar navbar-inverse navbar-static-top headroom animated">
 
-  <div class="container">
+  <div class="container-fluid">
     <% if notice %>
         <div class="alert alert-warning fade in">
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -71,7 +71,9 @@
         <li>
           <%= link_to('Присоединиться', new_company_registration_path, class: 'btn') unless company_signed_in? %>
         </li>
-        <li class="active"><%= link_to "Заявка на организацию <br />рекламной кампании".html_safe, new_promo_request_path, class: 'btn request-button', style: "line-height: 11px; font-size: 13px; color: #FFEFD7; background-image: linear-gradient(to bottom, #FF9B22 0%, #FF8C00 100%); border: 0 none;" %></li>
+        <li class="active">
+          <%= link_to "Заявка на организацию <br />рекламной кампании".html_safe, new_promo_request_path, class: 'btn request-button', style: "line-height: 11px; font-size: 13px; color: #FFEFD7; background-image: linear-gradient(to bottom, #FF9B22 0%, #FF8C00 100%); border: 0 none;" %>
+        </li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>

@@ -39,10 +39,7 @@
 
           <h4>Рекламные компетенции</h4>
           <p class="thin">
-            <% @company.specialization.each do |s|%>
-              <%= s %>
-              <br>
-            <% end %>
+            <%= @company.specialization.join(', ') %>
           </p>
 
         </div>
@@ -113,9 +110,8 @@
         <% end %>
       <% else %>
         Данные компании скрыты
-        <br>
-        <%= link_to "Оставить заявку", new_promo_request_url  %>
       <% end %>
+      <%= link_to "Оставить заявку на организацию рекламной компании", new_promo_request_url  %>
     </div>
 
     <div class="col-md-4">
