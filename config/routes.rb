@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       patch 'companies/:id', to: 'admins#change_company_status', as: 'change_company_status'
       patch 'promo_requests/:id', to: 'admins#change_request_status', as: 'change_request_status'
       patch 'reviews/:id', to: 'admins#change_review_status', as: 'change_review_status'
+      patch 'articles/:id', to: 'admins#change_article_status', as: 'change_article_status'
       delete 'companies/:id', to: 'admins#delete_company', as: 'delete_company'
     end
   end
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
   devise_for :companies, controllers: { confirmations: 'confirmations' }
   resources :companies do
     resources :projects
+    resources :articles, controller: 'company_articles'
     member do
       get :payment
       post :payment_redirect

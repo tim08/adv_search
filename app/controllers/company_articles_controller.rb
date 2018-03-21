@@ -1,12 +1,13 @@
-class ArticlesController < ApplicationController
+class CompanyArticlesController < ApplicationController
+  before_action :set_company
   before_action :set_article, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_admin!
-  layout 'admins'
+  before_action :authenticate_company!
+  layout 'companies'
 
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all.order(created_at: :desc)
+    @articles = @company.articles
   end
 
   # GET /articles/1
@@ -26,11 +27,11 @@ class ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
-    @article = Article.new(article_params)
+    @article = @company.articles.new(article_params)
 
     respond_to do |format|
       if @article.save
-        format.html { redirect_to @article, notice: 'Article was successfully created.' }
+        format.html { redirect_to company_articles_path @company, notice: 'Article was successfully created.' }
         format.json { render :show, status: :created, location: @article }
       else
         format.html { render :new }
@@ -64,13 +65,17 @@ class ArticlesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_article
-      @article = Article.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def article_params
-      params.require(:article).permit(:title, :body, :description, :logo)
-    end
+  def set_company
+    @company = current_company
+  end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_article
+    @article = Article.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def article_params
+    params.require(:article).permit(:title, :body, :description, :logo)
+  end
 end

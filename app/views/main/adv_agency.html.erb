@@ -19,7 +19,7 @@
     <div class="col-md-8">
       <div class="row">
         <div class="col-md-6" style="height: 120px; border-bottom: 1px solid #eee;">
-          <h2> <%= @company.name %></h2>
+          <h3> <%= @company.name %></h3>
         </div>
         <div class="col-md-6" style="height: 120px;">
           <blockquote>
@@ -32,45 +32,44 @@
         <div class="col-md-6" style="height: 120px;">
           <h4>Минимальный бюджет</h4>
 
-          <strong> <%= @company.min_order_price %> руб.</strong>
+          <strong><p class="thin"> <%= @company.min_order_price %> руб. </p></strong>
         </div>
         <div class="col-md-6">
 
 
-          <h4>Региональный охват</h4>
-
-          <% @company.cities.each do |city| %>
-            <%= city.name + "#{',' if city != @company.cities.last && @company.cities.count > 1}" %>
-          <% end %>
+          <h4>Рекламные компетенции</h4>
+          <p class="thin">
+            <% @company.specialization.each do |s|%>
+              <%= s %>
+              <br>
+            <% end %>
+          </p>
 
         </div>
       </div>
     </div>
   </div>
+
   <div class="row">
-    <h2>Рекламные компетенции</h2>
-    <p class="lead">
-      <% @company.specialization.each do |s|%>
-        <%= s %>
-        <br>
+    <h3>Региональный охват</h3>
+    <p class="thin">
+      <% @company.cities.each do |city| %>
+        <%= city.name + "#{',' if city != @company.cities.last && @company.cities.count > 1}" %>
       <% end %>
     </p>
   </div>
 
   <div class="row">
-    <h2> О компании</h2>
-    <p class="lead">
+    <h3> О компании</h3>
+    <p class="thin">
       <%= "Ведёт деятельность с #{ @company.date_foundation.strftime("%-d.%m.%Y")}" if @company.date_foundation %>
       <br>
-      <%= "Количество сотрудников: #{ @company.common_exp}" if @company.common_exp %>
+      <%= "Количество сотрудников: #{ @company.common_exp} человек" if @company.common_exp %>
     </p>
-    <p class="lead" style="font-size: 18px"><%= h(@company.description).gsub(/\n/, '<br/>').html_safe %></p>
+    <p class="thin"><%= h(@company.description).gsub(/\n/, '<br/>').html_safe %></p>
   </div>
   <div class="row">
-    <h2> Реализованные проекты</h2>
-
-
-
+    <h3> Реализованные проекты</h3>
     <% @company.projects.reverse.each do |project| %>
       <div class="row">
         <div class="col-md-4">
@@ -79,7 +78,7 @@
         <div class="col-md-8">
           <h4><%= project.name %></h4>
 
-          <p>
+          <p class="thin">
             <%= h(project.description).gsub(/\n/, '<br/>').html_safe %>
           </p>
           <h5>Заказчик: <%= project.client %></h5>
@@ -91,7 +90,7 @@
   </div>
 
   <div class="row">
-    <h2> Контакты компании</h2>
+    <h3> Контакты компании</h3>
     <div class="col-md-4">
       <% if @company.premium? %>
         <address>
@@ -126,7 +125,7 @@
   </div>
 
   <div class="row">
-    <h2> Отзывы</h2>
+    <h3> Отзывы</h3>
   </div>
   <div class="row">
     <% if @company.reviews.verified.present? %>
@@ -156,7 +155,7 @@
   <%= form_with(model: @review, local: true) do |form| %>
     <% if @review.errors.any? %>
       <div id="error_explanation">
-        <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
+        <h3><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h3>
 
         <ul>
           <% @review.errors.full_messages.each do |message| %>

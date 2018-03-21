@@ -9,7 +9,7 @@ class AdminsController < ApplicationController
   end
 
   def companies
-    @companies = Company.all
+    @companies = Company.all.order(created_at: :desc)
   end
 
   def reviews
@@ -39,6 +39,15 @@ class AdminsController < ApplicationController
     @review.update_column(:verified, !@review.verified)
     respond_to do |format|
       format.html {redirect_to reviews_admins_path, notice: 'Review status changed'}
+      format.json {head :no_content}
+    end
+  end
+
+  def change_article_status
+    @article = Article.find(params[:id])
+    @article.update_column(:verified, !@article.verified)
+    respond_to do |format|
+      format.html {redirect_to articles_path, notice: 'Article status changed'}
       format.json {head :no_content}
     end
   end

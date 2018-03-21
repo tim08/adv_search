@@ -2,11 +2,11 @@ class MainController < ApplicationController
 
   def index
     @companies = Company.search(params)
-    @premium_companies = Company.premium.last(3)
+    @premium_companies = Company.premium.last(3).reverse
     @projects_news = Company.news_projects
     @reviews = Company.reviews_main
-    @articles = Article.last(3)
-    @last_promo_requests = PromoRequest.verified.last(3)
+    @articles = Article.verified.last(3)
+    @last_promo_requests = PromoRequest.verified.order(created_at: :desc).last(3)
   end
 
   def important_article
@@ -14,7 +14,7 @@ class MainController < ApplicationController
   end
 
   def main_articles
-    @articles = Article.all
+    @articles = Article.verified.order(created_at: :desc)
   end
 
   def main_article
