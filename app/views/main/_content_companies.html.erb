@@ -37,7 +37,14 @@
         <% end %>
 
 
-        <h4 class="thin"><%= @companies[:message] %></h4>
+        <h4 class="thin">
+          <%= @companies[:message] %>
+          <% if @companies[:add_link].present? %>
+            <br>
+            но вы можете прямо сейчас заказать
+            <%= link_to "свою рекламную кампанию", new_promo_request_path %>
+          <% end %>
+        </h4>
         <div class="row" style="border-bottom: 1px solid #eee;padding-top: 5px"></div>
 
         <% @companies[:companies].each do |company| %>

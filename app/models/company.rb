@@ -20,7 +20,7 @@ class Company < ApplicationRecord
   after_create{ NotificationMailer.notification_company.deliver_later}
 
   def self.search(params)
-    result = {companies: none, message: ''}
+    result = {companies: none, message: '', add_link: false}
     if params[:city].present?
       companies = all
       # companies = companies.where(promo: true) if params[:promo].present?
@@ -55,6 +55,7 @@ class Company < ApplicationRecord
           result[:message] = I18n.t('search_message.companies_budget_missing')
         else
           result[:message] = I18n.t('search_message.companies_missing')
+          result[:add_link] = true
         end
       end
 
