@@ -28,6 +28,11 @@
           <%= link_to 'Подключить премиум аккаунт', payment_company_path(@company) %>
       <% end %>
     </div>
+    <br>
+    <div>
+      Количество проектов: <strong><%= @company.projects.count %></strong> <span id='projects_count_info' class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="right" data-html="true" title="Ваши выполненые проекты видят потенциальные клиенты."></span>
+      <%= link_to 'Добавить проекты', company_projects_path(@company) %>
+    </div>
 
 
   </div>

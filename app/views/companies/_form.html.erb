@@ -93,6 +93,83 @@
         </div>
       </div>
     </div>
+  <div class="row">
+    <div class="col-md-10"><span class="label label-info">Сфера деятельности</span>
+      <details>
+        <summary>Укажите специализацию компании</summary>
+        <div class="col-md-6">
+          <div class="form-group">
+
+            <%= form.check_box :promo %>
+            <%= form.label :promo %>
+            <br>
+
+            <%= form.check_box :direct_mail %>
+            <%= form.label :direct_mail %>
+            <br>
+
+            <%= form.check_box :outdoor_ads %>
+            <%= form.label :outdoor_ads %>
+            <br>
+
+            <%= form.check_box :radio_ads %>
+            <%= form.label :radio_ads %>
+            <br>
+
+            <%= form.check_box :transport_ads %>
+            <%= form.label :transport_ads %>
+            <br>
+
+            <%= form.check_box :indoor_ads %>
+            <%= form.label :indoor_ads %>
+            <br>
+
+            <%= form.check_box :mass_media %>
+            <%= form.label :mass_media %>
+            <br>
+
+            <%= form.check_box :tv_ads %>
+            <%= form.label :tv_ads %>
+          </div>
+        </div>
+        <div class="col-md-">
+          <div class="form-group">
+
+            <%= form.check_box :internet_ids %>
+            <%= form.label :internet_ids %>
+            <br>
+
+            <%= form.check_box :salepoint_ads %>
+            <%= form.label :salepoint_ads %>
+            <br>
+
+            <%= form.check_box :print_services %>
+            <%= form.label :print_services %>
+            <br>
+
+            <%= form.check_box :production_promotional_materials %>
+            <%= form.label :production_promotional_materials %>
+            <br>
+
+            <%= form.check_box :install_adv_constructions %>
+            <%= form.label :install_adv_constructions %>
+            <br>
+
+            <%= form.check_box :marketing_research %>
+            <%= form.label :marketing_research %>
+            <br>
+
+            <%= form.check_box :product_placement %>
+            <%= form.label :product_placement %>
+            <br>
+
+            <%= form.check_box :design_services %>
+            <%= form.label :design_services %>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
     <div class="row">
       <div class="col-md-10">
         <span class="label label-info">Города</span>
@@ -108,83 +185,7 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-10"><span class="label label-info">Сфера деятельности</span>
-        <details>
-          <summary>Укажите специализацию компании</summary>
-          <div class="col-md-6">
-            <div class="form-group">
 
-              <%= form.check_box :promo %>
-              <%= form.label :promo %>
-              <br>
-
-              <%= form.check_box :direct_mail %>
-              <%= form.label :direct_mail %>
-              <br>
-
-              <%= form.check_box :outdoor_ads %>
-              <%= form.label :outdoor_ads %>
-              <br>
-
-              <%= form.check_box :radio_ads %>
-              <%= form.label :radio_ads %>
-              <br>
-
-              <%= form.check_box :transport_ads %>
-              <%= form.label :transport_ads %>
-              <br>
-
-              <%= form.check_box :indoor_ads %>
-              <%= form.label :indoor_ads %>
-              <br>
-
-              <%= form.check_box :mass_media %>
-              <%= form.label :mass_media %>
-              <br>
-
-              <%= form.check_box :tv_ads %>
-              <%= form.label :tv_ads %>
-            </div>
-          </div>
-          <div class="col-md-">
-            <div class="form-group">
-
-              <%= form.check_box :internet_ids %>
-              <%= form.label :internet_ids %>
-              <br>
-
-              <%= form.check_box :salepoint_ads %>
-              <%= form.label :salepoint_ads %>
-              <br>
-
-              <%= form.check_box :print_services %>
-              <%= form.label :print_services %>
-              <br>
-
-              <%= form.check_box :production_promotional_materials %>
-              <%= form.label :production_promotional_materials %>
-              <br>
-
-              <%= form.check_box :install_adv_constructions %>
-              <%= form.label :install_adv_constructions %>
-              <br>
-
-              <%= form.check_box :marketing_research %>
-              <%= form.label :marketing_research %>
-              <br>
-
-              <%= form.check_box :product_placement %>
-              <%= form.label :product_placement %>
-              <br>
-
-              <%= form.check_box :design_services %>
-              <%= form.label :design_services %>
-            </div>
-          </div>
-        </details>
-      </div>
-    </div>
 
     <%= form.submit 'Сохранить данные', class: 'btn btn-default' %>
 

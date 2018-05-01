@@ -8,7 +8,11 @@
       <h1 class="page-title" style="text-align: left">Компания #<%= @company.id %>
         <script src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
         <script src="//yastatic.net/share2/share.js"></script>
-        <div class="ya-share2" data-services="vkontakte,facebook,odnoklassniki,gplus,twitter,linkedin" style="float: right"></div>
+        <div style="float: right; font-size: 14px;">
+          поделиться карточкой исполнителя
+          <br>
+          <div class="ya-share2" data-services="vkontakte,facebook,odnoklassniki,moimir,gplus,twitter,evernote,viber,whatsapp,telegram" style="float: right"></div>
+        </div>
       </h1>
     </header>
   </div>
@@ -88,7 +92,8 @@
 
   <div class="row">
     <h3> Контакты компании</h3>
-    <div class="col-md-4">
+    <div class="col-md-12">
+      <div id="contacts-block" class="col-md-3">
       <% if @company.premium? %>
         <address>
           <strong>Телефон:</strong>
@@ -112,7 +117,12 @@
         Данные компании скрыты
         <br>
       <% end %>
-      <%= link_to "Оставить заявку на организацию рекламной компании", new_promo_request_url  %>
+      </div>
+
+      <a class="btn btn-warning" id="show_contacts">Раскрыть контакты</a>
+      <a class="btn btn-warning" href="#callbackwidget">Связаться</a>
+
+      <%= link_to "Оставить заявку", new_promo_request_url, class: 'btn btn-warning'  %>
     </div>
 
     <div class="col-md-4">
@@ -199,4 +209,11 @@
 <script>
     $('label[for="review_type_review_positive"]').text('положительное');
     $('label[for="review_type_review_negative"]').text('отрицательное');
+
+    $('#contacts-block').hide();
+    $('#show_contacts').click(function(){
+        $('#contacts-block').show();
+        $('#show_contacts').hide();
+
+    })
 </script>
