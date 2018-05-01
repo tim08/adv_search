@@ -6,7 +6,7 @@ class MainController < ApplicationController
     @projects_news = Company.news_projects
     @reviews = Company.reviews_main
     @articles = Article.verified.last(3)
-    @last_promo_requests = PromoRequest.verified.order(created_at: :desc).last(3)
+    @last_promo_requests = PromoRequest.verified.order(created_at: :desc).limit(3)
   end
 
   def important_article
