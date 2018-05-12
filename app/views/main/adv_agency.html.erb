@@ -1,6 +1,7 @@
 <% content_for :head do %>
   <meta property="og:image" content='<%= image_url @company.logo %>'/>
   <meta property="og:title" content='<%= @company.name %>'/>
+  <meta name="turbolinks-visit-control" content="reload">
 <% end %>
 <div class="container">
   <div class="row">
@@ -125,12 +126,7 @@
       <%= link_to "Оставить заявку", new_promo_request_url, class: 'btn btn-warning'  %>
     </div>
 
-    <div class="col-md-4">
 
-    </div>
-    <div class="col-md-4">
-
-    </div>
   </div>
 
   <div class="row">

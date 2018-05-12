@@ -24,6 +24,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <%= favicon_link_tag 'favicon.ico' %>
   <link rel="manifest" href="/manifest.json">
+  <%= yield :head %>
 
 <body class="home">
 
@@ -176,7 +177,8 @@
             src="https://informer.yandex.ru/informer/46440327/1_0_FFFFFFFF_FFFFFFFF_0_pageviews"
             style="width:80px; height:15px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика:
 данные за сегодня (просмотры)" class="ym-advanced-informer" data-cid="46440327" datalang="ru"
-            /></a> <!-- /Yandex.Metrika informer --> <!-- Yandex.Metrika counter --> <script
+            /></a> <!-- /Yandex.Metrika informer -->
+              <!-- Yandex.Metrika counter --> <script
             type="text/javascript" > (function (d, w, c) { (w[c] = w[c] || []).push(function() { try
             { w.yaCounter46440327 = new Ya.Metrika({ id:46440327, clickmap:true, trackLinks:true,
                 accurateTrackBounce:true, webvisor:true, trackHash:true, ecommerce:"dataLayer" }); } catch(e) { }
