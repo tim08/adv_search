@@ -61,10 +61,10 @@
             $ipsp('checkout').scope(function() {
                 this.setCheckoutWrapper('#checkout_wrapper');
                 this.addCallback(__DEFAULTCALLBACK__);
-                this.action('show', function(data) {
-                    $('#checkout_loader').remove();
-                    $('#checkout').show();
-                });
+                // this.action('show', function(data) {
+                //     $('#checkout_loader').remove();
+                //     $('#checkout').show();
+                // });
                 this.action('hide', function(data) {
                     $('#checkout').hide();
                 });
@@ -89,6 +89,8 @@
             readonly: true
         });
         checkoutInit(button.getUrl());
+
+
     </script>
 
     <div id="checkout">
@@ -96,3 +98,6 @@
     </div>
   </div>
 </div>
+
+
+
