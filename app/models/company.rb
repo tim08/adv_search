@@ -71,7 +71,7 @@ class Company < ApplicationRecord
   end
 
   def self.reviews_main
-    verified.joins(:reviews).distinct.last(3)
+    verified.joins(:reviews).where(reviews: {verified: true}).distinct.last(3)
   end
 
   def premium?

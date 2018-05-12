@@ -13,7 +13,7 @@ class AdminsController < ApplicationController
   end
 
   def reviews
-    @reviews = Review.all
+    @reviews = Review.all.order(created_at: :desc)
   end
 
   def change_company_status

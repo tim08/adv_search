@@ -26,7 +26,7 @@
 
 
                 <div class="col-md-2" style="padding-top:15px">
-                  <%= link_to 'Подробнее', adv_agency_path(company), class: 'btn btn-action btn-xs' %>
+                  <%= link_to 'Подробнее', adv_agency_path(company), class: 'btn btn-action btn-xs', data: {:turbolinks => false}%>
                 </div>
 
 
@@ -67,7 +67,8 @@
 
 
               <div class="col-md-2" style="padding-top:15px">
-                <%= link_to 'Подробнее', adv_agency_path(company), class: 'btn btn-action btn-xs' %>
+                <!--<a class="btn btn-action btn-xs" href="<%= adv_agency_path(company) %>" data-turbolinks="false">Подробнее</a>-->
+                <%= link_to 'Подробнее', adv_agency_path(company), class: 'btn btn-action btn-xs', data: {:turbolinks => false}%>
               </div>
 
 
