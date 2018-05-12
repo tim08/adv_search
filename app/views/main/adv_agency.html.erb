@@ -6,11 +6,12 @@
 <div class="container">
   <div class="row">
     <header class="page-header">
-      <h1 class="page-title" style="text-align: left">Компания #<%= @company.id %>
+      <h1 class="page-title" style="text-align: left">Исполнитель #<%= @company.id %>
         <script src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
         <script src="//yastatic.net/share2/share.js"></script>
         <div style="float: right; font-size: 14px;">
-          поделиться карточкой исполнителя
+          Поделиться карточкой исполнителя
+          <br>
           <br>
           <div class="ya-share2" data-services="vkontakte,facebook,odnoklassniki,moimir,gplus,twitter,evernote,viber,whatsapp,telegram" style="float: right"></div>
         </div>
@@ -84,6 +85,7 @@
             <%= h(project.description).gsub(/\n/, '<br/>').html_safe %>
           </p>
           <h5>Заказчик: <%= project.client %></h5>
+          <h5>Дата: <%= project.updated_at.strftime("%-d.%-m.%Y") %></h5>
         </div>
 
       </div>
@@ -121,7 +123,7 @@
       </div>
 
       <a class="btn btn-warning" id="show_contacts">Раскрыть контакты</a>
-      <a class="btn btn-warning" href="#callbackwidget">Связаться</a>
+      <a class="btn btn-warning" href="#callbackwidget" data-turbolinks="false">Связаться</a>
 
       <%= link_to "Оставить заявку", new_promo_request_url, class: 'btn btn-warning'  %>
     </div>
