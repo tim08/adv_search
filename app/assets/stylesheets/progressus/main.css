@@ -410,3 +410,17 @@ label[for="review_type_review_negative"]{
 .company-name{
     font-size: 25px;
 }
+
+i.specializations {
+    padding-right: 10px;
+}
+
+h4.specializations {
+    margin-top: 30px;
+
+}
+
+a.specializations {
+    text-decoration: none;
+    color: #382526;
+}
