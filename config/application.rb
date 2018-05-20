@@ -12,6 +12,7 @@ module AdvSearch
     config.load_defaults 5.1
     config.i18n.default_locale = :ru
     config.time_zone = 'Moscow'
+    config.exceptions_app = self.routes
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

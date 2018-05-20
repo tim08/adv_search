@@ -39,5 +39,9 @@ Rails.application.routes.draw do
   get 'main_promo_requests', to: 'main#main_promo_requests'
   get 'adv_agency/:id', to: 'main#adv_agency', as: 'adv_agency'
 
+  match "/404", :to => "errors#not_found", :via => :all
+  match "/500", :to => "errors#internal_server_error", :via => :all
+  match "/422", :to => "errors#unprocessable_entity", :via => :all
+
 
 end
