@@ -26,7 +26,7 @@
 
 
                 <div class="col-md-2" style="padding-top:15px">
-                  <%= link_to 'Подробнее', adv_agency_path(company), class: 'btn btn-action btn-xs', data: {:turbolinks => false}%>
+                  <%= link_to 'Подробнее', adv_agency_path(company), class: 'btn btn-action btn-xs', data: {:turbolinks => false} %>
                 </div>
 
 
@@ -68,7 +68,7 @@
 
               <div class="col-md-2" style="padding-top:15px">
                 <!--<a class="btn btn-action btn-xs" href="<%= adv_agency_path(company) %>" data-turbolinks="false">Подробнее</a>-->
-                <%= link_to 'Подробнее', adv_agency_path(company), class: 'btn btn-action btn-xs', data: {:turbolinks => false}%>
+                <%= link_to 'Подробнее', adv_agency_path(company), class: 'btn btn-action btn-xs', data: {:turbolinks => false} %>
               </div>
 
 
@@ -105,6 +105,18 @@
             <li><%= link_to article.title, main_article_path(article) %></li>
           <% end %>
         </ul>
+
+        <h4 class="thin">Полезные сервисы</h4>
+        <ul>
+        <li>
+          <%= link_to 'Еmail и смс рассылки', 'https://sendpulse.com/ru/?ref=588405', target: '_blank'  %>
+        </li>
+        <li>
+          <%= link_to 'Реклама в социальных сетях', 'https://sociate.ru/info/promowind', target: '_blank'  %>
+        </li>
+        <li>
+          <%= link_to 'Приём банковских платежей', 'https://fondy.ru/?connect=13641', target: '_blank'  %>
+        </li></ul>
       </div>
     </div>
   </div>
