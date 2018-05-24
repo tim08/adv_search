@@ -1,3 +1,20 @@
+<style>
+  .carousel {
+    max-height: 600px;
+    overflow: hidden;
+  }
+
+  .item img {
+    width: 100%;
+
+  }
+
+  .carousel-caption {
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 1);
+  }
+
+
+</style>
 <% content_for :head do %>
   <meta property="og:image" content='<%= image_url @company.logo %>'/>
   <meta property="og:title" content='<%= @company.name %>'/>
@@ -71,61 +88,81 @@
     </p>
     <p class="thin"><%= h(@company.description).gsub(/\n/, '<br/>').html_safe %></p>
   </div>
+
   <div class="row">
     <h3> Реализованные проекты</h3>
-    <% @company.projects.reverse.each do |project| %>
-      <div class="row">
-        <div class="col-md-4">
-          <%= image_tag project.logo, height: '150' %>
-        </div>
-        <div class="col-md-8">
-          <h4><%= project.name %></h4>
 
-          <p class="thin">
-            <%= h(project.description).gsub(/\n/, '<br/>').html_safe %>
-          </p>
-          <h5>Заказчик: <%= project.client %></h5>
-          <h5>Дата: <%= project.updated_at.strftime("%-d.%-m.%Y") %></h5>
-        </div>
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <% @company.projects.reverse.each_with_index do |project, index| %>
+          <li data-target="#carousel-example-generic" data-slide-to="<%= index %>" class="<%= 'active' if index == 0 %>"></li>
+        <% end %>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+        <% @company.projects.reverse.each_with_index do |project, index| %>
+          <div class="item <%= 'active' if index == 0 %>">
+            <%= image_tag project.logo, height: '600' %>
+
+            <div class="carousel-caption">
+              <h3><%= project.name %></h3>
+              <p> <%= h(project.description).gsub(/\n/, '<br/>').html_safe %></p>
+              <p> Заказчик: <%= project.client %></p>
+              <p> Дата: <%= project.updated_at.strftime("%-d.%-m.%Y") %></p>
+            </div>
+
+          </div>
+        <% end %>
 
       </div>
-      <div style="border-bottom: 1px solid #eee; margin: 40px 0 20px;"></div>
-    <% end %>
+
+      <!-- Controls -->
+      <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+      <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+      </a>
+    </div>
+
+
   </div>
 
   <div class="row">
     <h3> Контакты компании</h3>
     <div class="col-md-12">
       <div id="contacts-block" class="col-md-3">
-      <% if @company.premium? %>
-        <address>
-          <strong>Телефон:</strong>
-          <%= link_to @company.phone_contact, "tel:+#{@company.phone_contact.gsub(/[^\d]/, '')}" %>
-        </address>
-        <address>
-          <strong>E-mail:</strong>
-          <a href="mailto:<%= @company.email_contact %>" target="_blank"><%= @company.email_contact %></a>
-        </address>
-        <address>
-          <strong>Адрес:</strong>
-          <%= @company.address_contact %><br>
-        </address>
-        <% if @company.company_site.present? %>
+        <% if @company.premium? %>
           <address>
-            <strong>Сайт:</strong>
-            <%= link_to "#{@company.company_site}", @company.company_site, target: '_blank', rel: 'nofollow' %><br>
+            <strong>Телефон:</strong>
+            <%= link_to @company.phone_contact, "tel:+#{@company.phone_contact.gsub(/[^\d]/, '')}" %>
           </address>
+          <address>
+            <strong>E-mail:</strong>
+            <a href="mailto:<%= @company.email_contact %>" target="_blank"><%= @company.email_contact %></a>
+          </address>
+          <address>
+            <strong>Адрес:</strong>
+            <%= @company.address_contact %><br>
+          </address>
+          <% if @company.company_site.present? %>
+            <address>
+              <strong>Сайт:</strong>
+              <%= link_to "#{@company.company_site}", @company.company_site, target: '_blank', rel: 'nofollow' %><br>
+            </address>
+          <% end %>
+        <% else %>
+          Данные компании скрыты
+          <br>
         <% end %>
-      <% else %>
-        Данные компании скрыты
-        <br>
-      <% end %>
       </div>
 
       <a class="btn btn-warning" id="show_contacts">Раскрыть контакты</a>
       <a class="btn btn-warning" href="#callbackwidget" data-turbolinks="false">Связаться</a>
 
-      <%= link_to "Оставить заявку", new_promo_request_url, class: 'btn btn-warning'  %>
+      <%= link_to "Оставить заявку", new_promo_request_url, class: 'btn btn-warning' %>
     </div>
 
 
@@ -209,7 +246,7 @@
     $('label[for="review_type_review_negative"]').text('отрицательное');
 
     $('#contacts-block').hide();
-    $('#show_contacts').click(function(){
+    $('#show_contacts').click(function () {
         $('#contacts-block').show();
         $('#show_contacts').hide();
 
