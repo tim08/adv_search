@@ -11,6 +11,7 @@
 
   .carousel-caption {
     text-shadow: 0 1px 10px rgba(0, 0, 0, 1);
+    padding-bottom: 30%
   }
 
 
@@ -104,14 +105,14 @@
       <div class="carousel-inner">
         <% @company.projects.reverse.each_with_index do |project, index| %>
           <div class="item <%= 'active' if index == 0 %>">
-            <%= image_tag project.logo, height: '600' %>
-
             <div class="carousel-caption">
               <h3><%= project.name %></h3>
               <p> <%= h(project.description).gsub(/\n/, '<br/>').html_safe %></p>
               <p> Заказчик: <%= project.client %></p>
               <p> Дата: <%= project.updated_at.strftime("%-d.%-m.%Y") %></p>
             </div>
+            <%= image_tag project.logo, height: '600' %>
+
 
           </div>
         <% end %>
