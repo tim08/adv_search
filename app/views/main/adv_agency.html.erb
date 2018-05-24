@@ -106,10 +106,9 @@
         <% @company.projects.reverse.each_with_index do |project, index| %>
           <div class="item <%= 'active' if index == 0 %>">
             <div class="carousel-caption">
-              <h3><%= project.name %></h3>
-              <p> <%= h(project.description).gsub(/\n/, '<br/>').html_safe %></p>
-              <p> Заказчик: <%= project.client %></p>
-              <p> Дата: <%= project.updated_at.strftime("%-d.%-m.%Y") %></p>
+              <h3 class="thin"><%= project.name %></h3>
+              <p class="thin"> <%= h(project.description).gsub(/\n/, '<br/>').html_safe %></p>
+              <p class="thin"> Заказчик: <%= project.client %>,  Дата: <%= project.updated_at.strftime("%-d.%-m.%Y") %></p>
             </div>
             <%= image_tag project.logo, height: '600' %>
 
