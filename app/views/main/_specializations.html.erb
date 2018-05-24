@@ -1,114 +1,129 @@
-<div class="container text-center">
-  <br> <br>
-  <h2 class="thin">Рекламные категории</h2>
+<style>
+  h4 {
+    font-size: 16px;
+  }
+</style>
+<div class="jumbotron top-space">
+  <div class="container text-center">
 
-  <div class="col-md-4" style="text-align: left">
+    <h2 class="thin">Рекламные категории</h2>
 
-    <h4 class="specializations"><%= link_to root_path, class: 'specializations' do %>
-        <i class="glyphicon glyphicon-send specializations"></i>
-        Промо акции и мероприятия
-      <% end %>
-    </h4>
+    <div class="col-md-3" style="text-align: left">
 
-    <h4 class="specializations"><%= link_to root_path, class: 'specializations' do %>
-        <i class="glyphicon glyphicon-send specializations"></i>
-        Директ мэйл
-      <% end %>
-    </h4>
+      <h4 class="specializations"><%= link_to root_path, class: 'specializations' do %>
+          <%= image_tag 'specializations/1-Promoakcii&events', size: '40x40' %>
+          Промо акции и мероприятия
+        <% end %>
+      </h4>
 
-    <h4 class="specializations"><%= link_to root_path, class: 'specializations' do %>
-        <i class="glyphicon glyphicon-send specializations"></i>
-        Наружная реклама
-      <% end %>
-    </h4>
+      <h4 class="specializations"><%= link_to root_path, class: 'specializations' do %>
+          <%= image_tag 'specializations/2-Direct_mail.svg', size: '40x40' %>
+          Директ мэйл (почтовая рассылка)
+        <% end %>
+      </h4>
 
-    <h4 class="specializations"><%= link_to root_path, class: 'specializations' do %>
-        <i class="glyphicon glyphicon-send specializations"></i>
-        Реклама на транспорте
-      <% end %>
-    </h4>
+      <h4 class="specializations"><%= link_to root_path, class: 'specializations' do %>
+          <%= image_tag 'specializations/3-Narujnaya_reklama', size: '40x40' %>
+          Наружная реклама
+        <% end %>
+      </h4>
 
-    <h4 class="specializations"><%= link_to root_path, class: 'specializations' do %>
-        <i class="glyphicon glyphicon-send specializations"></i>
-        Маркетинговые исследования
-      <% end %>
-    </h4>
+      <h4 class="specializations"><%= link_to root_path, class: 'specializations' do %>
+          <%= image_tag 'specializations/4-Reklama_na_transportу', size: '40x40' %>
+          Реклама на транспорте
+        <% end %>
+      </h4>
+
+    </div>
+    <div class="col-md-3" style="text-align: left">
+
+      <h4 class="specializations"><%= link_to root_path, class: 'specializations' do %>
+          <%= image_tag 'specializations/5-Televizionnay_reklama', size: '40x40' %>
+          Телевизионная реклама
+        <% end %>
+      </h4>
+
+      <h4 class="specializations"><%= link_to root_path, class: 'specializations' do %>
+          <%= image_tag 'specializations/6-Reklama_na_radio', size: '40x40' %>
+          Реклама на радиостанциях
+        <% end %>
+      </h4>
+
+      <h4 class="specializations"><%= link_to root_path, class: 'specializations' do %>
+          <%= image_tag 'specializations/7-Pechatnie_smi', size: '40x40' %>
+          Информационные печатные СМИ
+        <% end %>
+      </h4>
+
+      <h4 class="specializations"><%= link_to root_path, class: 'specializations' do %>
+          <%= image_tag 'specializations/8-Indoor_reklama', size: '40x40' %>
+          Indoor реклама
+        <% end %>
+      </h4>
+
+
+    </div>
+    <div class="col-md-3" style="text-align: left">
+
+      <h4 class="specializations"><%= link_to root_path, class: 'specializations' do %>
+          <%= image_tag 'specializations/9-Internet_reklama', size: '40x40' %>
+          Интернет реклама
+        <% end %>
+      </h4>
+
+      <h4 class="specializations"><%= link_to root_path, class: 'specializations' do %>
+          <%= image_tag 'specializations/10-Tipografii', size: '40x40' %>
+          Типографии (полиграфия)
+        <% end %>
+      </h4>
+
+      <h4 class="specializations"><%= link_to root_path, class: 'specializations' do %>
+          <%= image_tag 'specializations/11-Product_placment', size: '40x40' %>
+          Продакт-плейсмент (скрытая реклама)
+        <% end %>
+      </h4>
+
+      <h4 class="specializations"><%= link_to root_path, class: 'specializations' do %>
+          <%= image_tag 'specializations/12-Reklama_v_mestah', size: '40x40' %>
+          Реклама в местах продаж
+        <% end %>
+      </h4>
+
+
+    </div>
+    <div class="col-md-3" style="text-align: left">
+
+      <h4 class="specializations"><%= link_to root_path, class: 'specializations' do %>
+          <%= image_tag 'specializations/13-Dizainerskie_uslugi', size: '40x40' %>
+          Дизайнерские услуги
+        <% end %>
+      </h4>
+
+      <h4 class="specializations"><%= link_to root_path, class: 'specializations' do %>
+          <%= image_tag 'specializations/14-Marketingovie_usledovaniya', size: '40x40' %>
+          Маркетинговые исследования
+        <% end %>
+      </h4>
+
+
+      <h4 class="specializations"><%= link_to root_path, class: 'specializations' do %>
+          <%= image_tag 'specializations/15-Izgotovlenie_reklamnih_materialov', size: '40x40' %>
+          Изготовление рекламных материалов
+        <% end %>
+      </h4>
+
+      <h4 class="specializations"><%= link_to root_path, class: 'specializations' do %>
+          <%= image_tag 'specializations/16-Montaj_reklamnih_konstrukcii', size: '40x40' %>
+          Монтаж рекламных конструкций
+        <% end %>
+      </h4>
+
+    </div>
+
+
   </div>
-  <div class="col-md-4" style="text-align: left">
-
-    <h4 class="specializations"><%= link_to root_path, class: 'specializations' do %>
-        <i class="glyphicon glyphicon-thumbs-up specializations"></i>
-        Монтаж рекламных конструкций
-      <% end %>
-    </h4>
-
-    <h4 class="specializations"><%= link_to root_path, class: 'specializations' do %>
-        <i class="glyphicon glyphicon-thumbs-up specializations"></i>
-        Indoor реклама
-      <% end %>
-    </h4>
-
-    <h4 class="specializations"><%= link_to root_path, class: 'specializations' do %>
-        <i class="glyphicon glyphicon-thumbs-up specializations"></i>
-        Информационные печатные СМИ
-      <% end %>
-    </h4>
-
-    <h4 class="specializations"><%= link_to root_path, class: 'specializations' do %>
-        <i class="glyphicon glyphicon-thumbs-up specializations"></i>
-        Телевизионная реклама
-      <% end %>
-    </h4>
-
-    <h4 class="specializations"><%= link_to root_path, class: 'specializations' do %>
-        <i class="glyphicon glyphicon-thumbs-up specializations"></i>
-        Продакт-плейсмент
-      <% end %>
-    </h4>
-
-    <h4 class="specializations"><%= link_to root_path, class: 'specializations' do %>
-        <i class="glyphicon glyphicon-thumbs-up specializations"></i>
-        Реклама на радиостанциях
-      <% end %>
-    </h4>
-
-  </div>
-  <div class="col-md-4" style="text-align: left">
-
-    <h4 class="specializations"><%= link_to root_path, class: 'specializations' do %>
-        <i class="glyphicon glyphicon-heart-empty specializations"></i>
-        Интернет реклама
-      <% end %>
-    </h4>
-
-    <h4 class="specializations"><%= link_to root_path, class: 'specializations' do %>
-        <i class="glyphicon glyphicon-heart-empty specializations"></i>
-        Реклама в местах продаж
-      <% end %>
-    </h4>
-
-    <h4 class="specializations"><%= link_to root_path, class: 'specializations' do %>
-        <i class="glyphicon glyphicon-heart-empty specializations"></i>
-        Полиграфические услуги
-      <% end %>
-    </h4>
-
-    <h4 class="specializations"><%= link_to root_path, class: 'specializations' do %>
-        <i class="glyphicon glyphicon-heart-empty specializations"></i>
-        Изг. рекламных материалов
-      <% end %>
-    </h4>
-
-    <h4 class="specializations"><%= link_to root_path, class: 'specializations' do %>
-        <i class="glyphicon glyphicon-heart-empty specializations"></i>
-        Дизайнерские услуги
-      <% end %>
-    </h4>
-
-  </div>
-
-
 </div>
+
 
 
 

@@ -4,7 +4,7 @@
       <div class="col-md-9">
         <% if params[:city].blank? %>
           <h4 class="thin">Премиум компании</h4>
-          <div class="row" style="border-bottom: 1px solid #eee;padding-top: 5px"></div>
+
 
           <% @premium_companies.each do |company| %>
 
@@ -32,7 +32,7 @@
 
               </div>
             </div>
-            <div class="row" style="border-bottom: 1px solid #eee;padding-top: 5px"></div>
+
           <% end %>
         <% end %>
 
@@ -45,7 +45,7 @@
             <%= link_to "свою рекламную кампанию", new_promo_request_path %>
           <% end %>
         </h4>
-        <div class="row" style="border-bottom: 1px solid #eee;padding-top: 5px"></div>
+
 
         <% @companies[:companies].each do |company| %>
 
@@ -74,7 +74,7 @@
 
             </div>
           </div>
-          <div class="row" style="border-bottom: 1px solid #eee;padding-top: 5px"></div>
+
         <% end %>
       </div>
       <div class="col-md-3">
