@@ -252,11 +252,11 @@
                 zoom: 4
             });
 
-            var cities = <%=raw @company.cities.map{|e| "город "+ e.name } %>
+            var cities = <%=raw @company.cities.map{|e| "город #{e.name}, Россия" } %>
             cities.forEach(function (item, i, arr) {
                 ymaps.geocode(item).then(
                     function (res) {
-                        myMap.geoObjects.add(res.geoObjects);
+                        myMap.geoObjects.add(res.geoObjects.get(0));
 
                     },
                     function (err) {
