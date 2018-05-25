@@ -13,13 +13,12 @@
     text-shadow: 0 1px 10px rgba(0, 0, 0, 1);
     padding-bottom: 30%
   }
-
-
 </style>
 <% content_for :head do %>
   <meta property="og:image" content='<%= image_url @company.logo %>'/>
   <meta property="og:title" content='<%= @company.name %>'/>
   <meta name="turbolinks-visit-control" content="reload">
+  <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
 <% end %>
 <div class="container">
   <div class="row">
@@ -108,7 +107,8 @@
             <div class="carousel-caption">
               <h3 class="thin"><%= project.name %></h3>
               <p class="thin"> <%= h(project.description).gsub(/\n/, '<br/>').html_safe %></p>
-              <p class="thin"> Заказчик: <%= project.client %>,  Дата: <%= project.updated_at.strftime("%-d.%-m.%Y") %></p>
+              <p class="thin"> Заказчик: <%= project.client %>,
+                Дата: <%= project.updated_at.strftime("%-d.%-m.%Y") %></p>
             </div>
             <%= image_tag project.logo, height: '600' %>
 
@@ -226,10 +226,12 @@
           <%= form.collection_radio_buttons :type_review, Review.type_reviews, :first, :first, {checked: Review.type_reviews.first} %>
         </div>
         <%= form.number_field :company_id, id: :review_company_id, style: 'display:none' %>
+      </div>
+      <div class="col-md-3">
 
         <div class="form-group">
           <%= form.label :description %>
-          <%= form.text_area :description, rows: 6, id: :review_description, class: 'form-control', :required => true %>
+          <%= form.text_area :description, rows: 5, id: :review_description, class: 'form-control', :required => true %>
         </div>
 
 
@@ -237,6 +239,39 @@
       </div>
     </div>
   <% end %>
+
+  <div class="row">
+    <h3></h3>
+    <script>
+
+        ymaps.ready(init);
+
+        function init() {
+            myMap = new ymaps.Map("map", {
+                center: [54, 73],
+                zoom: 4
+            });
+
+            var cities = <%=raw @company.cities.map{|e| "город "+ e.name } %>
+            cities.forEach(function (item, i, arr) {
+                ymaps.geocode(item).then(
+                    function (res) {
+                        myMap.geoObjects.add(res.geoObjects);
+
+                    },
+                    function (err) {
+                        console.log('Ошибка');
+                    }
+                );
+                });
+
+
+        }
+
+
+    </script>
+    <div id="map" style="height: 500px"></div>
+  </div>
 
 
 </div>
