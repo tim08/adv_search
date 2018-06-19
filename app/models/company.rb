@@ -13,6 +13,7 @@ class Company < ApplicationRecord
 
   has_attached_file :logo, styles: {medium: "300x300>", thumb: "100x100>"}, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :logo, content_type: /\Aimage\/.*\z/
+  validates_with AttachmentSizeValidator, attributes: :logo, less_than: 15.megabytes
 
   scope :verified, -> { where(verified: true) }
   scope :premium, -> { verified.where('expiration_date_of_premium > ?', DateTime.now) }

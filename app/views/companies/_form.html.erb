@@ -15,7 +15,7 @@
       <div class="col-md-3">
         <span class="label label-info">Общая информация</span>
         <div class="form-group">
-          <%= form.label :name %>
+          <%= form.label 'Имя / Название компании' %>
           <%= form.text_field :name, id: :company_name, class: 'form-control' %>
         </div>
         <div class="form-group">
@@ -23,19 +23,24 @@
           <%= form.text_field :slogan, class: 'form-control' %>
         </div>
         <div class="form-group">
-          <%= form.label :date_foundation %> <br>
-          <%= form.date_select :date_foundation, start_year: 1850, end_year: 2017, class: 'form-control' %>
+          <%= form.label 'Логотип (не более 25 mb)' %>
+          <%= form.file_field :logo, class: 'form-control' %>
         </div>
+
       </div>
       <div class="col-md-3">
         <span class="label label-info">Персонал и расценки</span>
         <div class="form-group">
-          <%= form.label :common_exp %>
+          <%= form.label 'Кол-во сотрудников в команде' %>
           <%= form.number_field :common_exp, class: 'form-control', min: 1 %>
         </div>
         <div class="form-group">
-          <%= form.label :min_order_price %>
+          <%= form.label 'Минимальная сумма заказа' %>
           <%= form.number_field :min_order_price, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= form.label 'Дата начала работы' %> <br>
+          <%= form.date_select :date_foundation, start_year: 1850, end_year: 2017, class: 'form-control' %>
         </div>
       </div>
       <div class="col-md-3">
@@ -54,7 +59,7 @@
           <%= form.email_field :email_contact, class: 'form-control' %>
         </div>
         <div class="form-group">
-          <%= form.label :address_contact %>
+          <%= form.label 'Офис / Рабочий адрес ' %>
           <%= form.text_field :address_contact, class: 'form-control' %>
         </div>
 
@@ -62,14 +67,14 @@
       <div class="col-md-3">
         <span class="label label-info">Дополнительная информация</span>
         <div class="form-group">
-          <%= form.label :company_site %>
+          <%= form.label 'Сайт исполнителя' %>
           <%= form.text_field :company_site, class: 'form-control',type: 'url', placeholder: 'http://your_site_name.ru' %>
           <small>Это поле должно начинаться с http:// или https:// <br>
             Например: https://promowind.ru</small>
         </div>
 
         <div class="form-group">
-          <%= form.label :widget_contact_details %>
+          <%= form.label 'Социальные сети исполнителя' %>
           <%= form.text_area :widget_contact_details, class: 'form-control' %>
           <small> Данные для виджета быстрой связи<br>
             ссылка на группы вконтакте, facebook<br>
@@ -78,17 +83,12 @@
         </div>
 
       </div>
-      <div class="col-md-4">
-        <div class="form-group">
-          <%= form.label :logo %>
-          <%= form.file_field :logo, class: 'form-control' %>
-        </div>
-      </div>
+
     </div>
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-12">
         <div class="form-group">
-          <%= form.label :description %>
+          <%= form.label 'Описание деятельности' %>
           <%= form.text_area :description, size: "50x5", class: 'form-control' %>
         </div>
       </div>
