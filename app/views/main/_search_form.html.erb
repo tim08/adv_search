@@ -15,7 +15,7 @@
         <div class="col-md-8">
 
           <div class="form-group">
-            <%= label_tag :city, 'Ваш город', id: 'city_label' %>
+            <%= label_tag :city, 'Интересующий город', id: 'city_label' %>
             <%= select_tag :city, options_from_collection_for_select(City.all.order(:name), :id, :name, selected: params[:city].present? ? params[:city] : City.find_by_name('Москва').try(:id) ), class: 'form-control' %>
           </div>
         </div>
@@ -26,7 +26,7 @@
         <div class="col-md-2"></div>
         <div class="col-md-8">
           <div class="form-group">
-            <%= label_tag :min_order_price, 'Ваш бюджет', id: 'price_label' %>
+            <%= label_tag :min_order_price, 'Максимальный бюджет', id: 'price_label' %>
             <%= number_field_tag :min_order_price, params[:min_order_price].present? ? params[:min_order_price] : 10000, class: 'form-control' %>
           </div>
         </div>
