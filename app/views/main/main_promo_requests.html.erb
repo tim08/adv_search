@@ -37,7 +37,9 @@
             <span class="label label-default"><%= I18n.t("promo_request_status.#{pr.status}") %></span>
         <% end %>
 
-        <p class="lead" style="font-size: 16px"><%= pr.description %></p>
+        <p class="lead" style="font-size: 16px; text-indent: 1.5em;">
+          <%= h(pr.description).gsub(/\n/, '<br/>').html_safe %>
+        </p>
         <div style="border-bottom: 1px solid #eee;"></div>
     <% end %>
 
