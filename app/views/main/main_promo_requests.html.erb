@@ -20,11 +20,11 @@
 
     <% @promo_requests.each do |pr| %>
 
-        <h4 style="color: darkorange"><span class="glyphicon glyphicon-flag"></span> <%= pr.city.name %>
+        <h4 style="color: darkorange; font-size: 16px;" class="thin"><span class="glyphicon glyphicon-flag"></span> <%= pr.city.name %>
           , <%= l(pr.created_at, :format => :long) %></h4>
-        Рекламное направление: <%= pr.adv_type_str %><br>
-        Бюджет: <%= pr.min_order_price %> руб.<br>
-        <span>Текущий статус:</span>
+      <h4 class="thin" style="font-size: 16px;"> Рекламное направление: <%= pr.adv_type_str %><br></h4>
+      <h4 class="thin" style="font-size: 16px;"> Бюджет: <%= pr.min_order_price %> руб.<br></h4>
+      <h4 class="thin" style="font-size: 16px;"> <span>Текущий статус:</span>
 
         <% case pr.status %>
     <% when 'unhandled' %>
@@ -36,8 +36,8 @@
         <% when 'closed' %>
             <span class="label label-default"><%= I18n.t("promo_request_status.#{pr.status}") %></span>
         <% end %>
-
-        <p class="lead" style="font-size: 16px; text-indent: 1.5em;">
+      </h4>
+        <p class="lead" style="font-size: 16px;">
           <%= h(pr.description).gsub(/\n/, '<br/>').html_safe %>
         </p>
         <div style="border-bottom: 1px solid #eee;"></div>
