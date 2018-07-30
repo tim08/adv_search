@@ -24,9 +24,9 @@
   <p>Активировать премиум аккаунт можно на любой период:</p>
 
   <!--<script src="http://megatimer.ru/s/211eef6ef21b2ee4f74d17bf5809f048.js"></script>-->
-  <script src="http://megatimer.ru/s/62f83eb06c8c38a645608ce74d202fc5.js"></script>
+<!--  <script src="http://megatimer.ru/s/62f83eb06c8c38a645608ce74d202fc5.js"></script>-->
 </div>
-<div class="row"><div class="col-md-12">
+<div class="row" style="margin-bottom: 50px">
 
 
   <script src="https://api.fondy.eu/static_common/v1/checkout/ipsp.js"></script>
@@ -41,40 +41,40 @@
           return button.getUrl();
       } </script>
 
-  <div class="col-md-4 payment_block" style="margin-left: 10%">
+  <div class="col-md-4 col-xs-4 payment_block" style="margin-left: 10%">
     <p class="payment_description">На 3 месяца</p>
     <p class="payment_amount">10 000 руб.</p>
     <p class="payment_saving">При оплате на 3 месяца экономия составит <br><strong>500 руб.</strong></p>
 
-    <button onclick="location.href=createOrder(10000, 'Активация премиум аккаунта на 3 месяца')" class="btn btn-action btn-lg">Активировать</button>
+    <button onclick="location.href=createOrder(10000, 'Активация премиум аккаунта на 3 месяца')" class="btn btn-action ">Активировать</button>
 
   </div>
 
-  <div class="col-md-4 payment_block">
+  <div class="col-md-4 col-xs-4 payment_block">
     <p class="payment_description">На 6 месяцев</p>
     <p class="payment_amount">18 000 руб.</p>
     <p class="payment_saving">При оплате на 6 месяцев экономия составит <br><strong>3 000 руб.</strong></p>
-    <button onclick="location.href=createOrder(18000, 'Активация премиум аккаунта на 6 месяцев')" class="btn btn-action btn-lg">Активировать</button>
+    <button onclick="location.href=createOrder(18000, 'Активация премиум аккаунта на 6 месяцев')" class="btn btn-action ">Активировать</button>
   </div>
 
-  <div class="col-md-4 payment_block">
-    <p class="payment_description">На 1 год</p>
+  <div class="col-md-4 col-xs-4 payment_block">
+    <p class="payment_description">На 12 месяцев</p>
     <p class="payment_amount">30 000 руб.</p>
-    <p class="payment_saving">При оплате на 1 год экономия составит <br><strong>12 000 руб.</strong></p>
-    <button onclick="location.href=createOrder(30000, 'Активация премиум аккаунта на 1 год')" class="btn btn-action btn-lg">Активировать</button>
+    <p class="payment_saving">При оплате на 12 месяцев экономия составит <br><strong>12 000 руб.</strong></p>
+    <button onclick="location.href=createOrder(30000, 'Активация премиум аккаунта на 1 год')" class="btn btn-action ">Активировать</button>
   </div>
 
   <style>
     .payment_block {
       background-color: #2B98F0;
       height: 300px;
-      width: 20%;
+      width: 21%;
       margin-right: 50px
     }
 
     .payment_description {
       text-align: center;
-      padding-top: 30%;
+      /*padding-top: 30%;*/
       color: white;
       font-weight: 100;
       font-size: 28px;
@@ -101,7 +101,7 @@
   <div id="checkout">
     <div id="checkout_wrapper"></div>
   </div>
-</div></div>
+</div>
 <div class="row">
   <div class="col-md-12">
     <% if @company.premium_payments.empty? %>
