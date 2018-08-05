@@ -37,7 +37,7 @@ class PromoRequest < ApplicationRecord
   end
 
   def self.search_free(company)
-    only_free.joins(:city).where(cities: { id: company.cities.ids })
+    only_free.joins(:city).where(cities: { id: company.cities.ids }).where(adv_type: company.specialization)
   end
 
 end

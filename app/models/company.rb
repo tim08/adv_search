@@ -18,6 +18,23 @@ class Company < ApplicationRecord
   scope :verified, -> { where(verified: true) }
   scope :premium, -> { verified.where('expiration_date_of_premium > ?', DateTime.now) }
 
+  SPECIALIZATION_TYPES = %w[promo
+    outdoor_ads
+    direct_mail
+    transport_ads
+    indoor_ads
+    mass_media
+    tv_ads
+    internet_ids
+    salepoint_ads
+    print_services
+    production_promotional_materials
+    install_adv_constructions
+    marketing_research
+    product_placement
+    design_services
+    radio_ads].freeze
+
   after_create{ NotificationMailer.notification_company.deliver_later}
 
   def self.search(params)
@@ -87,29 +104,22 @@ class Company < ApplicationRecord
     pp.save
   end
 
-  def specialization
+  def specialization_to_s
     spec_s = []
-    spec_a = %w[promo
-    outdoor_ads
-    direct_mail
-    transport_ads
-    indoor_ads
-    mass_media
-    tv_ads
-    internet_ids
-    salepoint_ads
-    print_services
-    production_promotional_materials
-    install_adv_constructions
-    marketing_research
-    product_placement
-    design_services
-    radio_ads]
+    SPECIALIZATION_TYPES
 
-    spec_a.each do |sp|
+    SPECIALIZATION_TYPES.each do |sp|
       spec_s << I18n.t("activerecord.attributes.company.#{sp}") if self.public_send(sp).present?
     end
     spec_s
+  end
+
+  def specialization
+    spec = []
+    SPECIALIZATION_TYPES.each do |sp|
+      spec << sp if self.public_send(sp).present?
+    end
+    spec
   end
 
 end
