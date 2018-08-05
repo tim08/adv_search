@@ -1,0 +1,2 @@
+class CustomDescription < ApplicationRecord
+end

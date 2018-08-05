@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :custom_descriptions
   resources :promo_requests
   resources :reviews, only: [:new, :create]
   resources :articles

@@ -1,0 +1,2 @@
+module CustomDescriptionsHelper
+end

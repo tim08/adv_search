@@ -78,6 +78,13 @@
               Города
           <% end %>
         </li>
+
+        <li class="<%= current_page?(custom_descriptions_path) ? 'active' : '' %>">
+          <%= link_to custom_descriptions_path do %>
+            <span class="glyphicon glyphicon-font"></span>
+            Описание на главной
+          <% end %>
+        </li>
       </ul>
       <!--<ul class="nav nav-sidebar">-->
         <!--<li><a href="">Отчеты</a></li>-->

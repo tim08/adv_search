@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Custom Descriptions</h1>
+
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Body</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @custom_descriptions.each do |custom_description| %>
+      <tr>
+        <td><%= custom_description.name %></td>
+        <td><%= custom_description.body %></td>
+        <td><%= link_to 'Show', custom_description %></td>
+        <td><%= link_to 'Edit', edit_custom_description_path(custom_description) %></td>
+        <td><%= link_to 'Destroy', custom_description, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Custom Description', new_custom_description_path %>

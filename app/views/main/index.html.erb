@@ -1,11 +1,15 @@
 <header id="head" style="background:#181015 url(<%= image_url('bg_header.jpg') %>) no-repeat">
   <div class="container">
     <div class="row">
-      <h1 class="lead">Сервис быстрого поиска компетентных рекламных исполнителей в любом городе мира
+      <h1 class="lead"><%= @custom_description.find_by_name('первая строка описания').try(:body) %>
       </h1>
-      <h2 >Помогаем бизнесу запускать эффективные рекламные кампании экономя время маркетолога и бюджет на продвижение
+      <h2 >
+        <%= @custom_description.find_by_name('вторая строка описания').try(:body) %>
       </h2>
-      <p class="tagline" style="font-size: 20px">найдите подходящих исполнителей самостоятельно или получите от них лучшее предложение оставив заявку</p>
+      <p class="tagline" style="font-size: 20px">
+        <%= @custom_description.find_by_name('третья строка описания').try(:body) %>
+        
+      </p>
       <%= render 'search_form' %>
     </div>
   </div>

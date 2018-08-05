@@ -7,6 +7,7 @@ class MainController < ApplicationController
     @reviews = Company.reviews_main
     @articles = Article.verified.last(3)
     @last_promo_requests = PromoRequest.verified.order(created_at: :desc).limit(3)
+    @custom_description = CustomDescription.all
   end
 
   def important_article
