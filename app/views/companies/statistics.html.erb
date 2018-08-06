@@ -2,14 +2,17 @@
 <h1 class="page-header">Статистика</h1>
 <div class="row">
   <div class="col-md-12">
-    <span class="label label-warning">Информация по просмотрам Вашей компании и прочая информация</span>
+    <span class="label label-warning">Основные показатели коммуникаций</span>
   </div>
 </div>
 <br>
 <div class="row">
   <div class="col-md-12">
+
+    Количество посещений: Нет данных <br>
+    Количество заяков: Нет данных <br>
+    Количество проектов: <%= @company.projects.count %><br>
     Количество отзывов: <%= @company.reviews.count %> <br>
-    Количество просмотров: Нет данных <br>
 
   </div>
 </div>
