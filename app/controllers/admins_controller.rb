@@ -28,7 +28,9 @@ class AdminsController < ApplicationController
   def change_request_status
     @promo_request = PromoRequest.find(params[:id])
     @promo_request.update! status: :free, verified_at: DateTime.now
-    NotificationMailer.with(promo_request: @promo_request).notification_new_promo_request.deliver_later
+    Company.joins(:cities).where(cities: {name: @promo_request.city.name}).where(@promo_request.adv_type.to_sym => true).each do |company|
+      NotificationMailer.with(promo_request: @promo_request, company: company).notification_new_promo_request.deliver_later
+    end
     respond_to do |format|
       format.html {redirect_to promo_requests_path, notice: 'Request status changed'}
       format.json {head :no_content}
