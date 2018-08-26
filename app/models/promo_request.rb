@@ -41,6 +41,7 @@ class PromoRequest < ApplicationRecord
   end
 
   def self.search(params)
+    params[:city] = City.find_by_name('Москва').try(:id) if params[:city].nil?
     verified.joins(:city).where(cities: {id: params[:city]})
   end
 
