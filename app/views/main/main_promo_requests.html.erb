@@ -9,40 +9,60 @@
 
     <div style="text-align: right">
       <span id='request_info' data-toggle="tooltip" data-placement="left" data-html="true" title="
-<div style='text-align: left'>Получить заявку может любая представленная на сайте рекламная компания из соответствующего города, работающая с указанным в заявке бюджетом.<br>
-Для того, чтобы начать принимать заявки, добавьте информацию о вашей компании в нашу базу рекламных поставщиков.<br>
-Пройдите простую регистрацию прямо сейчас нажав на кнопку Присоединиться<br>
+<div style='text-align: left'>
 
-!Премиум аккаунты получают рекламные заявки сразу же после их публикации. Компании без премиум аккаунта получают заявки через 1 час после размещения.</div>
+	1.	Получать заявки может любой исполнитель, работающий в соответствующем городе и с указанным в заявке бюджетом.<br>
+	2.	Чтобы начать принимать заявки на свою почту, необходимо пройти простую регистрацию . <br>
+	3.	Исполнитель с премиум аккаунтом получает заявки сразу же после их размещения, все остальные через 1 час.
+
+
+</div>
 "><strong id="request_info_text">Как получать заявки?</strong></span>
 
     </div>
-
+    <%= form_tag main_promo_requests_path, method: :get do %>
+      <div class="row">
+        <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <%= label_tag :city, 'Интересующий город', id: 'city_label' %>
+          <%= select_tag :city, options_from_collection_for_select(City.all.order(:name), :id, :name, selected: params[:city].present? ? params[:city] : City.find_by_name('Москва').try(:id)), class: 'form-control' %>
+        </div>
+        <p class="text-center"> <%= submit_tag 'Поиск', class: 'btn btn-action btn' %></p>
+      </div>
+      </div>
+      <div class="col-md-4"></div>
+      <br>
+    <% end %>
+    <% if @promo_requests.present? %>
     <% @promo_requests.each do |pr| %>
 
-        <h4 style="color: darkorange; font-size: 16px;" class="thin"><span class="glyphicon glyphicon-flag"></span> <%= pr.city.name %>
-          , <%= l(pr.created_at, :format => :long) %></h4>
+      <h4 style="color: darkorange; font-size: 16px;" class="thin">
+        <span class="glyphicon glyphicon-flag"></span> <%= pr.city.name %>
+        , <%= l(pr.created_at, :format => :long) %></h4>
       <h4 class="thin" style="font-size: 16px;"> Рекламное направление: <%= pr.adv_type_str %><br></h4>
       <h4 class="thin" style="font-size: 16px;"> Бюджет: <%= pr.min_order_price %> руб.<br></h4>
-      <h4 class="thin" style="font-size: 16px;"> <span>Текущий статус:</span>
+      <h4 class="thin" style="font-size: 16px;"><span>Текущий статус:</span>
 
         <% case pr.status %>
-    <% when 'unhandled' %>
-            <span class="label label-danger"><%= I18n.t("promo_request_status.#{pr.status}") %></span>
+        <% when 'unhandled' %>
+          <span class="label label-danger"><%= I18n.t("promo_request_status.#{pr.status}") %></span>
         <% when 'free' %>
-            <span class="label label-success"><%= I18n.t("promo_request_status.#{pr.status}") %></span>
+          <span class="label label-success"><%= I18n.t("promo_request_status.#{pr.status}") %></span>
         <% when 'processing' %>
-            <span class="label label-warning"><%= I18n.t("promo_request_status.#{pr.status}") %></span>
+          <span class="label label-warning"><%= I18n.t("promo_request_status.#{pr.status}") %></span>
         <% when 'closed' %>
-            <span class="label label-default"><%= I18n.t("promo_request_status.#{pr.status}") %></span>
+          <span class="label label-default"><%= I18n.t("promo_request_status.#{pr.status}") %></span>
         <% end %>
       </h4>
-        <p class="lead" style="font-size: 16px;">
-          <%= h(pr.description).gsub(/\n/, '<br/>').html_safe %>
-        </p>
-        <div style="border-bottom: 1px solid #eee;"></div>
+      <p class="lead" style="font-size: 16px;">
+        <%= h(pr.description).gsub(/\n/, '<br/>').html_safe %>
+      </p>
+      <div style="border-bottom: 1px solid #eee;"></div>
     <% end %>
-
+      <% else %>
+    Для текущего города пока что нет рекламных заявок.
+    <% end %>
   </div>
 </div>
 

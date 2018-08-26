@@ -11,7 +11,9 @@
 
   .carousel-caption {
     text-shadow: 0 1px 10px rgba(0, 0, 0, 1);
-    padding-bottom: 30%
+    padding-bottom: 30%;
+    right: 5%;
+    left: 5%;
   }
 </style>
 <% content_for :head do %>
@@ -105,10 +107,15 @@
         <% @company.projects.reverse.each_with_index do |project, index| %>
           <div class="item <%= 'active' if index == 0 %>">
             <div class="carousel-caption">
-              <h3 class="thin"><%= project.name %></h3>
-              <p class="thin"> <%= h(project.description).gsub(/\n/, '<br/>').html_safe %></p>
-              <p class="thin"> Заказчик: <%= project.client %>,
-                Дата: <%= project.updated_at.strftime("%-d.%-m.%Y") %></p>
+              <p class="thin" style="position: absolute; bottom: 0; padding-bottom: 25px">
+                <%= project.name %>
+                <br>
+                <%= h(project.description).gsub(/\n/, '<br/>').html_safe %>
+                <br>
+                Заказчик: <%= project.client %>,
+                Дата: <%= project.updated_at.strftime("%-d.%-m.%Y") %>
+              </p>
+
             </div>
             <%= image_tag project.logo, height: '600' %>
 
@@ -131,7 +138,7 @@
   </div>
 
   <div class="row">
-    <h3> Контакты компании</h3>
+    <h3> Контактные данные</h3>
     <div class="col-md-12">
       <div id="contacts-block" class="col-md-3">
         <% if @company.premium? %>

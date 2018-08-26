@@ -31,7 +31,7 @@ class MainController < ApplicationController
   end
 
   def main_promo_requests
-    @promo_requests = PromoRequest.verified
+    @promo_requests = PromoRequest.search(params)
   end
 
 

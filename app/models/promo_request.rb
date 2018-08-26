@@ -16,21 +16,21 @@ class PromoRequest < ApplicationRecord
   DELAY_FOR_NORMAL_ACCOUNT = 60
 
   ADV_TYPES = {promo: 'Промо акции и мероприятия',
-               outdoor_ads: 'Наружная реклама',
                direct_mail: 'Директ мэйл',
+               outdoor_ads: 'Наружная реклама',
                transport_ads: 'Реклама на транспорте',
-               indoor_ads: 'Indoor реклама',
-               mass_media: 'Информационные печатные СМИ',
                tv_ads: 'Телевизионная реклама',
+               radio_ads: 'Реклама на радиостанциях',
+               mass_media: 'Информационные печатные СМИ',
+               indoor_ads: 'Indoor реклама',
                internet_ids: 'Интернет реклама',
-               salepoint_ads: 'Реклама в местах продаж',
                print_services: 'Полиграфические услуги',
-               production_promotional_materials: 'Изготовление рекламных материалов',
-               install_adv_constructions: 'Монтаж рекламных конструкций',
-               marketing_research: 'Маркетинговые исследования',
                product_placement: 'Продакт-плейсмент',
+               salepoint_ads: 'Реклама в местах продаж',
                design_services: 'Дизайнерские услуги',
-               radio_ads: 'Реклама на радиостанциях'}.freeze
+               marketing_research: 'Маркетинговые исследования',
+               production_promotional_materials: 'Изготовление рекламных материалов',
+               install_adv_constructions: 'Монтаж рекламных конструкций'}.freeze
 
   def adv_type_str
     ADV_TYPES[adv_type.to_sym]
@@ -38,6 +38,10 @@ class PromoRequest < ApplicationRecord
 
   def self.search_free(company)
     only_free.joins(:city).where(cities: { id: company.cities.ids }).where(adv_type: company.specialization)
+  end
+
+  def self.search(params)
+    verified.joins(:city).where(cities: {id: params[:city]})
   end
 
 end
