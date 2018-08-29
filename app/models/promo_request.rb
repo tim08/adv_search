@@ -41,7 +41,7 @@ class PromoRequest < ApplicationRecord
   end
 
   def self.search(params)
-    params[:city].present? ?  verified.joins(:city).where(cities: {id: params[:city]}) : verified 
+    params[:city].present? ? verified.joins(:city).where(cities: {id: params[:city]}) : verified
   end
 
 end
