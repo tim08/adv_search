@@ -62,19 +62,19 @@
         <li class="<%= current_page?(promo_requests_company_path(@company)) ? 'active' : '' %>">
           <%= link_to (promo_requests_company_path(@company)) do %>
               <span class="glyphicon glyphicon-envelope"></span>
-              Заявки
+              Мои заявки
           <% end %>
         </li>
         <li class="<%= current_page?(company_articles_path(@company)) ? 'active' : '' %>">
           <%= link_to (company_articles_path(@company)) do %>
             <span class="glyphicon glyphicon-book"></span>
-            Статьи
+            Мои статьи
           <% end %>
         </li>
         <li class="<%= current_page?(payment_company_path(@company)) ? 'active' : '' %>">
           <%= link_to payment_company_path(@company) do %>
               <span class="glyphicon glyphicon-usd"></span>
-              Платежи
+              Премиум аккаунт
           <% end %>
         </li>
         <li class="<%= current_page?(statistics_company_path(@company)) ? 'active' : '' %>">

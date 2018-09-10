@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180805160102) do
+ActiveRecord::Schema.define(version: 20180910161601) do
 
   create_table "admins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
@@ -106,7 +106,7 @@ ActiveRecord::Schema.define(version: 20180805160102) do
     t.datetime "logo_updated_at"
     t.boolean "verified", default: false
     t.date "expiration_date_of_premium", default: "1987-09-14"
-    t.date "date_foundation"
+    t.date "date_foundation", default: "2018-09-10"
     t.string "company_site"
     t.string "mobile_phone_contact"
     t.text "widget_contact_details"

@@ -10,6 +10,9 @@ class Company < ApplicationRecord
   has_many :promo_requests
   has_many :premium_payments
   has_many :articles
+  before_create do
+    self.date_foundation = Date.current
+  end
 
   has_attached_file :logo, styles: {medium: "300x300>", thumb: "100x100>"}, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :logo, content_type: /\Aimage\/.*\z/
