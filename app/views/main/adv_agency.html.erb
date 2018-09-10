@@ -1,20 +1,14 @@
 <style>
-  .carousel {
-    max-height: 600px;
-    overflow: hidden;
-  }
-
-  .item img {
-    width: 100%;
-
+  .bs-example, .new-caption-area {
+    width: auto;
+    margin: auto;
+    color: #000;
   }
 
   .carousel-caption {
-    text-shadow: 0 1px 10px rgba(0, 0, 0, 1);
-    padding-bottom: 30%;
-    right: 5%;
-    left: 5%;
+    color: #000;
   }
+
 </style>
 <% content_for :head do %>
   <meta property="og:image" content='<%= image_url @company.logo %>'/>
@@ -94,20 +88,20 @@
   <div class="row">
     <h3> Реализованные проекты</h3>
 
-    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <% @company.projects.reverse.each_with_index do |project, index| %>
-          <li data-target="#carousel-example-generic" data-slide-to="<%= index %>" class="<%= 'active' if index == 0 %>"></li>
-        <% end %>
-      </ol>
 
-      <!-- Wrapper for slides -->
-      <div class="carousel-inner">
-        <% @company.projects.reverse.each_with_index do |project, index| %>
-          <div class="item <%= 'active' if index == 0 %>">
+    <div class="bs-example">
+      <div id="carousel-example-captions" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <% @company.projects.reverse.each_with_index do |project, index| %>
+            <li data-target="#carousel-example-generic" data-slide-to="<%= index %>" class="<%= 'active' if index == 0 %>"></li>
+          <% end %>
+        </ol>
+        <div class="carousel-inner">
+          <% @company.projects.reverse.each_with_index do |project, index| %>
+            <div class="item <%= 'active' if index == 0 %>">
+            <%= image_tag project.logo %>
             <div class="carousel-caption">
-              <p class="thin" style="position: absolute; bottom: 0; padding-bottom: 25px">
+              <p class="thin" >
                 <%= project.name %>
                 <br>
                 <%= h(project.description).gsub(/\n/, '<br/>').html_safe %>
@@ -115,25 +109,19 @@
                 Заказчик: <%= project.client %>,
                 Дата: <%= project.updated_at.strftime("%-d.%-m.%Y") %>
               </p>
-
             </div>
-            <%= image_tag project.logo, height: '600' %>
-
-
           </div>
-        <% end %>
-
+<% end %>
+        </div>
+        <a class="left carousel-control" href="#carousel-example-captions" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-captions" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
       </div>
-
-      <!-- Controls -->
-      <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left"></span>
-      </a>
-      <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right"></span>
-      </a>
     </div>
-
+    <div class="new-caption-area"></div>
 
   </div>
 
@@ -284,6 +272,18 @@
 </div>
 
 <script>
+    jQuery(function ($) {
+        $('.carousel').carousel();
+        var caption = $('div.item:nth-child(1) .carousel-caption');
+        $('.new-caption-area').html(caption.html());
+        caption.css('display', 'none');
+
+        $(".carousel").on('slide.bs.carousel', function (evt) {
+            var caption = $('div.item:nth-child(' + ($(evt.relatedTarget).index() + 1) + ') .carousel-caption');
+            $('.new-caption-area').html(caption.html());
+            caption.css('display', 'none');
+        });
+    });
     $('label[for="review_type_review_positive"]').text('положительное');
     $('label[for="review_type_review_negative"]').text('отрицательное');
 
