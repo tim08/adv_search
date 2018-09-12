@@ -102,7 +102,7 @@
             <%= image_tag project.logo %>
             <div class="carousel-caption">
               <p class="thin" >
-                <%= project.name %>
+                <strong> <%= project.name %></strong>
                 <br>
                 <%= h(project.description).gsub(/\n/, '<br/>').html_safe %>
                 <br>

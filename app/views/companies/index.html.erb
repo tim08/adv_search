@@ -1,7 +1,7 @@
 <h1 class="page-header">Профиль <%= @company.name %></h1>
 <div class="row">
   <div class="col-md-12">
-    <span class="label label-warning">Чтобы карточка исполнителя появилась в поиске нужно добавить информацию</span>
+    <span class="label label-warning">Чтобы исполнитель участвовал в поиске, необходимо заполнить информацию</span>
   </div>
 </div>
 <br>
@@ -11,7 +11,7 @@
       Текущий статус:
       <% if @company.verified? %>
           <span class="label label-success">Участвует в поиске</span>
-          <%= link_to 'Посмотреть как выглядит исполнитель для посетителей', adv_agency_path(@company), target: '_blank' %>
+          <%= link_to 'Как видит Вас посетитель сайта', adv_agency_path(@company), target: '_blank' %>
       <% else %>
           <span class="label label-danger" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Не участвует в поиске</span>
           <br>
@@ -20,18 +20,20 @@
     </div>
     <br>
     <div>
-      Тип аккаунта:
-      <% if @company.premium? %>
-          Премиум
-      <% else %>
-          Обычный <span id='account_info' class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="right" data-html="true" title="- Вы можете принять заявку в работу,<br> через 60 минут после её размещения.<br>- При просмотре Вашей страницы контактные данные компании скрыты.<br>- Отсутствует возможность публикации новых статей от имени компании."></span>
-          <%= link_to 'Активация премиум аккаунта позволяет получать заказов в 4 раза больше обычного', payment_company_path(@company) %>
-      <% end %>
+      Количество проектов: <strong><%= @company.projects.count %></strong> <span id='projects_count_info' class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="right" data-html="true" title="Ваши выполненые проекты видят потенциальные клиенты."></span>
+      <%= link_to 'Добавить проекты которые видят посетители сайта и ваши клиенты', company_projects_path(@company) %>
     </div>
+
     <br>
     <div>
-      Количество проектов: <strong><%= @company.projects.count %></strong> <span id='projects_count_info' class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="right" data-html="true" title="Ваши выполненые проекты видят потенциальные клиенты."></span>
-      <%= link_to 'Добавить проекты которые видят посетители и клиенты', company_projects_path(@company) %>
+      Тип аккаунта:
+      <% if @company.premium? %>
+        <span class="label label-success">Премиум</span>
+      <% else %>
+        <span class="label label-default">Обычный</span>
+        <span id='account_info' class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="right" data-html="true" title="- Вы можете принять заявку в работу,<br> через 60 минут после её размещения.<br>- При просмотре Вашей страницы контактные данные компании скрыты.<br>- Отсутствует возможность публикации новых статей от имени компании."></span>
+        <%= link_to 'Активация премиум аккаунта позволяет получать заказов в 4 раза больше обычного', payment_company_path(@company) %>
+      <% end %>
     </div>
 
 
