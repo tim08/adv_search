@@ -1,6 +1,6 @@
 <style>
   .bs-example, .new-caption-area {
-    width: auto;
+    width: 890px;
     margin: auto;
     color: #000;
   }
@@ -99,8 +99,9 @@
         <div class="carousel-inner">
           <% @company.projects.reverse.each_with_index do |project, index| %>
             <div class="item <%= 'active' if index == 0 %>">
-            <%= image_tag project.logo %>
+            <%= image_tag project.logo.url(:large) %>
             <div class="carousel-caption">
+              <br>
               <p class="thin" >
                 <strong> <%= project.name %></strong>
                 <br>
