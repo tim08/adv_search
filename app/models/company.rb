@@ -1,3 +1,5 @@
+require 'digest/md5'
+
 class Company < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -12,6 +14,7 @@ class Company < ApplicationRecord
   has_many :articles
   before_create do
     self.date_foundation = Date.current
+    self.ref_code = Digest::MD5.hexdigest(DateTime.now.to_s)
   end
 
   has_attached_file :logo, styles: {medium: "300x300>", thumb: "100x100>"}, default_url: "/images/:style/missing.png"
@@ -123,6 +126,12 @@ class Company < ApplicationRecord
       spec << sp if self.public_send(sp).present?
     end
     spec
+  end
+
+  def self.generate_ref_codes
+    all.each do |c|
+      c.update_column(:ref_code, Digest::MD5.hexdigest(DateTime.now.to_s + name)) if c.ref_code.nil?
+    end
   end
 
 end

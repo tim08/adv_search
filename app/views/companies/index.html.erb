@@ -35,6 +35,12 @@
         <%= link_to 'Активация премиум аккаунта позволяет получать заказов в 4 раза больше обычного', payment_company_path(@company) %>
       <% end %>
     </div>
+    <br>
+    <div>
+      Партнерская ссылка:
+      <span class="label label-info"><%= new_company_registration_url + "?ref=#{@company.ref_code}" %></span>
+      Приведи друга и каждый из вас получить по 500 бонусных баллов
+    </div>
 
 
   </div>

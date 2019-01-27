@@ -43,6 +43,8 @@
                  src="https://www.facebook.com/tr?id=957748194406965&ev=PageView&noscript=1"
   /></noscript>
   <!-- End Facebook Pixel Code -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 </head>
 
 <body class="home">
@@ -229,3 +231,25 @@
 <script type="text/javascript" src="https://cdn.saas-support.com/widget/cbk.js?wcb_code=6f670779b0d57766cde2564b8a3e3a91" charset="UTF-8" async></script>
 </body>
 </html>
+
+<script>
+    $(document).ready(function() {
+        $('select[id="city"], select[name="promo_request[city_id]"]').select2({
+            theme: "classic",
+            "language": {
+                "noResults": function(){
+                    return "Результаты не найдены";
+                }
+            },
+            escapeMarkup: function (markup) {
+                return markup;
+            }
+        });
+    });
+</script>
+<style>
+  #select2-city-container{
+    font-weight: bolder;
+    font-size: 18px;
+  }
+</style>
