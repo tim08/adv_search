@@ -8,6 +8,7 @@ class MainController < ApplicationController
     @articles = Article.verified.last(3)
     @last_promo_requests = PromoRequest.verified.order(created_at: :desc).limit(3)
     @custom_description = CustomDescription.all
+    @promo_requests_sum = PromoRequest.sum(:min_order_price)
   end
 
   def important_article

@@ -77,7 +77,7 @@
   </div>
 
   <div class="row">
-    <h3> О компании</h3>
+    <h3> Описание</h3>
     <p class="thin">
       <%= "Ведёт деятельность с #{ @company.date_foundation.strftime("%-d.%m.%Y")}" if @company.date_foundation %>
       <br>
@@ -132,18 +132,18 @@
     <div class="col-md-12">
       <div id="contacts-block" class="col-md-3">
         <% if @company.premium? %>
-          <address>
+          <p>
             <strong>Телефон:</strong>
             <%= link_to @company.phone_contact, "tel:+#{@company.phone_contact.gsub(/[^\d]/, '')}" %>
-          </address>
-          <address>
+          </p>
+          <p>
             <strong>E-mail:</strong>
             <a href="mailto:<%= @company.email_contact %>" target="_blank"><%= @company.email_contact %></a>
-          </address>
-          <address>
+          </p>
+          <p>
             <strong>Адрес:</strong>
             <%= @company.address_contact %><br>
-          </address>
+          </p>
           <% if @company.company_site.present? %>
             <address>
               <strong>Сайт:</strong>
@@ -159,7 +159,7 @@
       <a class="btn btn-warning" id="show_contacts">Раскрыть контакты</a>
       <a class="btn btn-warning" href="#callbackwidget" data-turbolinks="false">Связаться</a>
 
-      <%= link_to "Оставить заявку", new_promo_request_url, class: 'btn btn-warning' %>
+      <%= link_to "Оставить запрос", new_promo_request_url, class: 'btn btn-warning' %>
     </div>
 
 
@@ -192,7 +192,7 @@
   <br>
 
 
-  Сотрудничали с компанией? Оставьте пожалуйста свой отзыв для будущих партнёров
+  Сотрудничали с исполнителем? Оставьте пожалуйста свой отзыв для будущих партнёров
   <%= form_with(model: @review, local: true) do |form| %>
     <% if @review.errors.any? %>
       <div id="error_explanation">

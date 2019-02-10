@@ -9,11 +9,18 @@
   </p>
 
   <div class="row">
-  <a class="btn btn-warning" href="/promo_requests/new" data-turbolinks="false">Оставить заявку</a>
+  <a class="btn btn-warning" href="/promo_requests/new" data-turbolinks="false">Оставить запрос</a>
   </div>
 <br>
   <div class="row">
     <button class="btn btn-warning" sp-show-form="100582" style="background-color: #381ab0">Получить в подарок книгу</button>
+  </div>
+  <br>
+  <div class="row">
+    <p class="lead ">
+      Запросов поступивших на данный момент на <strong><%= number_to_currency(@promo_requests_sum, locale: :ru)  %></strong>
+    </p>
+
   </div>
 
 

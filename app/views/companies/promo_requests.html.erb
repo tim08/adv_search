@@ -71,7 +71,7 @@
       </thead>
 
       <tbody>
-      <% @processing_promo_requests.each do |promo_request| %>
+      <% @processing_promo_requests.reverse.each do |promo_request| %>
           <tr>
             <td style="min-width: 169px">
               <%= promo_request.name %><br>

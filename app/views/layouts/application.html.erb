@@ -19,6 +19,8 @@
   <meta name="Reply-to" content="promowindin@gmail.com">
   <meta name="description" content="Помогаем руководителям бизнеса и маркетологам оперативно находить подходящих рекламных исполнителей, а так же связываться с ними наиболее удобным способом.">
   <meta name="keywords" content="продвижение, маркетинг, промо акции, наружная реклама, рекламное агентство, рекламная компания, продвижение товара, продвижение услуг, размещение рекламы, бесплатная реклама, интернет реклама, интернет маркетинг, объявление реклама, газета реклама, стоимость рекламы">
+  <meta name="viewport" content="width=device-width, target-densitydpi=device-dpi">
+
 
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%#= javascript_include_tag 'application', 'data-turbolinks-track': 'reload', async: Rails.env.production? %>
@@ -80,8 +82,8 @@
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav pull-right">
-        <li class="<%= current_page?(main_promo_requests_path) ? 'active' : '' %>"><%= link_to 'Рекламные заявки', main_promo_requests_path %></li>
-        <li class="<%= current_page?(main_articles_path) ? 'active' : '' %>"><%= link_to 'Статьи', main_articles_path %></li>
+        <li class="<%= current_page?(main_promo_requests_path) ? 'active' : '' %>"><%= link_to 'Рекламные запросы', main_promo_requests_path %></li>
+        <li class="<%= current_page?(main_articles_path) ? 'active' : '' %>"><%= link_to 'Публикации', main_articles_path %></li>
         <li><a href="/#faq" id="l_faq">Вопросы</a></li>
         <!--<li class="dropdown">-->
         <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">Что-то <b class="caret"></b></a>-->
@@ -104,7 +106,7 @@
           <%= link_to('Присоединиться', new_company_registration_path, class: 'btn') unless company_signed_in? %>
         </li>
         <li class="active">
-          <%= link_to "Оставить заявку".html_safe, new_promo_request_path, class: 'btn request-button', style: "font-size: 13px; color: #FFEFD7; background-image: linear-gradient(to bottom, #FF9B22 0%, #FF8C00 100%); border: 0 none;" %>
+          <%= link_to "Оставить запрос".html_safe, new_promo_request_path, class: 'btn request-button', style: "font-size: 13px; color: #FFEFD7; background-image: linear-gradient(to bottom, #FF9B22 0%, #FF8C00 100%); border: 0 none;" %>
         </li>
       </ul>
     </div><!--/.nav-collapse -->
