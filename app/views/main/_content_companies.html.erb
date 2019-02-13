@@ -11,13 +11,13 @@
             <div class="media">
               <div class="row">
 
-                <div class="col-md-2 col-xs-2">
+                <div class="col-md-2 col-xs-2" style="width: auto">
 
                   <%= link_to(adv_agency_path(company), class: 'pull-left') do %>
                     <%= image_tag company.logo.url(:thumb), class: 'media-object', height: '80', width: '100' %>
                   <% end %>
                 </div>
-                <div class="col-md-7 col-xs-5" style="padding-top:15px">
+                <div class="col-md-7 col-xs-5" style="padding-top:15px; width: auto">
                   <div class="thin">
                     <h4 class="media-heading company-name"><%= company.name %></h4>
                     <%= company.slogan %>
