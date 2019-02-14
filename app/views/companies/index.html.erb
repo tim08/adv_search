@@ -20,7 +20,7 @@
     </div>
     <br>
     <div>
-      Количество проектов: <strong><%= @company.projects.count %></strong> <span id='projects_count_info' class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="right" data-html="true" title="Ваши выполненые проекты видят потенциальные клиенты."></span>
+      Количество проектов: <strong><%= @company.projects.count %></strong>
       <%= link_to 'Добавить проекты которые видят посетители сайта и ваши клиенты', company_projects_path(@company) %>
     </div>
 
@@ -39,6 +39,7 @@
     <div>
       Партнерская ссылка:
       <span class="label label-info"><%= new_company_registration_url + "?ref=#{@company.ref_code}" %></span>
+      <br>
       Приведи друга и каждый из вас получить по 500 бонусных баллов
     </div>
 
