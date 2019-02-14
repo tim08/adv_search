@@ -14,10 +14,10 @@
                 <div class="col-md-2 col-xs-2" style="width: auto">
 
                   <%= link_to(adv_agency_path(company), class: 'pull-left') do %>
-                    <%= image_tag company.logo.url(:thumb), class: 'media-object', height: '80', width: '100' %>
+                    <%= image_tag company.logo.url(:thumb), class: 'media-object', height: '100', width: '100' %>
                   <% end %>
                 </div>
-                <div class="col-md-7 col-xs-5" style="padding-top:15px; width: auto">
+                <div class="col-md-7 col-xs-5" style="padding-top:15px; width: 360px">
                   <div class="thin">
                     <h4 class="media-heading company-name"><%= company.name %></h4>
                     <%= company.slogan %>
@@ -55,10 +55,10 @@
               <div class="col-md-2 col-xs-2" style="width: auto">
 
                 <%= link_to(adv_agency_path(company), class: 'pull-left') do %>
-                  <%= image_tag company.logo.url(:thumb), class: 'media-object', height: '80', width: '100' %>
+                  <%= image_tag company.logo.url(:thumb), class: 'media-object', height: '100', width: '100' %>
                 <% end %>
               </div>
-              <div class="col-md-7 col-xs-5" style="padding-top:15px; width: 100%;">
+              <div class="col-md-7 col-xs-5" style="padding-top:15px; width: 360px;">
                 <div class="thin">
                   <h4 class="media-heading company-name"><%= company.name %></h4>
                   <%= company.slogan %>
