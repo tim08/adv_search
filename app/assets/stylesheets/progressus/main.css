@@ -61,7 +61,6 @@
 @media (max-width: 767px) {
     #head {
         min-height: 420px;
-        padding-top: 160px;
     }
 
     #head .lead {
