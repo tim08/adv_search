@@ -30,7 +30,7 @@
         <div class="col-md-2"></div>
         <div class="col-md-8">
           <div class="form-group">
-            <%= label_tag :min_order_price, 'Максимальный бюджет', id: 'price_label' %>
+            <%= label_tag :min_order_price, 'Текущий бюджет', id: 'price_label' %>
             <%= number_field_tag :min_order_price, params[:min_order_price].present? ? params[:min_order_price] : 10000, class: 'form-control' %>
           </div>
         </div>
@@ -57,6 +57,8 @@
                                                               ['Реклама в местах продаж', 'salepoint_ads'],
                                                               ['Дизайнерские услуги', 'design_services'],
                                                               ['Маркетинговые исследования', 'marketing_research'],
+                                                              ['Автоматизация маркетинга', 'marketing_automation'],
+                                                              ['Профессиональная фотосъёмка', 'professional_photography'],
                                                               ['Изготовление рекламных материалов', 'production_promotional_materials'],
                                                               ['Монтаж рекламных конструкций', 'install_adv_constructions']
                                                           ], params[:adv_class]), class: 'form-control' %>

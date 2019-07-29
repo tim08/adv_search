@@ -56,13 +56,13 @@
         <li class="<%= current_page?(company_projects_path(@company)) ? 'active' : '' %>">
           <%= link_to (company_projects_path(@company)) do %>
               <span class="glyphicon glyphicon-briefcase"></span>
-            Мои работы
+            Мои проекты
           <% end %>
         </li>
         <li class="<%= current_page?(promo_requests_company_path(@company)) ? 'active' : '' %>">
           <%= link_to (promo_requests_company_path(@company)) do %>
               <span class="glyphicon glyphicon-envelope"></span>
-              Мои заявки
+              Мои запросы
           <% end %>
         </li>
         <li class="<%= current_page?(company_articles_path(@company)) ? 'active' : '' %>">

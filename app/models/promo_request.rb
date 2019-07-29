@@ -29,6 +29,8 @@ class PromoRequest < ApplicationRecord
                salepoint_ads: 'Реклама в местах продаж',
                design_services: 'Дизайнерские услуги',
                marketing_research: 'Маркетинговые исследования',
+               marketing_automation: 'Автоматизация маркетинга',
+               professional_photography: 'Профессиональная фотосъёмка',
                production_promotional_materials: 'Изготовление рекламных материалов',
                install_adv_constructions: 'Монтаж рекламных конструкций'}.freeze
 

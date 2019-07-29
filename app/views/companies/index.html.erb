@@ -25,8 +25,7 @@
         <span class="label label-success">Премиум</span>
       <% else %>
         <span class="label label-default">Стартовый</span>
-        <span id='account_info' class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="right" data-html="true" title="- Вы можете принять заявку в работу,<br> через 60 минут после её размещения.<br>- При просмотре Вашей страницы контактные данные компании скрыты.<br>- Отсутствует возможность публикации новых статей от имени компании."></span>
-        <%= link_to 'Активация премиум аккаунта позволяет получать заказов в 4 раза больше обычного', payment_company_path(@company) %>
+        <%= link_to 'Активируя дополнительные функции вы сможете получать большее количество запросов', payment_company_path(@company) %>
       <% end %>
     </div>
 
@@ -40,7 +39,7 @@
       Партнерская ссылка:
       <span class="label label-info"><%= new_company_registration_url + "?ref=#{@company.ref_code}" %></span>
       <br>
-      Приведи друга и каждый из вас получить по 500 бонусных баллов
+      Приведи друга → Порекомендуйте партнера и каждый из Вас получить по 1000 промо баллов на активацию дополнительных возможностей
     </div>
 
 

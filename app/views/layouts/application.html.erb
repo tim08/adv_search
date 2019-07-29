@@ -103,7 +103,7 @@
         <% end %>
 
         <li>
-          <%= link_to('Присоединиться', new_company_registration_path, class: 'btn') unless company_signed_in? %>
+          <%= link_to('Регистрация', new_company_registration_path, class: 'btn') unless company_signed_in? %>
         </li>
         <li class="active">
           <%= link_to "Оставить запрос".html_safe, new_promo_request_path, class: 'btn request-button', style: "font-size: 13px; color: #FFEFD7; background-image: linear-gradient(to bottom, #FF9B22 0%, #FF8C00 100%); border: 0 none;" %>
