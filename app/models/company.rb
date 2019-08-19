@@ -38,6 +38,8 @@ class Company < ApplicationRecord
     install_adv_constructions
     marketing_research
     product_placement
+    professional_photography
+    marketing_automation
     design_services
     radio_ads].freeze
 
