@@ -116,11 +116,11 @@ class CompaniesController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def company_params
     params.require(:company).permit(:name, :promo, :direct_mail, :outdoor_ads, :radio_ads, :design_services,
-                                    :product_placement, :marketing_research, :install_adv_constructions,
+                                    :product_placement, :marketing_research, :install_adv_constructions, :professional_photography,
                                     :production_promotional_materials, :print_services, :salepoint_ads, :internet_ids,
                                     :tv_ads, :mass_media, :indoor_ads, :transport_ads, :min_order_price, :description,
                                     :common_exp, :phone_contact, :address_contact, :email_contact, :slogan, :logo, :expiration_date_of_premium,
-                                    :mobile_phone_contact, :company_site, :date_foundation, :widget_contact_details,
+                                    :mobile_phone_contact, :company_site, :date_foundation, :widget_contact_details, :marketing_automation,
                                     city_ids: [])
   end
 end
