@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1 class="page-header">Запросы</h1>
+<h1 class="page-header">Заявки</h1>
 
 <div class="row">
   <div class="col-md-12">
@@ -8,7 +8,7 @@
   </div>
 </div>
 
-<h3>Свободные запросы</h3>
+<h3>Свободные заявки</h3>
 <% if @free_promo_requests.empty? %>
     Свободных запросов для Вашей компаний пока что нет
 <% else %>
@@ -52,7 +52,7 @@
     </table>
 <% end %>
 
-<h3>Ваши запросы</h3>
+<h3>Ваши заявки</h3>
 
 <% if @processing_promo_requests.empty? %>
     У Вас пока что нет заявок
