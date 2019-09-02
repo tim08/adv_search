@@ -22,4 +22,9 @@ class NotificationMailer < ApplicationMailer
     mail(to: @company.email, subject: 'PromoWind: Ваш аккаунт подтвержден модераторами')
   end
 
+  def notification_all_company_after_verify_admin_new_company
+    @company = params[:company]
+    mail(to: @company.email, subject: 'PromoWind: Новый исполнитель на сайте')
+  end
+
 end

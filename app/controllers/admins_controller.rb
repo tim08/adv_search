@@ -20,6 +20,9 @@ class AdminsController < ApplicationController
     @company = Company.find(params[:id])
     @company.update_column(:verified, !@company.verified)
     NotificationMailer.with( company: @company).notification_company_after_verify_admin.deliver_later if @company.verified?
+    Company.all.each do |company|
+      NotificationMailer.with(company: company).notification_all_company_after_verify_admin_new_company.deliver_later
+    end
     respond_to do |format|
       format.html {redirect_to companies_admins_path, notice: 'Company status changed'}
       format.json {head :no_content}
