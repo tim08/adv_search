@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Promo Wind - сервис поиска рекламных компаний</title>
+  <title>PromoWind - сервис поиска рекламных компаний</title>
   <%= csrf_meta_tags %>
 
   <%= stylesheet_link_tag 'admins', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -53,16 +53,16 @@
               Обновить данные
           <% end %>
         </li>
+        <li class="<%= current_page?(promo_requests_company_path(@company)) ? 'active' : '' %>">
+          <%= link_to (promo_requests_company_path(@company)) do %>
+            <span class="glyphicon glyphicon-envelope"></span>
+            Мои заявки
+          <% end %>
+        </li>
         <li class="<%= current_page?(company_projects_path(@company)) ? 'active' : '' %>">
           <%= link_to (company_projects_path(@company)) do %>
               <span class="glyphicon glyphicon-briefcase"></span>
             Мои проекты
-          <% end %>
-        </li>
-        <li class="<%= current_page?(promo_requests_company_path(@company)) ? 'active' : '' %>">
-          <%= link_to (promo_requests_company_path(@company)) do %>
-              <span class="glyphicon glyphicon-envelope"></span>
-              Мои заявки
           <% end %>
         </li>
         <li class="<%= current_page?(company_articles_path(@company)) ? 'active' : '' %>">
@@ -73,8 +73,8 @@
         </li>
         <li class="<%= current_page?(payment_company_path(@company)) ? 'active' : '' %>">
           <%= link_to payment_company_path(@company) do %>
-              <span class="glyphicon glyphicon-pushpin"></span>
-              Премиум аккаунт
+              <span class="glyphicon glyphicon-star"></span>
+            PRO функции
           <% end %>
         </li>
         <li class="<%= current_page?(statistics_company_path(@company)) ? 'active' : '' %>">
