@@ -22,9 +22,9 @@
   <meta name="yandex-verification" content="0573d3746f8fd43b" />
 
 
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload', rel: 'preload' %>
   <%#= javascript_include_tag 'application', 'data-turbolinks-track': 'reload', async: Rails.env.production? %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload', rel: 'preload' %>
   <%= favicon_link_tag 'favicon.ico' %>
   <link rel="manifest" href="/manifest.json">
   <%= yield :head %>
@@ -107,7 +107,7 @@
           <%= link_to('Регистрация', new_company_registration_path, class: 'btn') unless company_signed_in? %>
         </li>
         <li class="active">
-          <%= link_to "Оставить запрос".html_safe, new_promo_request_path, class: 'btn request-button', style: "font-size: 13px; color: #FFEFD7; background-image: linear-gradient(to bottom, #FF9B22 0%, #FF8C00 100%); border: 0 none;" %>
+          <%= link_to "Отправить заявку".html_safe, new_promo_request_path, class: 'btn request-button', style: "font-size: 13px; color: #FFEFD7; background-image: linear-gradient(to bottom, #FF9B22 0%, #FF8C00 100%); border: 0 none;" %>
         </li>
       </ul>
     </div><!--/.nav-collapse -->
