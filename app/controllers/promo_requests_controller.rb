@@ -29,7 +29,7 @@ class PromoRequestsController < ApplicationController
     @promo_request = PromoRequest.new(promo_request_params)
 
     respond_to do |format|
-      if @promo_request.save
+      if verify_recaptcha && @promo_request.save
         format.html { redirect_to root_path, notice: 'Ваша заявка успешно отправлена. Она будет рассмотрена в ближайшее время. Спасибо.' }
         format.json { render :show, status: :created, location: @promo_request }
       else
