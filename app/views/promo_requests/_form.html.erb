@@ -46,7 +46,7 @@
     <%= form.label :contact_email %>
     <%= form.email_field :contact_email, id: :promo_request_contact_email, class: 'form-control' %>
   </div>
-
+  <%= recaptcha_tags %>
   <div class="top-margin">
     <%= form.submit "Отправить", class: "btn btn-action" %>
   </div>
