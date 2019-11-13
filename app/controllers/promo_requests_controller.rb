@@ -27,16 +27,21 @@ class PromoRequestsController < ApplicationController
   # POST /promo_requests.json
   def create
     @promo_request = PromoRequest.new(promo_request_params)
-
+    recaptcha_valid = verify_recaptcha(model: @promo_request, action: 'promo_request', minimum_score: 0.5)
     respond_to do |format|
-      if verify_recaptcha && @promo_request.save
-        format.html { redirect_to root_path, notice: 'Ваша заявка успешно отправлена. Она будет рассмотрена в ближайшее время. Спасибо.' }
-        format.json { render :show, status: :created, location: @promo_request }
+      if recaptcha_valid
+        if   @promo_request.save
+          format.html { redirect_to root_path, notice: 'Ваша заявка успешно отправлена. Она будет рассмотрена в ближайшее время. Спасибо.' }
+          format.json { render :show, status: :created, location: @promo_request }
+        else
+          format.html { render :new }
+          format.json { render json: @promo_request.errors, status: :unprocessable_entity }
+        end
       else
         format.html { render :new }
         format.json { render json: @promo_request.errors, status: :unprocessable_entity }
       end
-    end
+      end
   end
 
   # PATCH/PUT /promo_requests/1
