@@ -1,6 +1,6 @@
 <style>
   .bs-example, .new-caption-area {
-    width: auto ;
+    width: auto;
     margin: auto;
     color: #000;
     padding-right: 6%;
@@ -15,6 +15,10 @@
   <meta property="og:image" content='<%= image_url @company.logo %>'/>
   <meta property="og:title" content='<%= @company.name %>'/>
   <meta name="turbolinks-visit-control" content="reload">
+  <script src="/galleria/galleria.js"></script>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.5.7/themes/classic/galleria.classic.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.5.7/themes/classic/galleria.classic.min.css">
 
 <% end %>
 <div class="container" style="margin-left: 15px">
@@ -90,41 +94,12 @@
     <h3> Реализованные проекты</h3>
 
 
-    <div class="bs-example">
-      <div id="carousel-example-captions" class="carousel slide" data-ride="carousel" data-interval="false">
-        <ol class="carousel-indicators">
-          <% @company.projects.reverse.each_with_index do |project, index| %>
-            <li data-target="#carousel-example-generic" data-slide-to="<%= index %>" class="<%= 'active' if index == 0 %>"></li>
-          <% end %>
-        </ol>
-        <div class="carousel-inner">
-          <% @company.projects.reverse.each_with_index do |project, index| %>
-            <div class="item <%= 'active' if index == 0 %>">
-            <%= image_tag project.logo.url(:large), width: '900' %>
-            <div class="carousel-caption">
-              <br>
-              <p class="thin" >
-                <strong> <%= project.name %></strong>
-                <br>
-                <%= h(project.description).gsub(/\n/, '<br/>').html_safe %>
-                <br>
-                Заказчик: <%= project.client %>,
-                Дата: <%= project.updated_at.strftime("%-d.%-m.%Y") %>
-              </p>
-            </div>
-          </div>
-<% end %>
-        </div>
-        <a class="left carousel-control" href="#carousel-example-captions" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left"></span>
-        </a>
-        <a class="right carousel-control" href="#carousel-example-captions" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right"></span>
-        </a>
-      </div>
+    <div class="galleria">
+      <% @company.projects.reverse.each_with_index do |project, index| %>
+        <%= image_tag project.logo.url(:large), :data=>{:description => h(project.description).gsub(/\n/, '<br/>').html_safe , :title => project.name} %>
+      <% end %>
+<!--      <img src="/img/pic1.jpg" data-title="My title" data-description="My description">-->
     </div>
-    <div class="new-caption-area"></div>
-
   </div>
 
   <div class="row">
@@ -250,16 +225,16 @@
             });
 
             var cities = <%=raw @company.cities.map{|e| "город #{e.name}, Россия" } %>
-            cities.forEach(function (item, i, arr) {
-                ymaps.geocode(item).then(
-                    function (res) {
-                        myMap.geoObjects.add(res.geoObjects.get(0));
+                cities.forEach(function (item, i, arr) {
+                    ymaps.geocode(item).then(
+                        function (res) {
+                            myMap.geoObjects.add(res.geoObjects.get(0));
 
-                    },
-                    function (err) {
-                        console.log('Ошибка');
-                    }
-                );
+                        },
+                        function (err) {
+                            console.log('Ошибка');
+                        }
+                    );
                 });
 
 
@@ -274,18 +249,6 @@
 </div>
 
 <script>
-    jQuery(function ($) {
-        $('.carousel').carousel();
-        var caption = $('div.item:nth-child(1) .carousel-caption');
-        $('.new-caption-area').html(caption.html());
-        caption.css('display', 'none');
-
-        $(".carousel").on('slide.bs.carousel', function (evt) {
-            var caption = $('div.item:nth-child(' + ($(evt.relatedTarget).index() + 1) + ') .carousel-caption');
-            $('.new-caption-area').html(caption.html());
-            caption.css('display', 'none');
-        });
-    });
     $('label[for="review_type_review_positive"]').text('положительное');
     $('label[for="review_type_review_negative"]').text('отрицательное');
 
@@ -295,6 +258,12 @@
         $('#show_contacts').hide();
 
     })
-
+    (function() {
+        Galleria.loadTheme('/galleria/classic/galleria.classic.js');
+        Galleria.run('.galleria');
+    }());
 
 </script>
+<style>
+  .galleria{ width: 100%; height: 500px; }
+    </style>
