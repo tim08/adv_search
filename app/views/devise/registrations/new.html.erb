@@ -38,6 +38,10 @@
                   <label>Подтвердите пароль <span class="text-danger">*</span></label>
                   <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
                 </div>
+              <div class="top-margin">
+                <%= flash[:recaptcha_error] %>
+                <%= recaptcha_tags %>
+              </div>
                 <hr>
 
                 <div class="row">

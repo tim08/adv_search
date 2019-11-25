@@ -17,7 +17,9 @@ Rails.application.routes.draw do
     end
   end
   resources :cities
-  devise_for :companies, controllers: { confirmations: 'confirmations' }
+
+  devise_for :companies, controllers: { confirmations: 'confirmations',
+                                        registrations: 'companies/registrations'}
   resources :companies do
     resources :projects
     resources :articles, controller: 'company_articles'
