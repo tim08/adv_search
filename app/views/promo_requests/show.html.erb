@@ -1,29 +1,27 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+<h4 style="color: darkorange; font-size: 16px;" class="thin">
+  <span class="glyphicon glyphicon-flag"></span> <%= @promo_request.city.name %>
+  , <%= l(@promo_request.created_at, :format => :long) %></h4>
+<h4 class="thin" style="font-size: 16px;"> Рекламное направление: <%= @promo_request.adv_type_str %><br></h4>
+<h4 class="thin" style="font-size: 16px;"> Бюджет: <%= @promo_request.min_order_price %> руб.<br></h4>
+<h4 class="thin" style="font-size: 16px;"><span>Текущий статус:</span>
 
-<p>
-  <strong>Name:</strong>
-  <%= @promo_request.name %>
+  <% case @promo_request.status %>
+  <% when 'unhandled' %>
+    <span class="label label-danger"><%= I18n.t("promo_request_status.#{@promo_request.status}") %></span>
+  <% when 'free' %>
+    <span class="label label-success"><%= I18n.t("promo_request_status.#{@promo_request.status}") %></span>
+  <% when 'processing' %>
+    <span class="label label-warning"><%= I18n.t("promo_request_status.#{@promo_request.status}") %></span>
+  <% when 'closed' %>
+    <span class="label label-default"><%= I18n.t("promo_request_status.#{@promo_request.status}") %></span>
+  <% end %>
+</h4>
+<p class="lead" style="font-size: 16px;">
+  <%= h(@promo_request.description).gsub(/\n/, '<br/>').html_safe %>
 </p>
 
-<p>
-  <strong>Town:</strong>
-  <%= @promo_request.town %>
-</p>
-
-<p>
-  <strong>Min order price:</strong>
-  <%= @promo_request.min_order_price %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @promo_request.description %>
-</p>
-
-<p>
-  <strong>Contact details:</strong>
-  <%= @promo_request.contact_details %>
-</p>
-
-<%= link_to 'Edit', edit_promo_request_path(@promo_request) %> |
-<%= link_to 'Back', promo_requests_path %>
+<%= link_to 'Назад', promo_requests_path %>
+</div>
+</div>

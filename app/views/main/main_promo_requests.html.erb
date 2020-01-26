@@ -1,23 +1,14 @@
 <div class="container">
   <ol class="breadcrumb">
   </ol>
-  <div class="row">
+  <div class="row" style="margin-left: 10px">
 
     <header class="page-header">
       <h1 class="page-title">Рекламные заявки</h1>
     </header>
 
-    <div style="text-align: right">
-      <span id='request_info' data-toggle="tooltip" data-placement="left" data-html="true" title="
-<div style='text-align: left'>
-
-	1.	Получать заявки может любой исполнитель, работающий в соответствующем городе и с указанным в заявке бюджетом.<br>
-	2.	Чтобы начать принимать заявки на свою почту, необходимо пройти простую регистрацию . <br>
-	3.	Исполнитель с премиум аккаунтом получает заявки сразу же после их размещения, все остальные через 1 час.
-
-
-</div>
-"><strong id="request_info_text">Как получать заявки?</strong></span>
+    <div style="text-align: right; font-weight: bold">
+    <%=link_to "Получать заявки на почту", new_company_registration_path , :style => "color: indianred; "%>
 
     </div>
     <%= form_tag main_promo_requests_path, method: :get do %>
@@ -35,6 +26,7 @@
       <br>
     <% end %>
     <% if @promo_requests.present? %>
+      <%= paginate @promo_requests %>
     <% @promo_requests.each do |pr| %>
 
       <h4 style="color: darkorange; font-size: 16px;" class="thin">
@@ -55,11 +47,12 @@
           <span class="label label-default"><%= I18n.t("promo_request_status.#{pr.status}") %></span>
         <% end %>
       </h4>
-      <p class="lead" style="font-size: 16px;">
-        <%= h(pr.description).gsub(/\n/, '<br/>').html_safe %>
+      <p >
+        <%= link_to "Посмотреть подробности", promo_request_path(pr) %>
       </p>
       <div style="border-bottom: 1px solid #eee;"></div>
     <% end %>
+      <%= paginate @promo_requests %>
       <% else %>
     Для текущего города пока что нет рекламных заявок.
     <% end %>

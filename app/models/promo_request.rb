@@ -1,5 +1,7 @@
 class PromoRequest < ApplicationRecord
 
+  paginates_per 6
+
   validates :name, :min_order_price, :description,
             :contact_details, presence: true
 
@@ -11,6 +13,7 @@ class PromoRequest < ApplicationRecord
   enum status: [:unhandled, :free, :processing, :closed]
 
   scope :verified, -> {where.not(status: :unhandled).order(created_at: :desc)}
+  scope :non_closed, -> {where.not(status: :closed).order(created_at: :desc)}
   scope :only_free, -> { where(status: :free).order(created_at: :desc) }
 
   DELAY_FOR_NORMAL_ACCOUNT = 60

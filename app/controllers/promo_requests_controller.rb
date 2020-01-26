@@ -1,7 +1,7 @@
 class PromoRequestsController < ApplicationController
   before_action :set_promo_request, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_admin!, except: [:new, :create]
-  layout 'admins', except: [:new, :create]
+  before_action :authenticate_admin!, except: [:new, :create, :show]
+  layout 'admins', except: [:new, :create, :show]
 
   # GET /promo_requests
   # GET /promo_requests.json
@@ -29,6 +29,15 @@ class PromoRequestsController < ApplicationController
     @promo_request = PromoRequest.new(promo_request_params)
 
     respond_to do |format|
+      if Rails.env.development?
+        if @promo_request.save
+          format.html { redirect_to root_path, notice: 'Ваша заявка успешно отправлена. Она будет рассмотрена в ближайшее время. Спасибо.' }
+          format.json { render :show, status: :created, location: @promo_request }
+        else
+          format.html { render :new }
+          format.json { render json: @promo_request.errors, status: :unprocessable_entity }
+        end
+      else
         if verify_recaptcha(model: @promo_request) && @promo_request.save
           format.html { redirect_to root_path, notice: 'Ваша заявка успешно отправлена. Она будет рассмотрена в ближайшее время. Спасибо.' }
           format.json { render :show, status: :created, location: @promo_request }
@@ -36,6 +45,7 @@ class PromoRequestsController < ApplicationController
           format.html { render :new }
           format.json { render json: @promo_request.errors, status: :unprocessable_entity }
         end
+      end
       end
   end
 
@@ -71,6 +81,6 @@ class PromoRequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def promo_request_params
-      params.require(:promo_request).permit(:name, :min_order_price, :description, :contact_details, :adv_type, :contact_email, :city_id, :verified_at)
+      params.require(:promo_request).permit(:name, :min_order_price, :description, :contact_details, :adv_type, :contact_email, :city_id, :verified_at, :upto)
     end
 end

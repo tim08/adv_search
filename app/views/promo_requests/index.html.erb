@@ -20,6 +20,7 @@
       <th>Город</th>
       <th>Направление</th>
       <th>Бюджет</th>
+      <th>Актуально до</th>
       <th>Описание</th>
       <th>Контакты</th>
       <th>Статус</th>
@@ -35,6 +36,7 @@
         <td><%= promo_request.city.try(:name) %></td>
         <td><%= promo_request.adv_type_str %></td>
         <td><%= promo_request.min_order_price %></td>
+        <td><%= promo_request.upto %></td>
         <td style="min-width: 180px">
           <details>
             <summary>Описание требований</summary>

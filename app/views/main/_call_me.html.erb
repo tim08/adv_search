@@ -1,13 +1,16 @@
 <div class="container text-center">
 
-  <h2 class="thin">Поможем найти специалиста </h2>
+  <h2 class="thin">Поможем найти рекламного специалиста </h2>
 
   <p class="lead need_service">
     Помогаем быстро найти квалифицированных специалистов из рекламной отрасли, <br>
     в любом городе мира,
     экономя время и бюджет организации
   </p>
-
+  <div class="row">
+    <a class="btn btn-warning" href="/#city_label" data-turbolinks="false">Найти рекламного исполнителя</a>
+  </div>
+  <br>
   <div class="row">
   <a class="btn btn-warning" href="/promo_requests/new" data-turbolinks="false">Отправить рекламную заявку</a>
   </div>
@@ -18,7 +21,9 @@
   <br>
   <div class="row">
     <p class="lead ">
-      Заявок поступивших на данный момент на <strong><%= number_to_currency(@promo_requests_sum, locale: :ru)  %></strong>
+      Заявок поступивших на данный момент на  платформу  в размере
+      <br>
+      <strong><%= number_to_currency(@promo_requests_sum, locale: :ru)  %></strong>
     </p>
 
   </div>

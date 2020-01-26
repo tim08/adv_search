@@ -32,7 +32,7 @@ class MainController < ApplicationController
   end
 
   def main_promo_requests
-    @promo_requests = PromoRequest.search(params)
+    @promo_requests = PromoRequest.verified.non_closed.search(params).page
   end
 
 
