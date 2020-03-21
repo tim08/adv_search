@@ -43,7 +43,7 @@ class Company < ApplicationRecord
     design_services
     radio_ads].freeze
 
-  after_create{ NotificationMailer.notification_company.deliver_later}
+  # after_create{ NotificationMailer.notification_company.deliver_later}
 
   def self.search(params)
     result = {companies: none, message: '', add_link: false}
