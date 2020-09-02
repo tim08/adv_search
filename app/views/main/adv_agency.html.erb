@@ -93,13 +93,16 @@
   <div class="row">
     <h3> Реализованные проекты</h3>
 
-
+<% if @company.projects.present?%>
     <div class="galleria">
       <% @company.projects.reverse.each_with_index do |project, index| %>
         <%= image_tag project.logo.url(:large), :data=>{:description => h(project.description).gsub(/\n/, '<br/>').html_safe , :title => project.name} %>
       <% end %>
 <!--      <img src="/img/pic1.jpg" data-title="My title" data-description="My description">-->
     </div>
+      <% else %>
+    <%= image_tag 'non_projects.jpeg' %>
+    <% end %>
   </div>
 
   <div class="row">
