@@ -262,8 +262,10 @@
 
     })
     (function() {
-        Galleria.loadTheme('/galleria/twelve/galleria.twelve.js');
-        Galleria.run('.galleria');
+        if (<%=@company.reviews.verified.present? %>){
+            Galleria.loadTheme('/galleria/twelve/galleria.twelve.js');
+            Galleria.run('.galleria');
+        }
     }());
 
 </script>
