@@ -17,8 +17,8 @@
   <meta name="turbolinks-visit-control" content="reload">
   <script src="/galleria/galleria.js"></script>
 
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.5.7/themes/classic/galleria.classic.js"></script>
-  <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.5.7/themes/classic/galleria.classic.min.css">
+<!--  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/classic/galleria.classic.js"></script>-->
+  <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/twelve/galleria.twelve.min.css">
 
 <% end %>
 <div class="container" style="margin-left: 15px">
@@ -255,15 +255,18 @@
     $('label[for="review_type_review_positive"]').text('положительное');
     $('label[for="review_type_review_negative"]').text('отрицательное');
 
-    $('#contacts-block').hide();
-    $('#show_contacts').click(function () {
-        $('#contacts-block').show();
-        $('#show_contacts').hide();
 
-    })
     (function() {
+        $('#contacts-block').hide();
+        $('#show_contacts').click(function () {
+            $('#contacts-block').show();
+            $('#show_contacts').hide();
+
+        });
         if (<%=@company.reviews.verified.present? %>){
-            Galleria.loadTheme('/galleria/twelve/galleria.twelve.js');
+            // Galleria.loadTheme('galleria/themes/classic/galleria.classic.min.js');
+            Galleria.loadTheme('https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/twelve/galleria.twelve.min.js');
+            // Galleria.loadTheme('/galleria/twelve/galleria.twelve.js');
             Galleria.run('.galleria');
         }
     }());
